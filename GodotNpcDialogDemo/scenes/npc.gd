@@ -14,9 +14,12 @@ var aggro_range := 2.0
 func _ready() -> void:
 	player = get_tree().get_first_node_in_group("player")
 
-func _process(_delta:float) -> void:
-	if provoked:
-		navigation_agent_3d.target_position = player.global_position
+
+
+#func _process(_delta:float) -> void:
+	#if provoked:
+		#navigation_agent_3d.target_position = player.global_position
+
 
 func _physics_process(delta: float) -> void:
 	var next_position = navigation_agent_3d.target_position

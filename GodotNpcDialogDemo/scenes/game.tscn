@@ -1,8 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://dv34grx13fm0i"]
+[gd_scene load_steps=12 format=3 uid="uid://dv34grx13fm0i"]
 
 [ext_resource type="Material" uid="uid://b5r8ed3gn67r3" path="res://materials/gray_material.tres" id="1_clowl"]
 [ext_resource type="PackedScene" uid="uid://4ggwo7028pus" path="res://scenes/player.tscn" id="2_78tvg"]
 [ext_resource type="PackedScene" uid="uid://bcysrvsh73xhp" path="res://scenes/npc.tscn" id="3_8scn6"]
+[ext_resource type="PackedScene" uid="uid://ddrlt3woyjy4f" path="res://scenes/actionable.tscn" id="4_in3em"]
+[ext_resource type="Resource" uid="uid://2dn4fycpda8h" path="res://dialog/main.dialogue" id="5_62h3g"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jpkjb"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -20,6 +22,11 @@ glow_enabled = true
 [sub_resource type="NavigationMesh" id="NavigationMesh_egof6"]
 vertices = PackedVector3Array(-5.25, 0.5, 0.5, -5.25, 0.5, -0.25, -8.25, 0.5, -0.25, -8.25, 0.5, 0.5, -8.5, 0.5, 3.5, -8.25, 0.5, 0.5, -8.25, 0.5, -0.25, -8.5, 0.5, -3.25, -15.25, 0.5, -3.25, -15.25, 0.5, 3.5, -5.25, 0.5, -0.25, -5.25, 0.5, 0.5, -3.25, 0.5, 0.75, -3.25, 0.5, -0.5, 3.5, 0.5, -3.25, -3.25, 0.5, -3.25, -3.25, 0.5, -0.5, 0.5, 0.5, 3.75, 3.5, 0.5, 3.5, -0.25, 0.5, 3.75, -0.25, 0.5, 6.75, 0.5, 0.5, 6.75, 0.5, 0.5, 3.75, -3.25, 0.5, -0.5, -3.25, 0.5, 0.75, 0.5, 0.5, 3.75, -3.25, 0.5, 3.5, -0.25, 0.5, 3.75, 0.5, 0.5, 3.75, -3.25, 0.5, 0.75, -6.25, 0.5, 13, -6.25, 0.5, 12.25, -8.5, 0.5, 12, -8.5, 0.5, 13.25, -8.5, 0.5, 13.25, -8.5, 0.5, 12, -12.25, 0.5, 8.5, -11.5, 0.5, 8.5, -11.5, 0.5, 4.75, -12.25, 0.5, 4.75, -12.25, 0.5, 8.5, -15.25, 0.5, 15.5, -8.5, 0.5, 15.5, -8.5, 0.5, 13.25, -12.25, 0.5, 8.5, -15.25, 0.5, 8.75, -8.5, 0.5, 8.75, -11.5, 0.5, 8.5, -12.25, 0.5, 8.5, -8.5, 0.5, 12, 0.5, 0.5, 6.75, -0.25, 0.5, 6.75, -0.25, 0.5, 8.25, 0.75, 0.5, 8.75, 0.75, 0.5, 8.75, -4, 0.5, 13.25, -4, 0.5, 23.25, 10.75, 0.5, 23.25, 10.75, 0.5, 8.75, 0.75, 0.5, 8.75, -0.25, 0.5, 8.25, -0.75, 0.5, 8.75, -4, 0.5, 13.25, -4.25, 0.5, 12.25, -6.25, 0.5, 12.25, -6.25, 0.5, 13, -4, 0.5, 13.25, -4, 0.5, 8.75, -4.25, 0.5, 12.25, -4, 0.5, 13.25, -0.75, 0.5, 8.75)
 polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1), PackedInt32Array(5, 4, 6), PackedInt32Array(6, 4, 7), PackedInt32Array(7, 4, 9), PackedInt32Array(7, 9, 8), PackedInt32Array(10, 13, 11), PackedInt32Array(11, 13, 12), PackedInt32Array(16, 15, 17), PackedInt32Array(17, 15, 18), PackedInt32Array(18, 15, 14), PackedInt32Array(22, 21, 19), PackedInt32Array(19, 21, 20), PackedInt32Array(25, 24, 23), PackedInt32Array(27, 26, 28), PackedInt32Array(28, 26, 29), PackedInt32Array(30, 33, 31), PackedInt32Array(31, 33, 32), PackedInt32Array(36, 35, 34), PackedInt32Array(40, 39, 37), PackedInt32Array(37, 39, 38), PackedInt32Array(42, 41, 43), PackedInt32Array(43, 41, 44), PackedInt32Array(44, 41, 45), PackedInt32Array(47, 46, 48), PackedInt32Array(48, 46, 49), PackedInt32Array(51, 50, 52), PackedInt32Array(52, 50, 53), PackedInt32Array(55, 54, 56), PackedInt32Array(56, 54, 58), PackedInt32Array(56, 58, 57), PackedInt32Array(60, 59, 61), PackedInt32Array(61, 59, 62), PackedInt32Array(64, 63, 65), PackedInt32Array(65, 63, 66), PackedInt32Array(68, 67, 69), PackedInt32Array(69, 67, 70)]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_lpo8b"]
+radius = 1.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_5rlpu"]
 
 [node name="Game" type="Node3D"]
 
@@ -87,13 +94,33 @@ flip_faces = true
 size = Vector3(8, 4, 8)
 material = ExtResource("1_clowl")
 
-[node name="Node3D" type="Node3D" parent="."]
+[node name="NPCs" type="Node3D" parent="."]
 
-[node name="NPC" parent="Node3D" instance=ExtResource("3_8scn6")]
+[node name="NPC" parent="NPCs" instance=ExtResource("3_8scn6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.6, 1.5, 10.8)
 
-[node name="NPC2" parent="Node3D" instance=ExtResource("3_8scn6")]
+[node name="Actionable" parent="NPCs/NPC" instance=ExtResource("4_in3em")]
+dialogue_resource = ExtResource("5_62h3g")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NPCs/NPC/Actionable"]
+shape = SubResource("SphereShape3D_lpo8b")
+
+[node name="NPC2" parent="NPCs" instance=ExtResource("3_8scn6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4, 1.5, 16.8)
 
-[node name="NPC3" parent="Node3D" instance=ExtResource("3_8scn6")]
+[node name="NPC3" parent="NPCs" instance=ExtResource("3_8scn6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.4, 1.5, 8.8)
+
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8.9)
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("BoxMesh_5rlpu")
+
+[node name="Actionable" parent="Node3D/CSGMesh3D" instance=ExtResource("4_in3em")]
+dialogue_resource = ExtResource("5_62h3g")
+dialogue_start = "pick_apple"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/CSGMesh3D/Actionable"]
+shape = SubResource("SphereShape3D_lpo8b")
