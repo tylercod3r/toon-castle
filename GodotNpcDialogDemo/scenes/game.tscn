@@ -39,6 +39,10 @@ transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75
 [node name="Player" parent="." instance=ExtResource("2_78tvg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.2, 1, -3.7)
 
+[node name="Camera3D" parent="Player" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
+visible = true
+
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.23246, 0.500467, -3.5993)
 navigation_mesh = SubResource("NavigationMesh_egof6")
@@ -111,16 +115,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4, 1.5, 16.8)
 [node name="NPC3" parent="NPCs" instance=ExtResource("3_8scn6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.4, 1.5, 8.8)
 
-[node name="Node3D" type="Node3D" parent="."]
+[node name="ActionBox" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8.9)
 
-[node name="CSGMesh3D" type="CSGMesh3D" parent="Node3D"]
+[node name="CSGMesh3D" type="CSGMesh3D" parent="ActionBox"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 mesh = SubResource("BoxMesh_5rlpu")
 
-[node name="Actionable" parent="Node3D/CSGMesh3D" instance=ExtResource("4_in3em")]
+[node name="Actionable" parent="ActionBox/CSGMesh3D" instance=ExtResource("4_in3em")]
 dialogue_resource = ExtResource("5_62h3g")
 dialogue_start = "pick_apple"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/CSGMesh3D/Actionable"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ActionBox/CSGMesh3D/Actionable"]
 shape = SubResource("SphereShape3D_lpo8b")
+
+[editable path="Player"]
