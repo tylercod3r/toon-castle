@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://dv34grx13fm0i"]
+[gd_scene load_steps=6 format=3 uid="uid://dv34grx13fm0i"]
 
 [ext_resource type="Material" uid="uid://b5r8ed3gn67r3" path="res://materials/gray_material.tres" id="1_clowl"]
+[ext_resource type="PackedScene" uid="uid://4ggwo7028pus" path="res://scenes/player.tscn" id="2_78tvg"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jpkjb"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -25,6 +26,7 @@ transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75
 
 [node name="Level" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+use_collision = true
 flip_faces = true
 size = Vector3(8, 4, 8)
 material = ExtResource("1_clowl")
@@ -32,27 +34,27 @@ material = ExtResource("1_clowl")
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="Level"]
 
 [node name="Corridor" type="CSGBox3D" parent="Level/CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 6)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 6)
 flip_faces = true
-size = Vector3(2, 2, 4)
+size = Vector3(2, 3, 4)
 material = ExtResource("1_clowl")
 
 [node name="Corridor2" type="CSGBox3D" parent="Level/CSGCombiner3D"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6, -1, 12.7)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6, -0.5, 12.7)
 flip_faces = true
-size = Vector3(2, 2, 4)
+size = Vector3(2, 3, 4)
 material = ExtResource("1_clowl")
 
 [node name="Corridor3" type="CSGBox3D" parent="Level/CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.9, -1, 6)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.9, -0.5, 6)
 flip_faces = true
-size = Vector3(2, 2, 4)
+size = Vector3(2, 3, 4)
 material = ExtResource("1_clowl")
 
 [node name="Corridor4" type="CSGBox3D" parent="Level/CSGCombiner3D"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6, -1, 0.1)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6, -0.5, 0.1)
 flip_faces = true
-size = Vector3(2, 2, 4.1)
+size = Vector3(2, 3, 4.1)
 material = ExtResource("1_clowl")
 
 [node name="Room2" type="CSGBox3D" parent="Level/CSGCombiner3D"]
@@ -72,3 +74,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, 0)
 flip_faces = true
 size = Vector3(8, 4, 8)
 material = ExtResource("1_clowl")
+
+[node name="Player" parent="." instance=ExtResource("2_78tvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
