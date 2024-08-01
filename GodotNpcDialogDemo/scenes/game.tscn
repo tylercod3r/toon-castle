@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dv34grx13fm0i"]
+[gd_scene load_steps=8 format=3 uid="uid://dv34grx13fm0i"]
 
 [ext_resource type="Material" uid="uid://b5r8ed3gn67r3" path="res://materials/gray_material.tres" id="1_clowl"]
 [ext_resource type="PackedScene" uid="uid://4ggwo7028pus" path="res://scenes/player.tscn" id="2_78tvg"]
+[ext_resource type="PackedScene" uid="uid://bcysrvsh73xhp" path="res://scenes/npc.tscn" id="3_8scn6"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jpkjb"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -16,6 +17,10 @@ sky = SubResource("Sky_10lns")
 tonemap_mode = 2
 glow_enabled = true
 
+[sub_resource type="NavigationMesh" id="NavigationMesh_egof6"]
+vertices = PackedVector3Array(-5.25, 0.5, 0.5, -5.25, 0.5, -0.25, -8.25, 0.5, -0.25, -8.25, 0.5, 0.5, -8.5, 0.5, 3.5, -8.25, 0.5, 0.5, -8.25, 0.5, -0.25, -8.5, 0.5, -3.25, -15.25, 0.5, -3.25, -15.25, 0.5, 3.5, -5.25, 0.5, -0.25, -5.25, 0.5, 0.5, -3.25, 0.5, 0.75, -3.25, 0.5, -0.5, 3.5, 0.5, -3.25, -3.25, 0.5, -3.25, -3.25, 0.5, -0.5, 0.5, 0.5, 3.75, 3.5, 0.5, 3.5, -0.25, 0.5, 3.75, -0.25, 0.5, 6.75, 0.5, 0.5, 6.75, 0.5, 0.5, 3.75, -3.25, 0.5, -0.5, -3.25, 0.5, 0.75, 0.5, 0.5, 3.75, -3.25, 0.5, 3.5, -0.25, 0.5, 3.75, 0.5, 0.5, 3.75, -3.25, 0.5, 0.75, -6.25, 0.5, 13, -6.25, 0.5, 12.25, -8.5, 0.5, 12, -8.5, 0.5, 13.25, -8.5, 0.5, 13.25, -8.5, 0.5, 12, -12.25, 0.5, 8.5, -11.5, 0.5, 8.5, -11.5, 0.5, 4.75, -12.25, 0.5, 4.75, -12.25, 0.5, 8.5, -15.25, 0.5, 15.5, -8.5, 0.5, 15.5, -8.5, 0.5, 13.25, -12.25, 0.5, 8.5, -15.25, 0.5, 8.75, -8.5, 0.5, 8.75, -11.5, 0.5, 8.5, -12.25, 0.5, 8.5, -8.5, 0.5, 12, 0.5, 0.5, 6.75, -0.25, 0.5, 6.75, -0.25, 0.5, 8.25, 0.75, 0.5, 8.75, 0.75, 0.5, 8.75, -4, 0.5, 13.25, -4, 0.5, 23.25, 10.75, 0.5, 23.25, 10.75, 0.5, 8.75, 0.75, 0.5, 8.75, -0.25, 0.5, 8.25, -0.75, 0.5, 8.75, -4, 0.5, 13.25, -4.25, 0.5, 12.25, -6.25, 0.5, 12.25, -6.25, 0.5, 13, -4, 0.5, 13.25, -4, 0.5, 8.75, -4.25, 0.5, 12.25, -4, 0.5, 13.25, -0.75, 0.5, 8.75)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1), PackedInt32Array(5, 4, 6), PackedInt32Array(6, 4, 7), PackedInt32Array(7, 4, 9), PackedInt32Array(7, 9, 8), PackedInt32Array(10, 13, 11), PackedInt32Array(11, 13, 12), PackedInt32Array(16, 15, 17), PackedInt32Array(17, 15, 18), PackedInt32Array(18, 15, 14), PackedInt32Array(22, 21, 19), PackedInt32Array(19, 21, 20), PackedInt32Array(25, 24, 23), PackedInt32Array(27, 26, 28), PackedInt32Array(28, 26, 29), PackedInt32Array(30, 33, 31), PackedInt32Array(31, 33, 32), PackedInt32Array(36, 35, 34), PackedInt32Array(40, 39, 37), PackedInt32Array(37, 39, 38), PackedInt32Array(42, 41, 43), PackedInt32Array(43, 41, 44), PackedInt32Array(44, 41, 45), PackedInt32Array(47, 46, 48), PackedInt32Array(48, 46, 49), PackedInt32Array(51, 50, 52), PackedInt32Array(52, 50, 53), PackedInt32Array(55, 54, 56), PackedInt32Array(56, 54, 58), PackedInt32Array(56, 58, 57), PackedInt32Array(60, 59, 61), PackedInt32Array(61, 59, 62), PackedInt32Array(64, 63, 65), PackedInt32Array(65, 63, 66), PackedInt32Array(68, 67, 69), PackedInt32Array(69, 67, 70)]
+
 [node name="Game" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -24,56 +29,71 @@ environment = SubResource("Environment_fcvw4")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
 
-[node name="Level" type="CSGBox3D" parent="."]
+[node name="Player" parent="." instance=ExtResource("2_78tvg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.2, 1, -3.7)
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.23246, 0.500467, -3.5993)
+navigation_mesh = SubResource("NavigationMesh_egof6")
+
+[node name="Level" type="CSGBox3D" parent="NavigationRegion3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 use_collision = true
 flip_faces = true
 size = Vector3(8, 4, 8)
 material = ExtResource("1_clowl")
 
-[node name="CSGCombiner3D" type="CSGCombiner3D" parent="Level"]
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="NavigationRegion3D/Level"]
 
-[node name="Corridor" type="CSGBox3D" parent="Level/CSGCombiner3D"]
+[node name="Corridor" type="CSGBox3D" parent="NavigationRegion3D/Level/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 6)
 flip_faces = true
 size = Vector3(2, 3, 4)
 material = ExtResource("1_clowl")
 
-[node name="Corridor2" type="CSGBox3D" parent="Level/CSGCombiner3D"]
+[node name="Corridor2" type="CSGBox3D" parent="NavigationRegion3D/Level/CSGCombiner3D"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6, -0.5, 12.7)
 flip_faces = true
 size = Vector3(2, 3, 4)
 material = ExtResource("1_clowl")
 
-[node name="Corridor3" type="CSGBox3D" parent="Level/CSGCombiner3D"]
+[node name="Corridor3" type="CSGBox3D" parent="NavigationRegion3D/Level/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.9, -0.5, 6)
 flip_faces = true
 size = Vector3(2, 3, 4)
 material = ExtResource("1_clowl")
 
-[node name="Corridor4" type="CSGBox3D" parent="Level/CSGCombiner3D"]
+[node name="Corridor4" type="CSGBox3D" parent="NavigationRegion3D/Level/CSGCombiner3D"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6, -0.5, 0.1)
 flip_faces = true
 size = Vector3(2, 3, 4.1)
 material = ExtResource("1_clowl")
 
-[node name="Room2" type="CSGBox3D" parent="Level/CSGCombiner3D"]
+[node name="Room2" type="CSGBox3D" parent="NavigationRegion3D/Level/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3, 0, 16)
 flip_faces = true
 size = Vector3(16, 4, 16)
 material = ExtResource("1_clowl")
 
-[node name="Room3" type="CSGBox3D" parent="Level/CSGCombiner3D"]
+[node name="Room3" type="CSGBox3D" parent="NavigationRegion3D/Level/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, 12)
 flip_faces = true
 size = Vector3(8, 4, 8)
 material = ExtResource("1_clowl")
 
-[node name="Room4" type="CSGBox3D" parent="Level/CSGCombiner3D"]
+[node name="Room4" type="CSGBox3D" parent="NavigationRegion3D/Level/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, 0)
 flip_faces = true
 size = Vector3(8, 4, 8)
 material = ExtResource("1_clowl")
 
-[node name="Player" parent="." instance=ExtResource("2_78tvg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="NPC" parent="Node3D" instance=ExtResource("3_8scn6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.6, 1.5, 10.8)
+
+[node name="NPC2" parent="Node3D" instance=ExtResource("3_8scn6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4, 1.5, 16.8)
+
+[node name="NPC3" parent="Node3D" instance=ExtResource("3_8scn6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.4, 1.5, 8.8)

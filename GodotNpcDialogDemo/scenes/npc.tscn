@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://bcysrvsh73xhp"]
+
+[ext_resource type="Script" path="res://scenes/npc.gd" id="1_fnn53"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_xl2ar"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_cqg44"]
+
+[node name="NPC" type="CharacterBody3D"]
+script = ExtResource("1_fnn53")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_xl2ar")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_cqg44")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+debug_enabled = true
