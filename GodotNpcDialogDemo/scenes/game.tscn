@@ -1,10 +1,12 @@
-[gd_scene load_steps=12 format=3 uid="uid://dv34grx13fm0i"]
+[gd_scene load_steps=14 format=3 uid="uid://dv34grx13fm0i"]
 
 [ext_resource type="Material" uid="uid://b5r8ed3gn67r3" path="res://materials/gray_material.tres" id="1_clowl"]
 [ext_resource type="PackedScene" uid="uid://4ggwo7028pus" path="res://scenes/player.tscn" id="2_78tvg"]
-[ext_resource type="PackedScene" uid="uid://bcysrvsh73xhp" path="res://scenes/npc.tscn" id="3_8scn6"]
 [ext_resource type="PackedScene" uid="uid://ddrlt3woyjy4f" path="res://scenes/actionable.tscn" id="4_in3em"]
+[ext_resource type="PackedScene" uid="uid://bw0bdo050f31l" path="res://scenes/npc_mousey.tscn" id="4_ten7y"]
 [ext_resource type="Resource" uid="uid://2dn4fycpda8h" path="res://dialog/main.dialogue" id="5_62h3g"]
+[ext_resource type="PackedScene" uid="uid://ck4fumxdq2amg" path="res://scenes/npc_doozy.tscn" id="5_silta"]
+[ext_resource type="PackedScene" uid="uid://cseivp01edlt7" path="res://scenes/npc_guard.tscn" id="6_gv8xp"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jpkjb"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -20,13 +22,14 @@ tonemap_mode = 2
 glow_enabled = true
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_egof6"]
-vertices = PackedVector3Array(-5.25, 0.5, 0.5, -5.25, 0.5, -0.25, -8.25, 0.5, -0.25, -8.25, 0.5, 0.5, -8.5, 0.5, 3.5, -8.25, 0.5, 0.5, -8.25, 0.5, -0.25, -8.5, 0.5, -3.25, -15.25, 0.5, -3.25, -15.25, 0.5, 3.5, -5.25, 0.5, -0.25, -5.25, 0.5, 0.5, -3.25, 0.5, 0.75, -3.25, 0.5, -0.5, 3.5, 0.5, -3.25, -3.25, 0.5, -3.25, -3.25, 0.5, -0.5, 0.5, 0.5, 3.75, 3.5, 0.5, 3.5, -0.25, 0.5, 3.75, -0.25, 0.5, 6.75, 0.5, 0.5, 6.75, 0.5, 0.5, 3.75, -3.25, 0.5, -0.5, -3.25, 0.5, 0.75, 0.5, 0.5, 3.75, -3.25, 0.5, 3.5, -0.25, 0.5, 3.75, 0.5, 0.5, 3.75, -3.25, 0.5, 0.75, -6.25, 0.5, 13, -6.25, 0.5, 12.25, -8.5, 0.5, 12, -8.5, 0.5, 13.25, -8.5, 0.5, 13.25, -8.5, 0.5, 12, -12.25, 0.5, 8.5, -11.5, 0.5, 8.5, -11.5, 0.5, 4.75, -12.25, 0.5, 4.75, -12.25, 0.5, 8.5, -15.25, 0.5, 15.5, -8.5, 0.5, 15.5, -8.5, 0.5, 13.25, -12.25, 0.5, 8.5, -15.25, 0.5, 8.75, -8.5, 0.5, 8.75, -11.5, 0.5, 8.5, -12.25, 0.5, 8.5, -8.5, 0.5, 12, 0.5, 0.5, 6.75, -0.25, 0.5, 6.75, -0.25, 0.5, 8.25, 0.75, 0.5, 8.75, 0.75, 0.5, 8.75, -4, 0.5, 13.25, -4, 0.5, 23.25, 10.75, 0.5, 23.25, 10.75, 0.5, 8.75, 0.75, 0.5, 8.75, -0.25, 0.5, 8.25, -0.75, 0.5, 8.75, -4, 0.5, 13.25, -4.25, 0.5, 12.25, -6.25, 0.5, 12.25, -6.25, 0.5, 13, -4, 0.5, 13.25, -4, 0.5, 8.75, -4.25, 0.5, 12.25, -4, 0.5, 13.25, -0.75, 0.5, 8.75)
-polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1), PackedInt32Array(5, 4, 6), PackedInt32Array(6, 4, 7), PackedInt32Array(7, 4, 9), PackedInt32Array(7, 9, 8), PackedInt32Array(10, 13, 11), PackedInt32Array(11, 13, 12), PackedInt32Array(16, 15, 17), PackedInt32Array(17, 15, 18), PackedInt32Array(18, 15, 14), PackedInt32Array(22, 21, 19), PackedInt32Array(19, 21, 20), PackedInt32Array(25, 24, 23), PackedInt32Array(27, 26, 28), PackedInt32Array(28, 26, 29), PackedInt32Array(30, 33, 31), PackedInt32Array(31, 33, 32), PackedInt32Array(36, 35, 34), PackedInt32Array(40, 39, 37), PackedInt32Array(37, 39, 38), PackedInt32Array(42, 41, 43), PackedInt32Array(43, 41, 44), PackedInt32Array(44, 41, 45), PackedInt32Array(47, 46, 48), PackedInt32Array(48, 46, 49), PackedInt32Array(51, 50, 52), PackedInt32Array(52, 50, 53), PackedInt32Array(55, 54, 56), PackedInt32Array(56, 54, 58), PackedInt32Array(56, 58, 57), PackedInt32Array(60, 59, 61), PackedInt32Array(61, 59, 62), PackedInt32Array(64, 63, 65), PackedInt32Array(65, 63, 66), PackedInt32Array(68, 67, 69), PackedInt32Array(69, 67, 70)]
+vertices = PackedVector3Array(-12.25, 0.5, 5.5, -11.5, 0.5, 5.5, -11.25, 0.5, 3.5, -12.5, 0.5, 3.5, -15.25, 0.5, -3.25, -15.25, 0.5, 3.5, -12.5, 0.5, 3.5, -8.25, 0.5, -0.25, -8.5, 0.5, -3.25, -8.25, 0.5, 0.5, -5.25, 0.5, 0.5, -5.25, 0.5, -0.25, -8.25, 0.5, -0.25, -12.5, 0.5, 3.5, -11.25, 0.5, 3.5, -8.25, 0.5, -0.25, -8.5, 0.5, 3.5, -8.25, 0.5, 0.5, -8.25, 0.5, -0.25, -11.25, 0.5, 3.5, -5.25, 0.5, -0.25, -5.25, 0.5, 0.5, -3.25, 0.5, 0.75, -3.25, 0.5, -0.5, 3.5, 0.5, -3.25, -3.25, 0.5, -3.25, -3.25, 0.5, -0.5, 0.5, 0.5, 3.75, 3.5, 0.5, 3.5, -0.25, 0.5, 3.75, -0.25, 0.5, 6.75, 0.5, 0.5, 6.75, 0.5, 0.5, 3.75, -3.25, 0.5, -0.5, -3.25, 0.5, 0.75, 0.5, 0.5, 3.75, -3.25, 0.5, 3.5, -0.25, 0.5, 3.75, 0.5, 0.5, 3.75, -3.25, 0.5, 0.75, -6.25, 0.5, 13, -6.25, 0.5, 12.25, -8.5, 0.5, 12, -8.5, 0.5, 13.25, -15.25, 0.5, 15.5, -8.5, 0.5, 15.5, -8.5, 0.5, 13.25, -12.25, 0.5, 8.5, -15.25, 0.5, 8.75, -11.5, 0.5, 8.5, -11.5, 0.5, 5.5, -12.25, 0.5, 5.5, -12.25, 0.5, 8.5, -8.5, 0.5, 13.25, -8.5, 0.5, 12, -12.25, 0.5, 8.5, -8.5, 0.5, 8.75, -11.5, 0.5, 8.5, -12.25, 0.5, 8.5, -8.5, 0.5, 12, 0.5, 0.5, 6.75, -0.25, 0.5, 6.75, -0.25, 0.5, 8.25, 0.75, 0.5, 8.75, 0.75, 0.5, 8.75, -4, 0.5, 13.25, -4, 0.5, 23.25, 10.75, 0.5, 23.25, 10.75, 0.5, 8.75, 0.75, 0.5, 8.75, -0.25, 0.5, 8.25, -0.75, 0.5, 8.75, -4, 0.5, 13.25, -4.25, 0.5, 12.25, -6.25, 0.5, 12.25, -6.25, 0.5, 13, -4, 0.5, 13.25, -4, 0.5, 8.75, -4.25, 0.5, 12.25, -4, 0.5, 13.25, -0.75, 0.5, 8.75)
+polygons = [PackedInt32Array(0, 3, 1), PackedInt32Array(1, 3, 2), PackedInt32Array(6, 5, 7), PackedInt32Array(7, 5, 8), PackedInt32Array(8, 5, 4), PackedInt32Array(12, 11, 9), PackedInt32Array(9, 11, 10), PackedInt32Array(15, 14, 13), PackedInt32Array(17, 16, 18), PackedInt32Array(18, 16, 19), PackedInt32Array(20, 23, 21), PackedInt32Array(21, 23, 22), PackedInt32Array(26, 25, 27), PackedInt32Array(27, 25, 28), PackedInt32Array(28, 25, 24), PackedInt32Array(32, 31, 29), PackedInt32Array(29, 31, 30), PackedInt32Array(35, 34, 33), PackedInt32Array(37, 36, 38), PackedInt32Array(38, 36, 39), PackedInt32Array(40, 43, 41), PackedInt32Array(41, 43, 42), PackedInt32Array(45, 44, 46), PackedInt32Array(46, 44, 47), PackedInt32Array(47, 44, 48), PackedInt32Array(52, 51, 49), PackedInt32Array(49, 51, 50), PackedInt32Array(55, 54, 53), PackedInt32Array(57, 56, 58), PackedInt32Array(58, 56, 59), PackedInt32Array(61, 60, 62), PackedInt32Array(62, 60, 63), PackedInt32Array(65, 64, 66), PackedInt32Array(66, 64, 68), PackedInt32Array(66, 68, 67), PackedInt32Array(70, 69, 71), PackedInt32Array(71, 69, 72), PackedInt32Array(74, 73, 75), PackedInt32Array(75, 73, 76), PackedInt32Array(78, 77, 79), PackedInt32Array(79, 77, 80)]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_lpo8b"]
 radius = 1.0
 
 [sub_resource type="BoxMesh" id="BoxMesh_5rlpu"]
+size = Vector3(1, 3, 1)
 
 [node name="Game" type="Node3D"]
 
@@ -99,23 +102,32 @@ material = ExtResource("1_clowl")
 
 [node name="NPCs" type="Node3D" parent="."]
 
-[node name="NPC" parent="NPCs" node_paths=PackedStringArray("point_of_interest") instance=ExtResource("3_8scn6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.6, 0.5, 10.8)
-point_of_interest = NodePath("../../ActionBox")
+[node name="NPC_Guard" parent="NPCs" instance=ExtResource("6_gv8xp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0.5, 8)
 
-[node name="Actionable" parent="NPCs/NPC" instance=ExtResource("4_in3em")]
+[node name="Actionable" parent="NPCs/NPC_Guard" instance=ExtResource("4_in3em")]
 dialogue_resource = ExtResource("5_62h3g")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="NPCs/NPC/Actionable"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NPCs/NPC_Guard/Actionable"]
 shape = SubResource("SphereShape3D_lpo8b")
 
-[node name="NPC2" parent="NPCs" node_paths=PackedStringArray("point_of_interest") instance=ExtResource("3_8scn6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4, 0.5, 16.8)
-point_of_interest = NodePath("../../ActionBox")
+[node name="NPC_Mousey" parent="NPCs" instance=ExtResource("4_ten7y")]
+transform = Transform3D(-0.642788, 0, 0.766044, 0, 1, 0, -0.766044, 0, -0.642788, -2.2, 0.5, -6.7)
 
-[node name="NPC3" parent="NPCs" node_paths=PackedStringArray("point_of_interest") instance=ExtResource("3_8scn6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.4, 0.5, 8.8)
-point_of_interest = NodePath("../../ActionBox")
+[node name="Actionable" parent="NPCs/NPC_Mousey" instance=ExtResource("4_in3em")]
+dialogue_resource = ExtResource("5_62h3g")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NPCs/NPC_Mousey/Actionable"]
+shape = SubResource("SphereShape3D_lpo8b")
+
+[node name="NPC_Doozy" parent="NPCs" instance=ExtResource("5_silta")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 16)
+
+[node name="Actionable" parent="NPCs/NPC_Doozy" instance=ExtResource("4_in3em")]
+dialogue_resource = ExtResource("5_62h3g")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NPCs/NPC_Doozy/Actionable"]
+shape = SubResource("SphereShape3D_lpo8b")
 
 [node name="ActionBox" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8.9)
