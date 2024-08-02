@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_12"
+type="Resource"
+uid="uid://b31qyiubykhg"
+path="res://.godot/imported/mousey.dialogue-804d885f217bf8b56b3f08432b3f48f6.tres"
+
+[deps]
+
+source_file="res://dialog/mousey.dialogue"
+dest_files=["res://.godot/imported/mousey.dialogue-804d885f217bf8b56b3f08432b3f48f6.tres"]
+
+[params]
+
+defaults=true

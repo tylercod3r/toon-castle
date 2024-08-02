@@ -24,6 +24,10 @@ State="*res://scripts/state.gd"
 
 enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg")
 
+[filesystem]
+
+import/fbx/enabled=false
+
 [input]
 
 move_forward={
@@ -49,7 +53,7 @@ move_right={
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://dialog/main.dialogue")
+locale/translations_pot_files=PackedStringArray("res://dialog/mousey.dialogue", "res://dialog/guard.dialogue", "res://dialog/doozy.dialogue")
 
 [layer_names]
 

@@ -1,0 +1,26 @@
+~ start
+
+Mousey: Hi world!
+if State.apple_status == "has":
+	You: I have an apple.
+	- Give to Nathan
+		set State.apple_status = "gave"
+		You: Here you go.
+		Mousey: Thanks.
+	- Keep it
+		You: But it's mine.
+		Mousey: Fair enough.
+elif State.apple_status == "gave":
+	Mousey: Thanks for the apple.
+else:
+	Mousey: I sure wish I had an apple. I guess there's an apple tree around here somewhere. 
+
+=> END
+
+~ pick_apple
+
+You: It's an apple tree.
+You: I'll just take one.
+set State.apple_status = "has"
+
+=> END

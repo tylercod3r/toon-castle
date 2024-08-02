@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_12"
+type="Resource"
+uid="uid://47sk12gbq03t"
+path="res://.godot/imported/doozy.dialogue-2e88f24dced5f57888b8b65aa77fc4cb.tres"
+
+[deps]
+
+source_file="res://dialog/doozy.dialogue"
+dest_files=["res://.godot/imported/doozy.dialogue-2e88f24dced5f57888b8b65aa77fc4cb.tres"]
+
+[params]
+
+defaults=true
