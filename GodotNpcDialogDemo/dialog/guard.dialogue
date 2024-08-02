@@ -1,19 +1,19 @@
 ~ start
 
-Guard: Hi world!
-if State.apple_status == "has":
-	You: I have an apple.
-	- Give to Nathan
-		set State.apple_status = "gave"
-		You: Here you go.
-		Guard: Thanks.
-	- Keep it
-		You: But it's mine.
-		Guard: Fair enough.
-elif State.apple_status == "gave":
-	Guard: Thanks for the apple.
-else:
-	Guard: I sure wish I had an apple. I guess there's an apple tree around here somewhere. 
+Guard: This door is off limits!
+#if State.apple_status == "has":
+#	You: I have an apple.
+#	- Give to Nathan
+#		set State.apple_status = "gave"
+#		You: Here you go.
+#		Guard: Thanks.
+#	- Keep it
+#		You: But it's mine.
+#		Guard: Fair enough.
+#elif State.apple_status == "gave":
+#	Guard: Thanks for the apple.
+#else:
+#	Guard: I sure wish I had an apple. I guess there's an apple tree around here somewhere. 
 
 => END
 

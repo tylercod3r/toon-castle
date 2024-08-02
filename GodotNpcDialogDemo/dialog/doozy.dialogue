@@ -1,17 +1,17 @@
 ~ start
 
-Doozy: Hi world!
+#Doozy: Hi world!
 if State.apple_status == "has":
 	You: I have an apple.
-	- Give to Nathan
+	- Give to Doozy
 		set State.apple_status = "gave"
 		You: Here you go.
-		Doozy: Thanks.
+		Doozy: Thanks!
 	- Keep it
 		You: But it's mine.
 		Doozy: Fair enough.
 elif State.apple_status == "gave":
-	Doozy: Thanks for the apple.
+	Doozy: Thanks for the apple!
 else:
 	Doozy: I sure wish I had an apple. I guess there's an apple tree around here somewhere. 
 
