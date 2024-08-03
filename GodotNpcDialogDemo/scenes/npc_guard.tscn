@@ -38,7 +38,14 @@ transitions = ["Start", "Idle0", SubResource("AnimationNodeStateMachineTransitio
 
 [node name="NPC_Guard" instance=ExtResource("1_mjmy5")]
 
-[node name="Mesh" parent="." index="3" instance=ExtResource("2_wu74o")]
+[node name="CollisionShape3D" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="NavigationAgent3D" parent="." index="1"]
+target_desired_distance = 2.0
+height = 2.0
+
+[node name="Mesh" parent="." index="2" instance=ExtResource("2_wu74o")]
 transform = Transform3D(-0.01, 0, -8.74228e-10, 0, 0.01, 0, 8.74228e-10, 0, -0.01, 0, 1, 0)
 
 [node name="Skeleton3D" parent="Mesh/Node" index="0"]
@@ -78,7 +85,7 @@ bones/39/rotation = Quaternion(-0.193003, 0.0404342, 0.0261472, 0.980016)
 bones/40/rotation = Quaternion(0.51478, -0.0321399, -0.108091, 0.849874)
 bones/41/rotation = Quaternion(0.378707, -0.0894825, -0.0269162, 0.920787)
 
-[node name="AnimationTree" type="AnimationTree" parent="." index="4"]
+[node name="AnimationTree" type="AnimationTree" parent="." index="3"]
 root_node = NodePath("../Mesh")
 tree_root = SubResource("AnimationNodeStateMachine_iap82")
 anim_player = NodePath("../Mesh/AnimationPlayer")

@@ -1,11 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://bcysrvsh73xhp"]
+[gd_scene load_steps=4 format=3 uid="uid://bcysrvsh73xhp"]
 
 [ext_resource type="Script" path="res://scripts/npc.gd" id="1_fnn53"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_xl2ar"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_cqg44"]
 
 [node name="NPC" type="CharacterBody3D"]
 script = ExtResource("1_fnn53")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+visible = false
+mesh = SubResource("CapsuleMesh_xl2ar")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
@@ -13,5 +19,6 @@ shape = SubResource("CapsuleShape3D_cqg44")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 path_height_offset = 0.2
+debug_enabled = true
 
 [connection signal="target_reached" from="NavigationAgent3D" to="." method="_on_navigation_agent_3d_target_reached"]
