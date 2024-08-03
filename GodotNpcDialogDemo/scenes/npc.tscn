@@ -14,4 +14,12 @@ shape = SubResource("CapsuleShape3D_cqg44")
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 path_height_offset = 0.2
 
+[node name="WanderResumeDelayTimer" type="Timer" parent="."]
+wait_time = 5.0
+
+[node name="PointOfInterestDurationTimer" type="Timer" parent="."]
+wait_time = 10.0
+
 [connection signal="target_reached" from="NavigationAgent3D" to="." method="_on_navigation_agent_3d_target_reached"]
+[connection signal="timeout" from="WanderResumeDelayTimer" to="." method="_on_wander_resume_delay_timer_timeout"]
+[connection signal="timeout" from="PointOfInterestDurationTimer" to="." method="_on_point_of_interest_duration_timer_timeout"]
