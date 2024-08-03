@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://dv34grx13fm0i"]
+[gd_scene load_steps=47 format=3 uid="uid://dv34grx13fm0i"]
 
 [ext_resource type="Material" uid="uid://b5r8ed3gn67r3" path="res://materials/gray_material.tres" id="1_clowl"]
 [ext_resource type="PackedScene" uid="uid://4ggwo7028pus" path="res://scenes/player.tscn" id="2_78tvg"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://dl4paqobndwut" path="res://assets/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/shelf_small_candles.gltf" id="5_e11a8"]
 [ext_resource type="PackedScene" uid="uid://bqerijla5n5o8" path="res://assets/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/keg.gltf" id="5_p03s8"]
 [ext_resource type="PackedScene" uid="uid://ck4fumxdq2amg" path="res://scenes/npc_doozy.tscn" id="5_silta"]
+[ext_resource type="PackedScene" uid="uid://8gtb5tatov81" path="res://assets/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/chair.gltf" id="5_sjhel"]
 [ext_resource type="PackedScene" uid="uid://slyyj18i85wa" path="res://assets/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/wall_endcap.gltf" id="6_77nub"]
 [ext_resource type="PackedScene" uid="uid://cseivp01edlt7" path="res://scenes/npc_guard.tscn" id="6_gv8xp"]
 [ext_resource type="PackedScene" uid="uid://b8htlq6xcrkhd" path="res://assets/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/coin_stack_large.gltf" id="7_0qp6q"]
@@ -140,6 +141,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3, 0.8, 4.1)
 
 [node name="banner_green2" parent="NavigationRegion3D/Props" instance=ExtResource("4_el2fe")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7, 0.8, 4.2)
+
+[node name="chair2" parent="NavigationRegion3D/Props" instance=ExtResource("5_sjhel")]
+transform = Transform3D(0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, 0.258819, 4.7, 0.5, 8.6)
+
+[node name="chair3" parent="NavigationRegion3D/Props" instance=ExtResource("5_sjhel")]
+transform = Transform3D(0.642788, 0, -0.766044, 0, 1, 0, 0.766044, 0, 0.642788, 4.7, 0.5, 14.8)
 
 [node name="banner_blue3" parent="NavigationRegion3D/Props" instance=ExtResource("3_cm2cs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9, 0.8, 4.1)
