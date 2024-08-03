@@ -300,9 +300,9 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -21.5,
 
 [node name="NPCs" type="Node3D" parent="."]
 
-[node name="NPC_Guard" parent="NPCs" node_paths=PackedStringArray("point_of_interest") instance=ExtResource("6_gv8xp")]
+[node name="NPC_Guard" parent="NPCs" node_paths=PackedStringArray("points_of_interest") instance=ExtResource("6_gv8xp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.5, 17.8)
-point_of_interest = NodePath("../../ActionBox")
+points_of_interest = [NodePath("../../ActionBox"), NodePath("../../ActionBox2"), NodePath("../../ActionBox3")]
 
 [node name="Actionable" parent="NPCs/NPC_Guard" instance=ExtResource("4_in3em")]
 dialogue_resource = ExtResource("5_62h3g")
@@ -310,9 +310,9 @@ dialogue_resource = ExtResource("5_62h3g")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NPCs/NPC_Guard/Actionable"]
 shape = SubResource("SphereShape3D_lpo8b")
 
-[node name="NPC_Mousey" parent="NPCs" node_paths=PackedStringArray("point_of_interest") instance=ExtResource("4_ten7y")]
+[node name="NPC_Mousey" parent="NPCs" node_paths=PackedStringArray("points_of_interest") instance=ExtResource("4_ten7y")]
 transform = Transform3D(-0.500001, 0, 0.866025, 0, 1, 0, -0.866025, 0, -0.500001, -4.3, 0.5, -4.3)
-point_of_interest = NodePath("../../ActionBox")
+points_of_interest = [NodePath("../../ActionBox"), NodePath("../../ActionBox2"), NodePath("../../ActionBox3")]
 
 [node name="Actionable" parent="NPCs/NPC_Mousey" instance=ExtResource("4_in3em")]
 dialogue_resource = ExtResource("7_e0cps")
@@ -320,9 +320,9 @@ dialogue_resource = ExtResource("7_e0cps")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NPCs/NPC_Mousey/Actionable"]
 shape = SubResource("SphereShape3D_lpo8b")
 
-[node name="NPC_Doozy" parent="NPCs" node_paths=PackedStringArray("point_of_interest") instance=ExtResource("5_silta")]
+[node name="NPC_Doozy" parent="NPCs" node_paths=PackedStringArray("points_of_interest") instance=ExtResource("5_silta")]
 transform = Transform3D(0.422618, 0, 0.906308, 0, 1, 0, -0.906308, 0, 0.422618, 2.9, 0.5, 13)
-point_of_interest = NodePath("../../ActionBox")
+points_of_interest = [NodePath("../../ActionBox"), NodePath("../../ActionBox2"), NodePath("../../ActionBox3")]
 
 [node name="Actionable" parent="NPCs/NPC_Doozy" instance=ExtResource("4_in3em")]
 dialogue_resource = ExtResource("9_h8wba")
@@ -356,6 +356,20 @@ dialogue_resource = ExtResource("5_62h3g")
 dialogue_start = "pick_apple"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ActionBox2/CSGMesh3D/Actionable"]
+shape = SubResource("SphereShape3D_lpo8b")
+
+[node name="ActionBox3" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.46523, 1, -2.87068)
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="ActionBox3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("BoxMesh_5rlpu")
+
+[node name="Actionable" parent="ActionBox3/CSGMesh3D" instance=ExtResource("4_in3em")]
+dialogue_resource = ExtResource("5_62h3g")
+dialogue_start = "pick_apple"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ActionBox3/CSGMesh3D/Actionable"]
 shape = SubResource("SphereShape3D_lpo8b")
 
 [editable path="Player"]

@@ -16,7 +16,7 @@ const ANIM_WAVING := "Waving0"
 @onready var mesh_instance_3d: MeshInstance3D = $MeshInstance3D
 @onready var animation_tree: AnimationTree = $AnimationTree
 @onready var playback:AnimationNodeStateMachinePlayback = animation_tree["parameters/playback"]
-@export var point_of_interest:Node3D
+@export var points_of_interest:Array[Node3D] = []
 
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 var walking := false
@@ -29,7 +29,7 @@ var player_noticed := false
 #region FUNCTIONS - NATIVE
 func _ready() -> void:
 	player = get_tree().get_first_node_in_group("player")
-	navigation_agent_3d.target_position = point_of_interest.global_position
+	navigation_agent_3d.target_position = points_of_interest[randi() % points_of_interest.size()].global_position
 	# enableWalkState()
 	
 #func _process(delta:float) -> void:
@@ -107,7 +107,7 @@ func enableWalkState()->void:
 	player_noticed = false
 	
 	# navigation_agent_3d.target_position = player.global_position
-	navigation_agent_3d.target_position = point_of_interest.global_position
+	navigation_agent_3d.target_position = points_of_interest[randi() % points_of_interest.size()].global_position
 	playback.travel(ANIM_WALKING)
 	
 func enableWaveState()->void:
