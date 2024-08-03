@@ -48,7 +48,7 @@ var dialogue_line: DialogueLine:
 
 		character_label.visible = not dialogue_line.character.is_empty()
 		character_label.text = tr(dialogue_line.character, "dialogue")
-		var portrait_path:String = "res://characters/%s.png" % dialogue_line.character.to_lower()
+		var portrait_path:String = "res://assets/textures/characters/%s.png" % dialogue_line.character.to_lower()
 		if ResourceLoader.exists(portrait_path):
 			portrait.texture = load(portrait_path)
 		else:

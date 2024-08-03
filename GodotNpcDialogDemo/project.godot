@@ -32,6 +32,13 @@ window/size/mode=2
 
 enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg")
 
+[file_customization]
+
+folder_colors={
+"res://addons/": "orange",
+"res://assets/": "green"
+}
+
 [filesystem]
 
 import/fbx/enabled=false
