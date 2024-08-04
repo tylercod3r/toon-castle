@@ -7,7 +7,13 @@ const ANIM_IDLE := "Idle0"
 const ANIM_WALKING := "Walking0"
 const ANIM_WAVING := "Waving0"
 
-enum STATE {WANDER, PLAYER_SPOTTED, WANDER_RESUME, VISITING_POINT_OF_INTEREST}
+enum STATE {
+	IDLE,
+	WANDER, 
+	PLAYER_SPOTTED,
+	PLAYER_SPOTTED_NOW_FAR_AWAY, 
+	WANDER_RESUME, 
+	VISITING_POINT_OF_INTEREST}
 
 @onready var navigation_agent_3d: NavigationAgent3D = $NavigationAgent3D
 @onready var mesh_instance_3d: MeshInstance3D = $MeshInstance3D
@@ -18,32 +24,37 @@ enum STATE {WANDER, PLAYER_SPOTTED, WANDER_RESUME, VISITING_POINT_OF_INTEREST}
 
 @export var points_of_interest:Array[Node3D] = []
 
-var current_state:STATE
+var current_state:STATE = STATE.IDLE
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
-var awareness_range := 3.0 
+var player_awareness_range := 2.0 
 var player
 var wander_target :Vector3
+var last_point_of_interest_index:int
 #endregion
 
 func set_current_state(newState:STATE) -> void:
-	#if newState == current_state:
-		#return
+	if newState == current_state:
+		return
 	
-	if newState == STATE.WANDER:
-		wander_target = get_random_point_of_interest()
-		set_target(wander_target)
-	elif newState == STATE.WANDER_RESUME:
-		# #### REPLACE BELOW WITH LAST ACTION INDEX!! 
-		wander_target = get_random_point_of_interest()
-		# ##########################################
-		set_target(wander_target)
-	elif newState == STATE.PLAYER_SPOTTED:
-		set_target(global_position)
-		wander_resume_delay_timer.start()
-	elif newState == STATE.VISITING_POINT_OF_INTEREST:
-		point_of_interest_duration_timer.start()
+	match newState:
+		STATE.WANDER:
+			wander_target = get_random_point_of_interest()
+			set_target(wander_target)
+		STATE.WANDER_RESUME:
+			wander_target = points_of_interest[last_point_of_interest_index].global_position
+			set_target(wander_target)
+		STATE.PLAYER_SPOTTED:
+			wander_resume_delay_timer.stop()
+			set_target(global_position)
+		STATE.PLAYER_SPOTTED_NOW_FAR_AWAY:
+			wander_resume_delay_timer.start()
+		STATE.VISITING_POINT_OF_INTEREST:
+			set_target(global_position)
+			point_of_interest_duration_timer.start()
 	
 	current_state = newState
+	
+	print(STATE.keys()[newState])
 
 #region FUNCTION - NATIVE
 func _ready() -> void:
@@ -59,25 +70,28 @@ func _physics_process(delta:float) -> void:
 	
 	# set state based on player distance
 	var distance = global_position.distance_to(player.global_position)
-	if distance <= awareness_range:
+	if distance <= player_awareness_range:
 		if current_state != STATE.PLAYER_SPOTTED:
 			set_current_state(STATE.PLAYER_SPOTTED)
 	else:
 		if current_state == STATE.PLAYER_SPOTTED:
-			set_current_state(STATE.WANDER_RESUME)
+			set_current_state(STATE.PLAYER_SPOTTED_NOW_FAR_AWAY)
 	
 	# handle state
 	if current_state == STATE.WANDER:
 		look_at(next_location)
 		playback.travel(ANIM_WALKING)
+		move_and_slide()
 	elif current_state == STATE.WANDER_RESUME:
 		look_at(next_location)
 		playback.travel(ANIM_WALKING)
+		move_and_slide()
 	elif current_state == STATE.PLAYER_SPOTTED:
 		look_at(player.global_position)
 		playback.travel(ANIM_IDLE)
-	
-	move_and_slide()
+	elif current_state == STATE.PLAYER_SPOTTED_NOW_FAR_AWAY:
+		look_at(player.global_position)
+		playback.travel(ANIM_IDLE)
 #endregion
 	
 #region FUNCTION - CUSTOM
@@ -85,16 +99,34 @@ func set_target(target_position:Vector3) -> void:
 	navigation_agent_3d.target_position = target_position
 
 func get_random_point_of_interest()->Vector3:
-	return points_of_interest[randi() % points_of_interest.size()].global_position
+	var points_of_interest_count = points_of_interest.size()
+	var random_index = 0
+	
+	if points_of_interest_count > 1:
+		random_index = last_point_of_interest_index
+		while random_index == last_point_of_interest_index:
+			random_index = randi() % points_of_interest_count
+
+	last_point_of_interest_index = random_index
+
+
+	print("last interest index: ", last_point_of_interest_index)
+
+	return points_of_interest[random_index].global_position
 #endregion
 
 #region FUNCTION - SIGNAL
 func _on_navigation_agent_3d_target_reached() -> void:
-	set_current_state(STATE.VISITING_POINT_OF_INTEREST)
+	if current_state != STATE.PLAYER_SPOTTED && current_state != STATE.VISITING_POINT_OF_INTEREST:
+		print("signal - target reached")
+		set_current_state(STATE.VISITING_POINT_OF_INTEREST)
 	
 func _on_wander_resume_delay_timer_timeout() -> void:
+	print("signal - wander resume delay timeout")
+	print(last_point_of_interest_index)
 	set_current_state(STATE.WANDER_RESUME)
 	
 func _on_point_of_interest_duration_timer_timeout() -> void:
+	print("signal - point of interest duration timeout")
 	set_current_state(STATE.WANDER)
 #endregion
