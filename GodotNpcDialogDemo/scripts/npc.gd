@@ -78,20 +78,21 @@ func _physics_process(delta:float) -> void:
 			set_current_state(STATE.PLAYER_SPOTTED_NOW_FAR_AWAY)
 	
 	# handle state
-	if current_state == STATE.WANDER:
-		look_at(next_location)
-		playback.travel(ANIM_WALKING)
-		move_and_slide()
-	elif current_state == STATE.WANDER_RESUME:
-		look_at(next_location)
-		playback.travel(ANIM_WALKING)
-		move_and_slide()
-	elif current_state == STATE.PLAYER_SPOTTED:
-		look_at(player.global_position)
-		playback.travel(ANIM_IDLE)
-	elif current_state == STATE.PLAYER_SPOTTED_NOW_FAR_AWAY:
-		look_at(player.global_position)
-		playback.travel(ANIM_IDLE)
+	match current_state:
+		STATE.WANDER:
+			look_at(next_location)
+			playback.travel(ANIM_WALKING)
+			move_and_slide()
+		STATE.WANDER_RESUME:
+			look_at(next_location)
+			playback.travel(ANIM_WALKING)
+			move_and_slide()
+		STATE.PLAYER_SPOTTED:
+			look_at(player.global_position)
+			playback.travel(ANIM_IDLE)
+		STATE.PLAYER_SPOTTED_NOW_FAR_AWAY:
+			look_at(player.global_position)
+			playback.travel(ANIM_IDLE)
 #endregion
 	
 #region FUNCTION - CUSTOM
@@ -109,24 +110,21 @@ func get_random_point_of_interest()->Vector3:
 
 	last_point_of_interest_index = random_index
 
-
-	print("last interest index: ", last_point_of_interest_index)
-
 	return points_of_interest[random_index].global_position
 #endregion
 
 #region FUNCTION - SIGNAL
 func _on_navigation_agent_3d_target_reached() -> void:
 	if current_state != STATE.PLAYER_SPOTTED && current_state != STATE.VISITING_POINT_OF_INTEREST:
-		print("signal - target reached")
+		#print("signal - target reached")
 		set_current_state(STATE.VISITING_POINT_OF_INTEREST)
 	
 func _on_wander_resume_delay_timer_timeout() -> void:
-	print("signal - wander resume delay timeout")
-	print(last_point_of_interest_index)
+	#print("signal - wander resume delay timeout")
+	#print(last_point_of_interest_index)
 	set_current_state(STATE.WANDER_RESUME)
 	
 func _on_point_of_interest_duration_timer_timeout() -> void:
-	print("signal - point of interest duration timeout")
+	#print("signal - point of interest duration timeout")
 	set_current_state(STATE.WANDER)
 #endregion
