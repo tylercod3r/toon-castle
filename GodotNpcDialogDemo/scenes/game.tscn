@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://dv34grx13fm0i"]
+[gd_scene load_steps=48 format=3 uid="uid://dv34grx13fm0i"]
 
 [ext_resource type="Material" uid="uid://b5r8ed3gn67r3" path="res://assets/materials/gray_material.tres" id="1_clowl"]
 [ext_resource type="PackedScene" uid="uid://4ggwo7028pus" path="res://scenes/player.tscn" id="2_78tvg"]
@@ -7,19 +7,23 @@
 [ext_resource type="Script" path="res://scripts/prop_manager.gd" id="3_gymjj"]
 [ext_resource type="PackedScene" uid="uid://bhsaxpxri21s6" path="res://assets/_packs/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/banner_green.gltf" id="4_el2fe"]
 [ext_resource type="PackedScene" uid="uid://ddrlt3woyjy4f" path="res://scenes/actionable.tscn" id="4_in3em"]
+[ext_resource type="PackedScene" uid="uid://bw0bdo050f31l" path="res://scenes/npc_mousey.tscn" id="4_ten7y"]
 [ext_resource type="Resource" uid="uid://2dn4fycpda8h" path="res://dialog/guard.dialogue" id="5_62h3g"]
 [ext_resource type="PackedScene" uid="uid://eeu8ks8xl0gt" path="res://assets/_packs/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/wall_corner.gltf" id="5_87h1v"]
 [ext_resource type="PackedScene" uid="uid://dl4paqobndwut" path="res://assets/_packs/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/shelf_small_candles.gltf" id="5_e11a8"]
 [ext_resource type="PackedScene" uid="uid://bqerijla5n5o8" path="res://assets/_packs/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/keg.gltf" id="5_p03s8"]
+[ext_resource type="PackedScene" uid="uid://ck4fumxdq2amg" path="res://scenes/npc_doozy.tscn" id="5_silta"]
 [ext_resource type="PackedScene" uid="uid://8gtb5tatov81" path="res://assets/_packs/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/chair.gltf" id="5_sjhel"]
 [ext_resource type="PackedScene" uid="uid://slyyj18i85wa" path="res://assets/_packs/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/wall_endcap.gltf" id="6_77nub"]
 [ext_resource type="PackedScene" uid="uid://cseivp01edlt7" path="res://scenes/npc_guard.tscn" id="6_gv8xp"]
 [ext_resource type="PackedScene" uid="uid://b8htlq6xcrkhd" path="res://assets/_packs/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/coin_stack_large.gltf" id="7_0qp6q"]
 [ext_resource type="PackedScene" uid="uid://d28xvdi7c2w4a" path="res://assets/_packs/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/table_long_decorated_C.gltf" id="7_2lthr"]
+[ext_resource type="Resource" uid="uid://b31qyiubykhg" path="res://dialog/mousey.dialogue" id="7_e0cps"]
 [ext_resource type="PackedScene" uid="uid://belogaksqcn0m" path="res://assets/_packs/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/wall_half.gltf" id="7_fc8a6"]
 [ext_resource type="PackedScene" uid="uid://wbrtuqahphyk" path="res://assets/_packs/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/table_medium_tablecloth.gltf" id="7_qwpcq"]
 [ext_resource type="PackedScene" uid="uid://cxknev53dbvbs" path="res://assets/_packs/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/sword_shield_gold.gltf" id="7_r5oqr"]
 [ext_resource type="PackedScene" uid="uid://br4voq0i57184" path="res://assets/_packs/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/table_long_decorated_A.gltf" id="8_eblpj"]
+[ext_resource type="Resource" uid="uid://47sk12gbq03t" path="res://dialog/doozy.dialogue" id="9_h8wba"]
 [ext_resource type="PackedScene" uid="uid://di06fy58xlpga" path="res://assets/_packs/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/wall_half_endcap_sloped.gltf" id="9_wxyam"]
 [ext_resource type="PackedScene" uid="uid://c20ugxpfst7tm" path="res://assets/_packs/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/wall_corner_small.gltf" id="10_egu4w"]
 [ext_resource type="PackedScene" uid="uid://ckd8uye7tqq4o" path="res://assets/_packs/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/box_stacked.gltf" id="10_g87dt"]
@@ -323,7 +327,27 @@ dialogue_resource = ExtResource("5_62h3g")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NPCs/NPC_Guard/Actionable"]
 shape = SubResource("SphereShape3D_lpo8b")
 
-[node name="NPCs_new" type="Node3D" parent="."]
+[node name="NPC_Mousey" parent="NPCs" node_paths=PackedStringArray("points_of_interest") instance=ExtResource("4_ten7y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7, 0.5, 9.7)
+points_of_interest = [NodePath("../../NavigationRegion3D/Props/banner_patternA_green3"), NodePath("../../NavigationRegion3D/Props/pillar_decorated2"), NodePath("../../NavigationRegion3D/Props/keg2"), NodePath("../../NavigationRegion3D/Props/banner_blue3"), NodePath("../../NavigationRegion3D/Props/table_long_decorated_A2")]
+
+[node name="Actionable" parent="NPCs/NPC_Mousey" instance=ExtResource("4_in3em")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -0.3)
+dialogue_resource = ExtResource("7_e0cps")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NPCs/NPC_Mousey/Actionable"]
+shape = SubResource("SphereShape3D_lpo8b")
+
+[node name="NPC_Doozy" parent="NPCs" node_paths=PackedStringArray("points_of_interest") instance=ExtResource("5_silta")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0.5, 12.2)
+points_of_interest = [NodePath("../../NavigationRegion3D/Props/table_medium_tablecloth2"), NodePath("../../NavigationRegion3D/Props/table_long_decorated_C2"), NodePath("../../NavigationRegion3D/Props/bottle_A_labeled_green2"), NodePath("../../NavigationRegion3D/Props/chair2"), NodePath("../../NavigationRegion3D/Props/pillar_decorated2")]
+
+[node name="Actionable" parent="NPCs/NPC_Doozy" instance=ExtResource("4_in3em")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -0.3)
+dialogue_resource = ExtResource("9_h8wba")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NPCs/NPC_Doozy/Actionable"]
+shape = SubResource("SphereShape3D_lpo8b")
 
 [connection signal="child_exiting_tree" from="NavigationRegion3D/Props/table_small2/Actionable" to="NavigationRegion3D/Props/table_small2/Actionable" method="_on_child_exiting_tree"]
 
