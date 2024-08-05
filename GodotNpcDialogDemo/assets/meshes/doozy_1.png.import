@@ -2,14 +2,14 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://26w7t8i5hhre"
+uid="uid://dl2ipt87gp7qb"
 path.s3tc="res://.godot/imported/doozy_1.png-e2e42afaa4bd5735cf62bc5ddb4c1834.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "6f336cf5512910b1f063d137f69a50eb"
+"md5": "97977ce53165c0c2753c0369465a7ae0"
 }
 
 [deps]

@@ -1,9 +1,10 @@
-[gd_scene load_steps=43 format=3 uid="uid://dv34grx13fm0i"]
+[gd_scene load_steps=44 format=3 uid="uid://dv34grx13fm0i"]
 
 [ext_resource type="Material" uid="uid://b5r8ed3gn67r3" path="res://assets/materials/gray_material.tres" id="1_clowl"]
 [ext_resource type="PackedScene" uid="uid://4ggwo7028pus" path="res://scenes/player.tscn" id="2_78tvg"]
 [ext_resource type="PackedScene" uid="uid://btprb8qe0p6vh" path="res://assets/_packs/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/wall_doorway.gltf" id="3_1qgur"]
 [ext_resource type="PackedScene" uid="uid://dnmh63l2qg2g" path="res://assets/_packs/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/banner_blue.gltf" id="3_cm2cs"]
+[ext_resource type="Script" path="res://scripts/prop_manager.gd" id="3_gymjj"]
 [ext_resource type="PackedScene" uid="uid://bhsaxpxri21s6" path="res://assets/_packs/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/banner_green.gltf" id="4_el2fe"]
 [ext_resource type="PackedScene" uid="uid://ddrlt3woyjy4f" path="res://scenes/actionable.tscn" id="4_in3em"]
 [ext_resource type="Resource" uid="uid://2dn4fycpda8h" path="res://dialog/guard.dialogue" id="5_62h3g"]
@@ -131,8 +132,10 @@ flip_faces = true
 size = Vector3(8, 4, 8)
 material = ExtResource("1_clowl")
 
-[node name="Props" type="Node3D" parent="NavigationRegion3D"]
+[node name="Props" type="Node3D" parent="NavigationRegion3D" node_paths=PackedStringArray("guard_keys")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.23246, -0.500467, 3.5993)
+script = ExtResource("3_gymjj")
+guard_keys = NodePath("keyring2")
 
 [node name="banner_blue2" parent="NavigationRegion3D/Props" instance=ExtResource("3_cm2cs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3, 0.8, 4.1)
@@ -314,10 +317,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.5, 17.8)
 points_of_interest = [NodePath("../../NavigationRegion3D/Props/shelf_small_candles4"), NodePath("../../NavigationRegion3D/Props/shelf_small_candles2"), NodePath("../../NavigationRegion3D/Props/pillar_decorated2"), NodePath("../../NavigationRegion3D/Props/coin_stack_large2"), NodePath("../../NavigationRegion3D/Props/wall_doorway2")]
 
 [node name="Actionable" parent="NPCs/NPC_Guard" instance=ExtResource("4_in3em")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -0.3)
 dialogue_resource = ExtResource("5_62h3g")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NPCs/NPC_Guard/Actionable"]
 shape = SubResource("SphereShape3D_lpo8b")
+
+[node name="NPCs_new" type="Node3D" parent="."]
 
 [connection signal="child_exiting_tree" from="NavigationRegion3D/Props/table_small2/Actionable" to="NavigationRegion3D/Props/table_small2/Actionable" method="_on_child_exiting_tree"]
 

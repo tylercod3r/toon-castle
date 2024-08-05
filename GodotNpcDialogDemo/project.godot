@@ -17,8 +17,10 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
+AppGlobals="*res://app_globals.gd"
 State="*res://scripts/state.gd"
+DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
+SignalManager="*res://signal_manager.gd"
 
 [dialogue_manager]
 

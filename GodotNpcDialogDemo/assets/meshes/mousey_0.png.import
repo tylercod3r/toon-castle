@@ -2,14 +2,14 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dso2hy036vgpt"
+uid="uid://b1w6lhqyrc6si"
 path.s3tc="res://.godot/imported/mousey_0.png-b72113031c2a1395d50dabc2eabc107e.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "567d13b75154a68a4d94f0a67cd07629"
+"md5": "6cb95c276966e4ad4f3284ebd6f5b08a"
 }
 
 [deps]

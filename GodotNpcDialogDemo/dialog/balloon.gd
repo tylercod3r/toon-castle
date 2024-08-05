@@ -14,6 +14,16 @@ extends CanvasLayer
 @onready var responses_menu: DialogueResponsesMenu = %ResponsesMenu
 @onready var talk_sound: AudioStreamPlayer = $TalkSound
 
+
+
+
+
+var current_character:String
+var last_response:String
+
+
+
+
 ## The dialogue resource
 var resource: DialogueResource
 
@@ -68,6 +78,12 @@ var dialogue_line: DialogueLine:
 		if not dialogue_line.text.is_empty():
 			dialogue_label.type_out()
 			await dialogue_label.finished_typing
+
+
+
+		current_character = dialogue_line.character
+		last_response = dialogue_line.text
+
 
 		# Wait for input
 		if dialogue_line.responses.size() > 0:
@@ -176,4 +192,15 @@ func _on_dialogue_label_spoke(letter: String, letter_index: int, speed: float) -
 
 
 func _on_balloon_focus_exited() -> void:
-	print("exited!")
+	#region HACK - refactor below!
+	# print(current_character)
+	# print(dialogue_line.text)
+	
+	match current_character:
+		"You":
+			if dialogue_line.text == "I should return them!":
+				SignalManager.handleGuardkeysFound()
+		"Guard":
+			if dialogue_line.text == "Thanks!" || dialogue_line.text == "Thanks for finding my keys!":
+				SignalManager.handleGuardkeysReturned()
+	#endregion

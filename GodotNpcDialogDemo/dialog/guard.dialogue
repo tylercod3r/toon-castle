@@ -19,8 +19,9 @@ else:
 
 ~ find_keys
 
-You: It's the Guard's keys!
-You: I should return them!
-set State.keys_status = "has"
+if State.keys_status != "has" && State.keys_status != "gave":
+	You: It's the Guard's keys!
+	You: I should return them!
+	set State.keys_status = "has"
 
 => END

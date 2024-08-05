@@ -1,0 +1,38 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://dso2hy036vgpt"
+path.s3tc="res://.godot/imported/mousey_0.png-26e202cbeaec9997b307c9830bb14965.s3tc.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "567d13b75154a68a4d94f0a67cd07629"
+}
+
+[deps]
+
+source_file="res://assets/meshes/old/mousey_0.png"
+dest_files=["res://.godot/imported/mousey_0.png-26e202cbeaec9997b307c9830bb14965.s3tc.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0

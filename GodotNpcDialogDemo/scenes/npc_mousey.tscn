@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://bw0bdo050f31l"]
 
 [ext_resource type="PackedScene" uid="uid://bcysrvsh73xhp" path="res://scenes/npc.tscn" id="1_m73y3"]
-[ext_resource type="PackedScene" uid="uid://dguwshvu7pbfi" path="res://assets/meshes/mousey.gltf" id="2_dtoon"]
+[ext_resource type="PackedScene" uid="uid://dguwshvu7pbfi" path="res://assets/meshes/old/mousey.gltf" id="2_dtoon"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_5d2w6"]
 animation = &"Idle0"

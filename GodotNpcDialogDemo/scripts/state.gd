@@ -1,3 +1,3 @@
 extends Node
 
-var keys_status:String = ""
+var keys_status:String = "debug"
