@@ -1,3 +1,3 @@
 extends Node
 
-var apple_status:String = ""
+var keys_status:String = ""

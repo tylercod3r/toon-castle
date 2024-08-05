@@ -167,3 +167,13 @@ func _on_dialogue_label_spoke(letter: String, letter_index: int, speed: float) -
 	if not letter in [".", " "]:
 		talk_sound.pitch_scale = randf_range(0.9, 1.1)
 		talk_sound.play()
+
+
+
+
+
+
+
+
+func _on_balloon_focus_exited() -> void:
+	print("exited!")

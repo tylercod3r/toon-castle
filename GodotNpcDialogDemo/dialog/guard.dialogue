@@ -1,26 +1,26 @@
 ~ start
 
-Guard: This door is off limits!
-#if State.apple_status == "has":
-#	You: I have an apple.
-#	- Give to Nathan
-#		set State.apple_status = "gave"
-#		You: Here you go.
-#		Guard: Thanks.
-#	- Keep it
-#		You: But it's mine.
-#		Guard: Fair enough.
-#elif State.apple_status == "gave":
-#	Guard: Thanks for the apple.
-#else:
-#	Guard: I sure wish I had an apple. I guess there's an apple tree around here somewhere. 
+if State.keys_status == "has":
+	You: I found your keys!
+	- Give to Guard
+		set State.keys_status = "gave"
+		You: Here you go.
+		Guard: Thanks!
+	- Keep it
+		You: Not today!
+		Guard: Fair enough.
+elif State.keys_status == "gave":
+	Guard: Thanks for finding my keys!
+else:
+	Guard: I've lost my keys!
+	Guard: Have you seen them? 
 
 => END
 
-~ pick_apple
+~ find_keys
 
-You: It's an apple tree.
-You: I'll just take one.
-set State.apple_status = "has"
+You: It's the Guard's keys!
+You: I should return them!
+set State.keys_status = "has"
 
 => END
