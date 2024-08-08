@@ -2,15 +2,6 @@ extends CharacterBody3D
 
 class_name NPC
 
-
-
-
-
-
-
-
-
-
 #region VARIABLE
 const SPEED = 1.3
 
@@ -80,19 +71,10 @@ func _ready() -> void:
 	player = get_tree().get_first_node_in_group("player")
 	set_current_state(NPC_STATE.WANDER)
 	
-	
-	
 	SignalManager.guard_keys_returned.connect(handle_guard_keys_returned)
-
-
-
-
-
 
 func handle_guard_keys_returned() -> void:
 	set_current_state(NPC_STATE.CELEBRATE)
-
-
 
 func _physics_process(delta:float) -> void:
 	# set velocity
@@ -153,16 +135,11 @@ func get_random_point_of_interest()->Vector3:
 #region FUNCTION - SIGNAL
 func _on_navigation_agent_3d_target_reached() -> void:
 	if current_state != NPC_STATE.CELEBRATE && current_state != NPC_STATE.PLAYER_SPOTTED && current_state != NPC_STATE.VISITING_POINT_OF_INTEREST:
-		#print("signal - target reached")
 		set_current_state(NPC_STATE.VISITING_POINT_OF_INTEREST)
 	
 func _on_wander_resume_delay_timer_timeout() -> void:
-	#print("signal - wander resume delay timeout")
-	#print(last_point_of_interest_index)
 	set_current_state(NPC_STATE.WANDER_RESUME)
 	
 func _on_point_of_interest_duration_timer_timeout() -> void:
-	#print("signal - point of interest duration timeout")
 	set_current_state(NPC_STATE.WANDER)
-	# print(AppGlobals.test_value)
 #endregion
