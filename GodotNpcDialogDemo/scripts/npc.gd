@@ -3,118 +3,69 @@ extends CharacterBody3D
 class_name NPC
 
 #region VARIABLE
+# constants
 const SPEED = 1.3
+const INVALID_INDEX = -1
 
+# constants - animation
 const ANIM_IDLE := "Idle0"
 const ANIM_WALKING := "Walking0"
 const ANIM_WAVING := "Waving0"
 const ANIM_DANCING := "Dancing0"
 
+# enums
 enum NPC_STATE {
 	IDLE,
 	WANDER, 
 	PLAYER_SPOTTED,
-	PLAYER_SPOTTED_NOW_FAR_AWAY, 
 	WANDER_RESUME, 
 	VISITING_POINT_OF_INTEREST,
 	CELEBRATE
 	}
 
+# references - display tree
 @onready var navigation_agent_3d: NavigationAgent3D = $NavigationAgent3D
 @onready var mesh_instance_3d: MeshInstance3D = $MeshInstance3D
-@onready var animation_tree: AnimationTree = $AnimationTree
-@onready var playback:AnimationNodeStateMachinePlayback = animation_tree["parameters/playback"]
+@onready var animation_player: AnimationPlayer = $Mesh/AnimationPlayer
+
+# references - timers
 @onready var wander_resume_delay_timer: Timer = $WanderResumeDelayTimer
 @onready var point_of_interest_duration_timer: Timer = $PointOfInterestDurationTimer
 
+# exports
 @export var points_of_interest:Array[Node3D] = []
+@export var player_awareness_range := 2.0 
 
-var current_state:NPC_STATE = NPC_STATE.IDLE
+# variables
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
-var player_awareness_range := 2.0 
 var player
 var wander_target :Vector3
-var last_point_of_interest_index:int
+var last_point_of_interest_index:int = INVALID_INDEX
+
+# variables - state
+var hsm:LimboHSM
+var idle_state:LimboState
+var wander_state:LimboState
+var player_spotted_state:LimboState
+var wander_resumed_state:LimboState
+var visiting_point_of_interest_state:LimboState
+var celebrate_state:LimboState
 #endregion
 
-func set_current_state(newState:NPC_STATE) -> void:
-	if newState == current_state:
-		return
-	
-	match newState:
-		NPC_STATE.WANDER:
-			wander_target = get_random_point_of_interest()
-			set_target(wander_target)
-		NPC_STATE.WANDER_RESUME:
-			wander_target = points_of_interest[last_point_of_interest_index].global_position
-			set_target(wander_target)
-		NPC_STATE.PLAYER_SPOTTED:
-			wander_resume_delay_timer.stop()
-			set_target(global_position)
-		NPC_STATE.PLAYER_SPOTTED_NOW_FAR_AWAY:
-			wander_resume_delay_timer.start()
-		NPC_STATE.VISITING_POINT_OF_INTEREST:
-			set_target(global_position)
-			point_of_interest_duration_timer.start()
-		NPC_STATE.CELEBRATE:
-			set_target(global_position)
-			point_of_interest_duration_timer.stop()
-			wander_resume_delay_timer.stop()
-			wander_resume_delay_timer.start()
-	
-	current_state = newState
-	
-	print(NPC_STATE.keys()[newState])
-
-#region FUNCTION - NATIVE
+#region METHOD - NATIVE
 func _ready() -> void:
+	# reference
 	player = get_tree().get_first_node_in_group("player")
-	set_current_state(NPC_STATE.WANDER)
 	
+	# signals
 	SignalManager.guard_keys_returned.connect(handle_guard_keys_returned)
-
-func handle_guard_keys_returned() -> void:
-	set_current_state(NPC_STATE.CELEBRATE)
-
-func _physics_process(delta:float) -> void:
-	# set velocity
-	var current_location = global_transform.origin
-	var next_location = navigation_agent_3d.get_next_path_position()
-	var new_velocity = (next_location - current_location).normalized() * SPEED
-	velocity = velocity.move_toward(new_velocity, 0.25)
 	
-	# set state based on player distance
-	if current_state != NPC_STATE.CELEBRATE:
-		var distance = global_position.distance_to(player.global_position)
-		if distance <= player_awareness_range:
-			if current_state != NPC_STATE.PLAYER_SPOTTED:
-				set_current_state(NPC_STATE.PLAYER_SPOTTED)
-		else:
-			if current_state == NPC_STATE.PLAYER_SPOTTED:
-				set_current_state(NPC_STATE.PLAYER_SPOTTED_NOW_FAR_AWAY)
-	
-	# handle state
-	match current_state:
-		NPC_STATE.WANDER:
-			look_at(next_location)
-			playback.travel(ANIM_WALKING)
-			move_and_slide()
-		NPC_STATE.WANDER_RESUME:
-			look_at(next_location)
-			playback.travel(ANIM_WALKING)
-			move_and_slide()
-		NPC_STATE.PLAYER_SPOTTED:
-			look_at(player.global_position)
-			playback.travel(ANIM_WAVING)
-		NPC_STATE.PLAYER_SPOTTED_NOW_FAR_AWAY:
-			look_at(player.global_position)
-			playback.travel(ANIM_IDLE)
-		NPC_STATE.CELEBRATE:
-			look_at(player.global_position)
-			playback.travel(ANIM_DANCING)
+	# state
+	_init_state_machine()
+	set_current_state(NPC_STATE.IDLE)
 #endregion
 	
-#region FUNCTION - CUSTOM
+#region METHOD - GET / SET
 func set_target(target_position:Vector3) -> void:
 	navigation_agent_3d.target_position = target_position
 
@@ -130,16 +81,176 @@ func get_random_point_of_interest()->Vector3:
 	last_point_of_interest_index = random_index
 
 	return points_of_interest[random_index].global_position
+	
+func is_player_nearby() -> bool:
+	var distance = global_position.distance_to(player.global_position)
+	return distance <= player_awareness_range
 #endregion
 
-#region FUNCTION - SIGNAL
+#region METHOD - STATE
+func set_current_state(newState:NPC_STATE) -> void:
+	#if newState == current_state:
+		#return
+	
+	print("STATE: ", NPC_STATE.keys()[newState])
+	
+	match newState:
+		NPC_STATE.WANDER:
+			hsm.dispatch(&"wander_started")
+		NPC_STATE.WANDER_RESUME:
+			hsm.dispatch(&"wander_resumed")
+		NPC_STATE.PLAYER_SPOTTED:
+			hsm.dispatch(&"player_spotted")
+		NPC_STATE.VISITING_POINT_OF_INTEREST:
+			hsm.dispatch(&"visiting_point_of_interest_started")
+		NPC_STATE.CELEBRATE:
+			hsm.dispatch(&"celebrate_started")
+	
+	#current_state = newState
+
+func _init_state_machine() -> void:
+	hsm = LimboHSM.new()
+	add_child(hsm)
+	
+	idle_state = LimboState.new().named(str(NPC_STATE.IDLE)).call_on_enter(idle_state_ready).call_on_update(idle_state_physics_process)
+	wander_state = LimboState.new().named(str(NPC_STATE.WANDER)).call_on_enter(_wander_state_ready).call_on_update(_wander_state_physics_process)
+	player_spotted_state = LimboState.new().named(str(NPC_STATE.PLAYER_SPOTTED)).call_on_enter(_player_spotted_state_ready).call_on_update(_player_spotted_state_physics_process)
+	wander_resumed_state = LimboState.new().named(str(NPC_STATE.WANDER_RESUME)).call_on_enter(_wander_resumed_state_ready).call_on_update(_wander_resumed_state_physics_process)
+	visiting_point_of_interest_state = LimboState.new().named(str(NPC_STATE.VISITING_POINT_OF_INTEREST)).call_on_enter(_visiting_point_of_interest_state_ready).call_on_update(_visiting_point_of_interest_state_physics_process)
+	celebrate_state = LimboState.new().named(str(NPC_STATE.CELEBRATE)).call_on_enter(_celebrate_state_ready).call_on_update(_celebrate_state_physics_process)
+	
+	hsm.add_child(idle_state)
+	hsm.add_child(wander_state)
+	hsm.add_child(player_spotted_state)
+	hsm.add_child(wander_resumed_state)
+	hsm.add_child(visiting_point_of_interest_state)
+	hsm.add_child(celebrate_state)
+	
+	hsm.add_transition(idle_state, wander_state, &"wander_started")
+	hsm.add_transition(player_spotted_state, wander_resumed_state, &"wander_resumed")
+	
+	hsm.add_transition(wander_state, idle_state, &"wander_ended")
+	hsm.add_transition(wander_state, player_spotted_state, &"player_spotted")
+	hsm.add_transition(wander_resumed_state, wander_state, &"wander_started")
+
+	hsm.add_transition(wander_state, visiting_point_of_interest_state, &"visiting_point_of_interest_started")
+	hsm.add_transition(visiting_point_of_interest_state, wander_state, &"wander_started")
+
+	hsm.add_transition(hsm.ANYSTATE, celebrate_state, &"celebrate_started")
+
+	hsm.add_transition(hsm.ANYSTATE, idle_state, &"state_ended")
+	
+	hsm.initial_state = idle_state
+	
+	hsm.initialize(self)
+	hsm.set_active(true)
+
+func idle_state_ready() -> void:
+	# timer
+	wander_resume_delay_timer.stop()
+	wander_resume_delay_timer.start()
+
+func idle_state_physics_process(_delta:float) -> void:
+	# animate
+	animation_player.play(ANIM_IDLE)
+	
+func _wander_state_ready() -> void:
+	# timer
+	point_of_interest_duration_timer.stop()
+	
+	# target
+	if last_point_of_interest_index == INVALID_INDEX:
+		wander_target = get_random_point_of_interest()
+	else:
+		wander_target = points_of_interest[last_point_of_interest_index].global_position
+	set_target(wander_target)
+
+func _wander_state_physics_process(_delta:float) -> void:
+	# velocity
+	var current_location = global_transform.origin
+	var next_location = navigation_agent_3d.get_next_path_position()
+	var new_velocity = (next_location - current_location).normalized() * SPEED
+	velocity = velocity.move_toward(new_velocity, 0.25)
+	
+	# rotate
+	look_at(next_location)
+	
+	# animate
+	animation_player.play(ANIM_WALKING)
+	move_and_slide()
+	
+	# state
+	if is_player_nearby():
+		set_current_state(NPC_STATE.PLAYER_SPOTTED)
+
+func _player_spotted_state_ready() -> void:
+	# timer
+	wander_resume_delay_timer.start()
+
+func _player_spotted_state_physics_process(_delta:float) -> void:
+	# rotate
+	look_at(player.global_position)
+	
+	# animate
+	animation_player.play(ANIM_WAVING)
+
+func _wander_resumed_state_ready() -> void:
+	# target
+	wander_target = points_of_interest[last_point_of_interest_index].global_position
+	set_target(wander_target)
+	
+	# reset index
+	last_point_of_interest_index = INVALID_INDEX
+	
+	# state
+	set_current_state(NPC_STATE.WANDER)
+
+func _wander_resumed_state_physics_process(_delta:float) -> void:
+	pass
+
+func _visiting_point_of_interest_state_ready() -> void:
+	# timer
+	point_of_interest_duration_timer.start()
+
+func _visiting_point_of_interest_state_physics_process(_delta:float) -> void:
+	# animate
+	animation_player.play(ANIM_IDLE)
+
+func _celebrate_state_ready() -> void:
+	# target
+	set_target(global_position)
+	
+	# timer
+	point_of_interest_duration_timer.stop()
+	wander_resume_delay_timer.stop()
+	wander_resume_delay_timer.start()
+
+func _celebrate_state_physics_process(_delta:float) -> void:
+	# animate
+	animation_player.play(ANIM_DANCING)
+#endregion
+
+#region METHOD - SIGNAL
+func handle_guard_keys_returned() -> void:
+	# state
+	set_current_state(NPC_STATE.CELEBRATE)
+
 func _on_navigation_agent_3d_target_reached() -> void:
-	if current_state != NPC_STATE.CELEBRATE && current_state != NPC_STATE.PLAYER_SPOTTED && current_state != NPC_STATE.VISITING_POINT_OF_INTEREST:
-		set_current_state(NPC_STATE.VISITING_POINT_OF_INTEREST)
+	# state
+	set_current_state(NPC_STATE.VISITING_POINT_OF_INTEREST)
+	#if current_state != NPC_STATE.CELEBRATE && current_state != NPC_STATE.PLAYER_SPOTTED && current_state != NPC_STATE.VISITING_POINT_OF_INTEREST:
+		#set_current_state(NPC_STATE.VISITING_POINT_OF_INTEREST)
 	
 func _on_wander_resume_delay_timer_timeout() -> void:
-	set_current_state(NPC_STATE.WANDER_RESUME)
-	
+	# state
+	if is_player_nearby():
+		set_current_state(NPC_STATE.PLAYER_SPOTTED)
+	elif hsm.get_active_state() == player_spotted_state:
+		set_current_state(NPC_STATE.WANDER_RESUME)
+	else:
+		set_current_state(NPC_STATE.WANDER)
+
 func _on_point_of_interest_duration_timer_timeout() -> void:
+	# state
 	set_current_state(NPC_STATE.WANDER)
 #endregion

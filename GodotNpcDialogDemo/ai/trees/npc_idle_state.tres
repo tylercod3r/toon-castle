@@ -1,0 +1,19 @@
+[gd_resource type="BehaviorTree" load_steps=6 format=3 uid="uid://ixv0hx2u22k8"]
+
+[sub_resource type="BlackboardPlan" id="BlackboardPlan_safos"]
+
+[sub_resource type="BTConsolePrint" id="BTConsolePrint_vo1qm"]
+text = "npc idle state 1!"
+
+[sub_resource type="BTConsolePrint" id="BTConsolePrint_uv11o"]
+text = "npc idle state 2!"
+
+[sub_resource type="BTSequence" id="BTSequence_b7o4p"]
+children = [SubResource("BTConsolePrint_vo1qm"), SubResource("BTConsolePrint_uv11o")]
+
+[sub_resource type="BTSelector" id="BTSelector_e6vry"]
+children = [SubResource("BTSequence_b7o4p")]
+
+[resource]
+blackboard_plan = SubResource("BlackboardPlan_safos")
+root_task = SubResource("BTSelector_e6vry")

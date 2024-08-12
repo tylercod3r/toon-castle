@@ -11,6 +11,5 @@ func action() -> void:
 	get_tree().current_scene.add_child(balloon)
 	balloon.start(dialogue_resource, dialogue_start)
 
-
 func _on_child_exiting_tree(node: Node) -> void:
 	print("child exiting!")

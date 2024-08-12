@@ -1,18 +1,20 @@
-extends Node3D
+extends Node
 
+#region VARIABLE
 @export var guard_keys:Node3D
+#@export var points_of_interest:Array[Node3D] = []
+#endregion
 
-
-func handle_guard_keys_found() -> void:
-	guard_keys.visible = false
-
-# Called when the node enters the scene tree for the first time.
+#region METHOD - NATIVE
 func _ready() -> void:
 	SignalManager.guard_keys_found.connect(handle_guard_keys_found)
+#endregion
 
-
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+#region METHOD - SIGNAL
+func handle_guard_keys_found() -> void:
+	#TODO - investigate why this signal gets received twice
+	#print("guard keys found....")
+	
+	if guard_keys:
+		guard_keys.visible = false
+#endregion

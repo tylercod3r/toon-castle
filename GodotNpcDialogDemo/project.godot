@@ -20,14 +20,11 @@ config/icon="res://icon.svg"
 State="*res://scripts/state.gd"
 SignalManager="*res://scripts/signal_manager.gd"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
+PropManager="*res://scripts/prop_manager.gd"
 
 [dialogue_manager]
 
 general/balloon_path="res://dialog/balloon.tscn"
-
-[display]
-
-window/size/mode=2
 
 [editor_plugins]
 
