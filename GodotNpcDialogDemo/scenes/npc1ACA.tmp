@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://bcysrvsh73xhp"]
+
+[ext_resource type="Script" path="res://scripts/npc.gd" id="1_fnn53"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_cqg44"]
+radius = 1.0
+
+[node name="NPC" type="CharacterBody3D"]
+script = ExtResource("1_fnn53")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_cqg44")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+target_desired_distance = 3.0
+path_height_offset = 0.1
+radius = 1.0
+
+[node name="WanderResumeDelayTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[node name="PointOfInterestDurationTimer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+
+[connection signal="target_reached" from="NavigationAgent3D" to="." method="_on_navigation_agent_3d_target_reached"]
+[connection signal="timeout" from="WanderResumeDelayTimer" to="." method="_on_wander_resume_delay_timer_timeout"]
+[connection signal="timeout" from="PointOfInterestDurationTimer" to="." method="_on_point_of_interest_duration_timer_timeout"]

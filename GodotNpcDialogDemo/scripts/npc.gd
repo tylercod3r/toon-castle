@@ -64,7 +64,7 @@ func _ready() -> void:
 	_init_state_machine()
 	set_current_state(NPC_STATE.IDLE)
 #endregion
-	
+
 #region METHOD - GET / SET
 func set_target(target_position:Vector3) -> void:
 	navigation_agent_3d.target_position = target_position
@@ -81,6 +81,11 @@ func get_random_point_of_interest()->Vector3:
 	last_point_of_interest_index = random_index
 
 	return points_of_interest[random_index].global_position
+	
+func set_random_point_of_interest() -> void:
+	# target
+	wander_target = get_random_point_of_interest()
+	set_target(wander_target)
 	
 func is_player_nearby() -> bool:
 	var distance = global_position.distance_to(player.global_position)
@@ -105,8 +110,6 @@ func set_current_state(newState:NPC_STATE) -> void:
 			hsm.dispatch(&"visiting_point_of_interest_started")
 		NPC_STATE.CELEBRATE:
 			hsm.dispatch(&"celebrate_started")
-	
-	#current_state = newState
 
 func _init_state_machine() -> void:
 	hsm = LimboHSM.new()
@@ -146,6 +149,9 @@ func _init_state_machine() -> void:
 	hsm.set_active(true)
 
 func idle_state_ready() -> void:
+	# target
+	set_random_point_of_interest()
+	
 	# timer
 	wander_resume_delay_timer.stop()
 	wander_resume_delay_timer.start()
@@ -157,13 +163,6 @@ func idle_state_physics_process(_delta:float) -> void:
 func _wander_state_ready() -> void:
 	# timer
 	point_of_interest_duration_timer.stop()
-	
-	# target
-	if last_point_of_interest_index == INVALID_INDEX:
-		wander_target = get_random_point_of_interest()
-	else:
-		wander_target = points_of_interest[last_point_of_interest_index].global_position
-	set_target(wander_target)
 
 func _wander_state_physics_process(_delta:float) -> void:
 	# velocity
@@ -198,9 +197,6 @@ func _wander_resumed_state_ready() -> void:
 	# target
 	wander_target = points_of_interest[last_point_of_interest_index].global_position
 	set_target(wander_target)
-	
-	# reset index
-	last_point_of_interest_index = INVALID_INDEX
 	
 	# state
 	set_current_state(NPC_STATE.WANDER)
@@ -251,6 +247,9 @@ func _on_wander_resume_delay_timer_timeout() -> void:
 		set_current_state(NPC_STATE.WANDER)
 
 func _on_point_of_interest_duration_timer_timeout() -> void:
+	# target
+	set_random_point_of_interest()
+	
 	# state
 	set_current_state(NPC_STATE.WANDER)
 #endregion
