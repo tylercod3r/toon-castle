@@ -34,7 +34,7 @@ enum NPC_STATE {
 
 # exports
 @export var points_of_interest:Array[Node3D] = []
-@export var player_awareness_range := 2.0 
+@export var player_awareness_range := 3.0 
 
 # variables
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -138,6 +138,7 @@ func _init_state_machine() -> void:
 
 	hsm.add_transition(wander_state, visiting_point_of_interest_state, &"visiting_point_of_interest_started")
 	hsm.add_transition(visiting_point_of_interest_state, wander_state, &"wander_started")
+	hsm.add_transition(visiting_point_of_interest_state, player_spotted_state, &"player_spotted")
 
 	hsm.add_transition(hsm.ANYSTATE, celebrate_state, &"celebrate_started")
 
@@ -208,9 +209,22 @@ func _visiting_point_of_interest_state_ready() -> void:
 	# timer
 	point_of_interest_duration_timer.start()
 
-func _visiting_point_of_interest_state_physics_process(_delta:float) -> void:
+func _visiting_point_of_interest_state_physics_process(delta:float) -> void:
+	# rotate
+	#var targe:Vector3 = navigation_agent_3d.get_next_path_position()
+	look_at(navigation_agent_3d.get_next_path_position())
+	#var SMOOTH_SPEED := 2.0
+	#rotation.y = lerp_angle(rotation.y, atan2(-targe.x, -targe.z), delta * SMOOTH_SPEED)
+	
 	# animate
 	animation_player.play(ANIM_IDLE)
+	
+	if is_player_nearby():
+		# timer
+		point_of_interest_duration_timer.stop()
+		
+		# state
+		set_current_state(NPC_STATE.PLAYER_SPOTTED)
 
 func _celebrate_state_ready() -> void:
 	# target
@@ -234,8 +248,6 @@ func handle_guard_keys_returned() -> void:
 func _on_navigation_agent_3d_target_reached() -> void:
 	# state
 	set_current_state(NPC_STATE.VISITING_POINT_OF_INTEREST)
-	#if current_state != NPC_STATE.CELEBRATE && current_state != NPC_STATE.PLAYER_SPOTTED && current_state != NPC_STATE.VISITING_POINT_OF_INTEREST:
-		#set_current_state(NPC_STATE.VISITING_POINT_OF_INTEREST)
 	
 func _on_wander_resume_delay_timer_timeout() -> void:
 	# state
