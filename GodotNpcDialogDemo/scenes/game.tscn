@@ -316,7 +316,7 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -21.5,
 
 [node name="NPC_Guard" parent="NPCs" node_paths=PackedStringArray("points_of_interest") instance=ExtResource("6_gv8xp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.5, 17.8)
-points_of_interest = [NodePath("../../NavigationRegion3D/Props/shelf_small_candles4"), NodePath("../../NavigationRegion3D/Props/shelf_small_candles2"), NodePath("../../NavigationRegion3D/Props/shelf_small_candles3")]
+points_of_interest = [NodePath("../../NavigationRegion3D/Props/shelf_small_candles4"), NodePath("../../NavigationRegion3D/Props/shelf_small_candles2"), NodePath("../../NavigationRegion3D/Props/table_medium_tablecloth2")]
 
 [node name="Actionable" parent="NPCs/NPC_Guard" instance=ExtResource("4_in3em")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -0.3)
