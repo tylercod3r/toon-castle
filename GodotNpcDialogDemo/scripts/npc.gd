@@ -252,10 +252,16 @@ func _on_navigation_agent_3d_target_reached() -> void:
 func _on_wander_resume_delay_timer_timeout() -> void:
 	# state
 	if is_player_nearby():
+		# timer
+		wander_resume_delay_timer.start()
+		
+		# state
 		set_current_state(NPC_STATE.PLAYER_SPOTTED)
 	elif hsm.get_active_state() == player_spotted_state:
+		# state
 		set_current_state(NPC_STATE.WANDER_RESUME)
 	else:
+		# state
 		set_current_state(NPC_STATE.WANDER)
 
 func _on_point_of_interest_duration_timer_timeout() -> void:
