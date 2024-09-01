@@ -131,6 +131,7 @@ func _init_state_machine() -> void:
 	
 	hsm.add_transition(idle_state, wander_state, &"wander_started")
 	hsm.add_transition(player_spotted_state, wander_resumed_state, &"wander_resumed")
+	hsm.add_transition(celebrate_state, wander_resumed_state, &"wander_resumed")
 	
 	hsm.add_transition(wander_state, idle_state, &"wander_ended")
 	hsm.add_transition(wander_state, player_spotted_state, &"player_spotted")
@@ -231,8 +232,8 @@ func _celebrate_state_ready() -> void:
 	set_target(global_position)
 	
 	# timer
-	point_of_interest_duration_timer.stop()
-	wander_resume_delay_timer.stop()
+	#point_of_interest_duration_timer.stop()
+	#wander_resume_delay_timer.stop()
 	wander_resume_delay_timer.start()
 
 func _celebrate_state_physics_process(_delta:float) -> void:
@@ -247,17 +248,21 @@ func handle_guard_keys_returned() -> void:
 
 func _on_navigation_agent_3d_target_reached() -> void:
 	# state
-	set_current_state(NPC_STATE.VISITING_POINT_OF_INTEREST)
+	if hsm.get_active_state() == celebrate_state:
+		pass
+	else:
+		set_current_state(NPC_STATE.VISITING_POINT_OF_INTEREST)
 	
 func _on_wander_resume_delay_timer_timeout() -> void:
 	# state
+	var current_state = hsm.get_active_state()
 	if is_player_nearby():
 		# timer
 		wander_resume_delay_timer.start()
 		
 		# state
 		set_current_state(NPC_STATE.PLAYER_SPOTTED)
-	elif hsm.get_active_state() == player_spotted_state:
+	elif current_state == player_spotted_state || current_state == celebrate_state:
 		# state
 		set_current_state(NPC_STATE.WANDER_RESUME)
 	else:
