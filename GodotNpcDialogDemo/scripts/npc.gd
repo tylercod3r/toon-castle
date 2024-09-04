@@ -275,10 +275,6 @@ func _on_point_of_interest_duration_timer_timeout() -> void:
 #region METHOD - LOOK AT
 # https://www.reddit.com/r/godot/comments/17oy7t1/3d_look_at_the_player_without_using_the_look_at/?rdt=49445
 func look_at_fixed(target:Vector3) -> void:
-	var direction = (target - position).normalized()
-	velocity.x = direction.x * SPEED
-	velocity.z = direction.z * SPEED
-
-	var angle = atan2(direction.x,direction.z) + PI
-	rotation.y = angle
+	target.y = position.y
+	look_at(target)
 #endregion
