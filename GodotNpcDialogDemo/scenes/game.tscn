@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://dv34grx13fm0i"]
+[gd_scene load_steps=48 format=3 uid="uid://dv34grx13fm0i"]
 
 [ext_resource type="Material" uid="uid://b5r8ed3gn67r3" path="res://assets/materials/gray_material.tres" id="1_clowl"]
 [ext_resource type="PackedScene" uid="uid://4ggwo7028pus" path="res://scenes/player.tscn" id="2_78tvg"]
@@ -38,6 +38,10 @@
 [ext_resource type="PackedScene" uid="uid://b0hsurdg3ygxt" path="res://assets/_packs/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/table_small.gltf" id="29_n5hva"]
 [ext_resource type="PackedScene" uid="uid://bimmgvpljncsp" path="res://assets/_packs/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/banner_patternA_green.gltf" id="30_dfkxc"]
 [ext_resource type="PackedScene" uid="uid://c4ihfmaryedks" path="res://assets/_packs/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/keyring.gltf" id="32_tclln"]
+[ext_resource type="PackedScene" uid="uid://bw0bdo050f31l" path="res://scenes/npc_mousey.tscn" id="39_qw8wc"]
+[ext_resource type="Resource" uid="uid://b31qyiubykhg" path="res://dialog/mousey.dialogue" id="40_hf7pk"]
+[ext_resource type="PackedScene" uid="uid://ck4fumxdq2amg" path="res://scenes/npc_doozy.tscn" id="41_3itm7"]
+[ext_resource type="Resource" uid="uid://47sk12gbq03t" path="res://dialog/doozy.dialogue" id="42_oxwlj"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jpkjb"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -65,9 +69,10 @@ radius = 0.75
 
 [node name="Game" type="Node3D"]
 
-[node name="PropManager" type="Node" parent="." node_paths=PackedStringArray("guard_keys")]
+[node name="PropManager" type="Node" parent="." node_paths=PackedStringArray("guard_keys", "cheese")]
 script = ExtResource("3_gymjj")
 guard_keys = NodePath("../NavigationRegion3D/Props/keyring2")
+cheese = NodePath("../NavigationRegion3D/Props/coin_stack_large2")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_fcvw4")
@@ -280,6 +285,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.9, 0.5, 19.3)
 [node name="table_medium_tablecloth3" parent="NavigationRegion3D/Props" instance=ExtResource("7_qwpcq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4, 0.5, -3.8)
 
+[node name="Actionable" parent="NavigationRegion3D/Props/table_medium_tablecloth3" instance=ExtResource("4_in3em")]
+transform = Transform3D(-0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, -0.866025, -0.9, 0, 0)
+dialogue_resource = ExtResource("40_hf7pk")
+dialogue_start = "find_keys"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Props/table_medium_tablecloth3/Actionable"]
+shape = SubResource("SphereShape3D_lpo8b")
+
 [node name="wall_broken2" parent="NavigationRegion3D/Props" instance=ExtResource("18_qajqk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.4, 0.5, 10.6)
 
@@ -325,6 +338,29 @@ dialogue_resource = ExtResource("5_62h3g")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NPCs/NPC_Guard/Actionable"]
 shape = SubResource("SphereShape3D_lpo8b")
 
+[node name="NPC_Mousey" parent="NPCs" node_paths=PackedStringArray("points_of_interest") instance=ExtResource("39_qw8wc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 9.9)
+points_of_interest = [NodePath("../../NavigationRegion3D/Props/shelf_small_candles4"), NodePath("../../NavigationRegion3D/Props/shelf_small_candles2"), NodePath("../../NavigationRegion3D/Props/table_medium_tablecloth2")]
+
+[node name="Actionable" parent="NPCs/NPC_Mousey" instance=ExtResource("4_in3em")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -0.3)
+dialogue_resource = ExtResource("40_hf7pk")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NPCs/NPC_Mousey/Actionable"]
+shape = SubResource("SphereShape3D_lpo8b")
+
+[node name="NPC_Doozy" parent="NPCs" node_paths=PackedStringArray("points_of_interest") instance=ExtResource("41_3itm7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0.5, 15)
+points_of_interest = [NodePath("../../NavigationRegion3D/Props/shelf_small_candles4"), NodePath("../../NavigationRegion3D/Props/shelf_small_candles2"), NodePath("../../NavigationRegion3D/Props/table_medium_tablecloth2")]
+
+[node name="Actionable" parent="NPCs/NPC_Doozy" instance=ExtResource("4_in3em")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -0.3)
+dialogue_resource = ExtResource("42_oxwlj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NPCs/NPC_Doozy/Actionable"]
+shape = SubResource("SphereShape3D_lpo8b")
+
+[connection signal="child_exiting_tree" from="NavigationRegion3D/Props/table_medium_tablecloth3/Actionable" to="NavigationRegion3D/Props/table_medium_tablecloth3/Actionable" method="_on_child_exiting_tree"]
 [connection signal="child_exiting_tree" from="NavigationRegion3D/Props/table_small2/Actionable" to="NavigationRegion3D/Props/table_small2/Actionable" method="_on_child_exiting_tree"]
 
 [editable path="Player"]

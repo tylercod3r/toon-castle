@@ -1,26 +1,27 @@
 ~ start
 
-Mousey: Cheese Please!
-#if State.apple_status == "has":
-#	You: I have an apple.
-#	- Give to Nathan
-#		set State.apple_status = "gave"
-#		You: Here you go.
-#		Mousey: Thanks.
-#	- Keep it
-#		You: But it's mine.
-#		Mousey: Fair enough.
-#elif State.apple_status == "gave":
-#	Mousey: Thanks for the apple.
-#else:
-#	Mousey: I sure wish I had an apple. I guess there's an apple tree around here somewhere. 
+if State.cheese_status == "has":
+	You: I found your cheese!
+	- Give to Mousey
+		set State.cheese_status = "gave"
+		You: Here you go.
+		Mousey: Thanks!
+	- Keep it
+		You: Not today!
+		Mousey: Oh, I knew you it! My cheese is lost forever!
+elif State.cheese_status == "gave":
+	Mousey: Thanks for finding my cheese!
+else:
+	Mousey: I've lost my cheese!
+	Mousey: Have you seen my cheese? 
 
 => END
 
-~ pick_apple
+~ find_keys
 
-You: It's an apple tree.
-You: I'll just take one.
-set State.apple_status = "has"
+if State.cheese_status != "has" && State.cheese_status != "gave":
+	You: It's Mousey's cheese!
+	You: I should return it to him!
+	set State.cheese_status = "has"
 
 => END

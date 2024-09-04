@@ -200,7 +200,12 @@ func _on_balloon_focus_exited() -> void:
 		"You":
 			if dialogue_line.text == "I should return them!":
 				SignalManager.handleGuardkeysFound()
+			elif dialogue_line.text == "I should return it to him!":
+				SignalManager.handleCheeseFound()
 		"Guard":
 			if dialogue_line.text == "Thanks!" || dialogue_line.text == "Thanks for finding my keys!":
 				SignalManager.handleGuardkeysReturned()
+		"Mousey":
+			if dialogue_line.text == "Thanks!" || dialogue_line.text == "Thanks for finding my cheese!":
+				SignalManager.handleCheeseReturned()
 	#endregion

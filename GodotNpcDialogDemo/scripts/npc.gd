@@ -174,7 +174,7 @@ func _wander_state_physics_process(_delta:float) -> void:
 	velocity = velocity.move_toward(new_velocity, 0.25)
 	
 	# rotate
-	look_at(next_location)
+	look_at_fixed(next_location)
 	
 	# animate
 	animation_player.play(ANIM_WALKING)
@@ -190,8 +190,8 @@ func _player_spotted_state_ready() -> void:
 
 func _player_spotted_state_physics_process(_delta:float) -> void:
 	# rotate
-	look_at(player.global_position)
-	
+	look_at_fixed(player.position)
+
 	# animate
 	animation_player.play(ANIM_WAVING)
 
@@ -212,10 +212,7 @@ func _visiting_point_of_interest_state_ready() -> void:
 
 func _visiting_point_of_interest_state_physics_process(delta:float) -> void:
 	# rotate
-	#var targe:Vector3 = navigation_agent_3d.get_next_path_position()
-	look_at(navigation_agent_3d.get_next_path_position())
-	#var SMOOTH_SPEED := 2.0
-	#rotation.y = lerp_angle(rotation.y, atan2(-targe.x, -targe.z), delta * SMOOTH_SPEED)
+	look_at_fixed(navigation_agent_3d.get_next_path_position())
 	
 	# animate
 	animation_player.play(ANIM_IDLE)
@@ -232,8 +229,6 @@ func _celebrate_state_ready() -> void:
 	set_target(global_position)
 	
 	# timer
-	#point_of_interest_duration_timer.stop()
-	#wander_resume_delay_timer.stop()
 	wander_resume_delay_timer.start()
 
 func _celebrate_state_physics_process(_delta:float) -> void:
@@ -275,4 +270,15 @@ func _on_point_of_interest_duration_timer_timeout() -> void:
 	
 	# state
 	set_current_state(NPC_STATE.WANDER)
+#endregion
+
+#region METHOD - LOOK AT
+# https://www.reddit.com/r/godot/comments/17oy7t1/3d_look_at_the_player_without_using_the_look_at/?rdt=49445
+func look_at_fixed(target:Vector3) -> void:
+	var direction = (target - position).normalized()
+	velocity.x = direction.x * SPEED
+	velocity.z = direction.z * SPEED
+
+	var angle = atan2(direction.x,direction.z) + PI
+	rotation.y = angle
 #endregion
