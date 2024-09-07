@@ -1,15 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://cseivp01edlt7"]
+[gd_scene load_steps=6 format=3 uid="uid://cseivp01edlt7"]
 
 [ext_resource type="PackedScene" uid="uid://bcysrvsh73xhp" path="res://scenes/npc.tscn" id="1_mjmy5"]
+[ext_resource type="Script" path="res://scripts/npc_guard.gd" id="2_b8ov6"]
 [ext_resource type="PackedScene" uid="uid://dwouvx6kj2yav" path="res://assets/meshes/guard.gltf" id="2_wu74o"]
 [ext_resource type="BehaviorTree" uid="uid://b7ynvq672yc0b" path="res://ai/trees/npc_move_state.tres" id="3_70c7e"]
 
 [sub_resource type="BlackboardPlan" id="BlackboardPlan_irw7q"]
 
 [node name="NPC_Guard" instance=ExtResource("1_mjmy5")]
-
-[node name="NavigationAgent3D" parent="." index="1"]
-height = 2.0
+script = ExtResource("2_b8ov6")
 
 [node name="Mesh" parent="." index="4" instance=ExtResource("2_wu74o")]
 transform = Transform3D(-0.01, 0, -8.74228e-10, 0, 0.01, 0, 8.74228e-10, 0, -0.01, 0, 1.06, 0)

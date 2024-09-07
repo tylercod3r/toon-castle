@@ -1,12 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://bw0bdo050f31l"]
+[gd_scene load_steps=6 format=3 uid="uid://bw0bdo050f31l"]
 
 [ext_resource type="PackedScene" uid="uid://bcysrvsh73xhp" path="res://scenes/npc.tscn" id="1_m73y3"]
+[ext_resource type="Script" path="res://scripts/npc_mousey.gd" id="2_stxcf"]
 [ext_resource type="PackedScene" uid="uid://cvwelq0h80ci7" path="res://assets/meshes/mousey.gltf" id="3_jn788"]
 [ext_resource type="BehaviorTree" uid="uid://b7ynvq672yc0b" path="res://ai/trees/npc_move_state.tres" id="3_kmctr"]
 
 [sub_resource type="BlackboardPlan" id="BlackboardPlan_p6x7p"]
 
 [node name="NPC_Mousey" instance=ExtResource("1_m73y3")]
+script = ExtResource("2_stxcf")
 
 [node name="Mesh" parent="." index="4" instance=ExtResource("3_jn788")]
 transform = Transform3D(-0.01, 0, 8.74228e-10, 0, 0.01, 0, -8.74228e-10, 0, -0.01, 0, 0.67, 0)

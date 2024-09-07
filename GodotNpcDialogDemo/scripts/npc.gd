@@ -1,6 +1,5 @@
 extends CharacterBody3D
-
-class_name NPC
+class_name Npc
 
 #region VARIABLE
 # constants
@@ -54,11 +53,11 @@ var celebrate_state:LimboState
 
 #region METHOD - NATIVE
 func _ready() -> void:
+	init()
+	
+func init() -> void:
 	# reference
 	player = get_tree().get_first_node_in_group("player")
-	
-	# signals
-	SignalManager.guard_keys_returned.connect(handle_guard_keys_returned)
 	
 	# state
 	_init_state_machine()
@@ -181,8 +180,8 @@ func _wander_state_physics_process(_delta:float) -> void:
 	move_and_slide()
 	
 	# state
-	if is_player_nearby():
-		set_current_state(NPC_STATE.PLAYER_SPOTTED)
+	#if is_player_nearby():
+		#set_current_state(NPC_STATE.PLAYER_SPOTTED)
 
 func _player_spotted_state_ready() -> void:
 	# timer
@@ -217,12 +216,12 @@ func _visiting_point_of_interest_state_physics_process(delta:float) -> void:
 	# animate
 	animation_player.play(ANIM_IDLE)
 	
-	if is_player_nearby():
-		# timer
-		point_of_interest_duration_timer.stop()
-		
-		# state
-		set_current_state(NPC_STATE.PLAYER_SPOTTED)
+	#if is_player_nearby():
+		## timer
+		#point_of_interest_duration_timer.stop()
+		#
+		## state
+		#set_current_state(NPC_STATE.PLAYER_SPOTTED)
 
 func _celebrate_state_ready() -> void:
 	# target
@@ -237,10 +236,6 @@ func _celebrate_state_physics_process(_delta:float) -> void:
 #endregion
 
 #region METHOD - SIGNAL
-func handle_guard_keys_returned() -> void:
-	# state
-	set_current_state(NPC_STATE.CELEBRATE)
-
 func _on_navigation_agent_3d_target_reached() -> void:
 	# state
 	if hsm.get_active_state() == celebrate_state:
@@ -251,13 +246,13 @@ func _on_navigation_agent_3d_target_reached() -> void:
 func _on_wander_resume_delay_timer_timeout() -> void:
 	# state
 	var current_state = hsm.get_active_state()
-	if is_player_nearby():
-		# timer
-		wander_resume_delay_timer.start()
-		
-		# state
-		set_current_state(NPC_STATE.PLAYER_SPOTTED)
-	elif current_state == player_spotted_state || current_state == celebrate_state:
+	#if is_player_nearby():
+		## timer
+		#wander_resume_delay_timer.start()
+		#
+		## state
+		#set_current_state(NPC_STATE.PLAYER_SPOTTED)
+	if current_state == player_spotted_state || current_state == celebrate_state:
 		# state
 		set_current_state(NPC_STATE.WANDER_RESUME)
 	else:
