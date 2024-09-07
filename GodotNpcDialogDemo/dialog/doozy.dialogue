@@ -1,26 +1,27 @@
 ~ start
 
 #Doozy: Hi world!
-if State.apple_status == "has":
-	You: I have an apple.
+if State.bottle_status == "has":
+	You: I think I found your wine!
 	- Give to Doozy
-		set State.apple_status = "gave"
+		set State.bottle_status = "gave"
 		You: Here you go.
-		Doozy: Thanks!
+		Doozy: Hooray!
 	- Keep it
 		You: But it's mine.
 		Doozy: Fair enough.
-elif State.apple_status == "gave":
-	Doozy: Thanks for the apple!
+elif State.bottle_status == "gave":
+	Doozy:  "La, La, La! Do! Da! Di!"
 else:
-	Doozy: I sure wish I had an apple. I guess there's an apple tree around here somewhere. 
+	Doozy: Have you seen my missing wine bottle?
+	Doozy: It's green with a white label, and is so yummy!
 
 => END
 
-~ pick_apple
+~ find_bottle
 
-You: It's an apple tree.
-You: I'll just take one.
-set State.apple_status = "has"
+You: According to the label, this is delicious wine!
+You: Could this belong to Doozy?
+set State.bottle_status = "has"
 
 => END

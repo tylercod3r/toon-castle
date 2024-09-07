@@ -1,12 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://ck4fumxdq2amg"]
+[gd_scene load_steps=6 format=3 uid="uid://ck4fumxdq2amg"]
 
 [ext_resource type="PackedScene" uid="uid://bcysrvsh73xhp" path="res://scenes/npc.tscn" id="1_t8keb"]
+[ext_resource type="Script" path="res://scripts/npc_doozy.gd" id="2_yjyva"]
 [ext_resource type="BehaviorTree" uid="uid://b7ynvq672yc0b" path="res://ai/trees/npc_move_state.tres" id="3_2veie"]
 [ext_resource type="PackedScene" uid="uid://byhn4q0onumqh" path="res://assets/meshes/doozy.gltf" id="3_4487k"]
 
 [sub_resource type="BlackboardPlan" id="BlackboardPlan_ps3i1"]
 
 [node name="NPC_Doozy" instance=ExtResource("1_t8keb")]
+script = ExtResource("2_yjyva")
 
 [node name="Mesh" parent="." index="4" instance=ExtResource("3_4487k")]
 transform = Transform3D(-0.01, 0, 8.74228e-10, 0, 0.01, 0, -8.74228e-10, 0, -0.01, 0, 0.81, 0)
