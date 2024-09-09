@@ -16,7 +16,8 @@ const ANIM_DANCING := "Dancing0"
 enum NPC_STATE {
 	IDLE,
 	WANDER, 
-	PLAYER_SPOTTED,
+	CONVERSE_WITH_PLAYER,
+	CONVERSE_WITH_PLAYER_ENDED,
 	WANDER_RESUME, 
 	VISITING_POINT_OF_INTEREST,
 	CELEBRATE
@@ -45,7 +46,8 @@ var last_point_of_interest_index:int = INVALID_INDEX
 var hsm:LimboHSM
 var idle_state:LimboState
 var wander_state:LimboState
-var player_spotted_state:LimboState
+var converse_with_player_state:LimboState
+var converse_with_player_ended_state:LimboState
 var wander_resumed_state:LimboState
 var visiting_point_of_interest_state:LimboState
 var celebrate_state:LimboState
@@ -103,8 +105,10 @@ func set_current_state(newState:NPC_STATE) -> void:
 			hsm.dispatch(&"wander_started")
 		NPC_STATE.WANDER_RESUME:
 			hsm.dispatch(&"wander_resumed")
-		NPC_STATE.PLAYER_SPOTTED:
-			hsm.dispatch(&"player_spotted")
+		NPC_STATE.CONVERSE_WITH_PLAYER:
+			hsm.dispatch(&"converse_with_player")
+		NPC_STATE.CONVERSE_WITH_PLAYER_ENDED:
+			hsm.dispatch(&"converse_with_player_ended")
 		NPC_STATE.VISITING_POINT_OF_INTEREST:
 			hsm.dispatch(&"visiting_point_of_interest_started")
 		NPC_STATE.CELEBRATE:
@@ -116,36 +120,43 @@ func _init_state_machine() -> void:
 	
 	idle_state = LimboState.new().named(str(NPC_STATE.IDLE)).call_on_enter(idle_state_ready).call_on_update(idle_state_physics_process)
 	wander_state = LimboState.new().named(str(NPC_STATE.WANDER)).call_on_enter(_wander_state_ready).call_on_update(_wander_state_physics_process)
-	player_spotted_state = LimboState.new().named(str(NPC_STATE.PLAYER_SPOTTED)).call_on_enter(_player_spotted_state_ready).call_on_update(_player_spotted_state_physics_process)
+	converse_with_player_state = LimboState.new().named(str(NPC_STATE.CONVERSE_WITH_PLAYER)).call_on_enter(_converse_with_player_state_ready).call_on_update(_converse_with_player_state_physics_process)
+	converse_with_player_ended_state = LimboState.new().named(str(NPC_STATE.CONVERSE_WITH_PLAYER_ENDED)).call_on_enter(_converse_with_player_ended_state_ready).call_on_update(_converse_with_player_ended_state_physics_process)
 	wander_resumed_state = LimboState.new().named(str(NPC_STATE.WANDER_RESUME)).call_on_enter(_wander_resumed_state_ready).call_on_update(_wander_resumed_state_physics_process)
 	visiting_point_of_interest_state = LimboState.new().named(str(NPC_STATE.VISITING_POINT_OF_INTEREST)).call_on_enter(_visiting_point_of_interest_state_ready).call_on_update(_visiting_point_of_interest_state_physics_process)
 	celebrate_state = LimboState.new().named(str(NPC_STATE.CELEBRATE)).call_on_enter(_celebrate_state_ready).call_on_update(_celebrate_state_physics_process)
 	
 	hsm.add_child(idle_state)
 	hsm.add_child(wander_state)
-	hsm.add_child(player_spotted_state)
+	hsm.add_child(converse_with_player_state)
+	hsm.add_child(converse_with_player_ended_state)
 	hsm.add_child(wander_resumed_state)
 	hsm.add_child(visiting_point_of_interest_state)
 	hsm.add_child(celebrate_state)
 	
 	hsm.add_transition(idle_state, wander_state, &"wander_started")
-	hsm.add_transition(player_spotted_state, wander_resumed_state, &"wander_resumed")
+	hsm.add_transition(hsm.ANYSTATE, idle_state, &"state_ended")
+
+	hsm.add_transition(converse_with_player_state, wander_resumed_state, &"wander_resumed")	
+	hsm.add_transition(converse_with_player_state, converse_with_player_ended_state, &"converse_with_player_ended")
+	
+	hsm.add_transition(converse_with_player_ended_state, wander_resumed_state, &"wander_resumed")
+	hsm.add_transition(converse_with_player_ended_state, converse_with_player_state, &"converse_with_player")
+	
 	hsm.add_transition(celebrate_state, wander_resumed_state, &"wander_resumed")
+	hsm.add_transition(hsm.ANYSTATE, celebrate_state, &"celebrate_started")
 	
 	hsm.add_transition(wander_state, idle_state, &"wander_ended")
-	hsm.add_transition(wander_state, player_spotted_state, &"player_spotted")
+	hsm.add_transition(wander_state, converse_with_player_state, &"converse_with_player")
+	hsm.add_transition(wander_state, visiting_point_of_interest_state, &"visiting_point_of_interest_started")
+
 	hsm.add_transition(wander_resumed_state, wander_state, &"wander_started")
 
-	hsm.add_transition(wander_state, visiting_point_of_interest_state, &"visiting_point_of_interest_started")
 	hsm.add_transition(visiting_point_of_interest_state, wander_state, &"wander_started")
-	hsm.add_transition(visiting_point_of_interest_state, player_spotted_state, &"player_spotted")
+	hsm.add_transition(visiting_point_of_interest_state, converse_with_player_state, &"converse_with_player")
 
-	hsm.add_transition(hsm.ANYSTATE, celebrate_state, &"celebrate_started")
-
-	hsm.add_transition(hsm.ANYSTATE, idle_state, &"state_ended")
-	
 	hsm.initial_state = idle_state
-	
+
 	hsm.initialize(self)
 	hsm.set_active(true)
 
@@ -181,18 +192,26 @@ func _wander_state_physics_process(_delta:float) -> void:
 	
 	# state
 	#if is_player_nearby():
-		#set_current_state(NPC_STATE.PLAYER_SPOTTED)
+		#set_current_state(NPC_STATE.CONVERSE_WITH_PLAYER)
 
-func _player_spotted_state_ready() -> void:
+func _converse_with_player_state_ready() -> void:
+	# timer
+	wander_resume_delay_timer.stop()
+	
+	# animate
+	animation_player.play(ANIM_WAVING)
+
+func _converse_with_player_state_physics_process(_delta:float) -> void:
+	# rotate
+	look_at_fixed(player.position)
+	
+func _converse_with_player_ended_state_ready() -> void:
 	# timer
 	wander_resume_delay_timer.start()
 
-func _player_spotted_state_physics_process(_delta:float) -> void:
+func _converse_with_player_ended_state_physics_process(_delta:float) -> void:
 	# rotate
 	look_at_fixed(player.position)
-
-	# animate
-	animation_player.play(ANIM_WAVING)
 
 func _wander_resumed_state_ready() -> void:
 	# target
@@ -221,7 +240,7 @@ func _visiting_point_of_interest_state_physics_process(delta:float) -> void:
 		#point_of_interest_duration_timer.stop()
 		#
 		## state
-		#set_current_state(NPC_STATE.PLAYER_SPOTTED)
+		#set_current_state(NPC_STATE.CONVERSE_WITH_PLAYER)
 
 func _celebrate_state_ready() -> void:
 	# target
@@ -246,13 +265,16 @@ func _on_navigation_agent_3d_target_reached() -> void:
 func _on_wander_resume_delay_timer_timeout() -> void:
 	# state
 	var current_state = hsm.get_active_state()
+	
 	#if is_player_nearby():
 		## timer
 		#wander_resume_delay_timer.start()
-		#
+		
 		## state
-		#set_current_state(NPC_STATE.PLAYER_SPOTTED)
-	if current_state == player_spotted_state || current_state == celebrate_state:
+		#set_current_state(NPC_STATE.CONVERSE_WITH_PLAYER)
+	if current_state == converse_with_player_state:
+		return
+	elif current_state == converse_with_player_ended_state || current_state == celebrate_state:
 		# state
 		set_current_state(NPC_STATE.WANDER_RESUME)
 	else:
@@ -265,6 +287,18 @@ func _on_point_of_interest_duration_timer_timeout() -> void:
 	
 	# state
 	set_current_state(NPC_STATE.WANDER)
+
+func handle_spoken_to() -> void:
+	# state
+	set_current_state(NPC_STATE.CONVERSE_WITH_PLAYER)
+
+func handle_end_spoken_to() -> void:
+	## state
+	set_current_state(NPC_STATE.CONVERSE_WITH_PLAYER_ENDED)
+
+func handle_quest_item_returned() -> void:
+	# state
+	set_current_state(NPC_STATE.CELEBRATE)
 #endregion
 
 #region METHOD - LOOK AT

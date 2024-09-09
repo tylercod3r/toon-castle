@@ -4,13 +4,9 @@ class_name NpcGuard
 #region METHOD - NATIVE
 func _ready() -> void:
 	super()
-	
+
 	# signals
-	SignalManager.guard_keys_returned.connect(handle_guard_keys_returned)
-#endregion
-	
-#region METHOD - SIGNAL
-func handle_guard_keys_returned() -> void:
-	# state
-	set_current_state(NPC_STATE.CELEBRATE)
+	SignalManager.guard_spoken_to.connect(handle_spoken_to)
+	SignalManager.guard_end_spoken_to.connect(handle_end_spoken_to)
+	SignalManager.guard_keys_returned.connect(handle_quest_item_returned)
 #endregion

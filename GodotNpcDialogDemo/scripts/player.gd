@@ -39,9 +39,6 @@ func _input(event:InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
-
-
-
 # ty - what's diff b/n input and unhandled input?
 func _unhandled_input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("ui_accept"):
@@ -49,9 +46,6 @@ func _unhandled_input(event: InputEvent) -> void:
 		if actionables.size() > 0:
 			actionables[0].action()
 			return
-
-
-
 
 func handle_camera_rotation() -> void:
 	rotate_y(mouse_motion.x)

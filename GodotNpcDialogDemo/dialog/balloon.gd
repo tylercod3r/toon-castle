@@ -14,15 +14,8 @@ extends CanvasLayer
 @onready var responses_menu: DialogueResponsesMenu = %ResponsesMenu
 @onready var talk_sound: AudioStreamPlayer = $TalkSound
 
-
-
-
-
 var current_character:String
 var last_response:String
-
-
-
 
 ## The dialogue resource
 var resource: DialogueResource
@@ -109,11 +102,9 @@ func _ready() -> void:
 	if responses_menu.next_action.is_empty():
 		responses_menu.next_action = next_action
 
-
 func _unhandled_input(_event: InputEvent) -> void:
 	# Only the balloon is allowed to handle input while it's showing
 	get_viewport().set_input_as_handled()
-
 
 func _notification(what: int) -> void:
 	## Detect a change of locale and update the current dialogue line to show the new language
@@ -124,7 +115,6 @@ func _notification(what: int) -> void:
 		if visible_ratio < 1:
 			dialogue_label.skip_typing()
 
-
 ## Start some dialogue
 func start(dialogue_resource: DialogueResource, title: String, extra_game_states: Array = []) -> void:
 	temporary_game_states =  [self] + extra_game_states
@@ -132,15 +122,11 @@ func start(dialogue_resource: DialogueResource, title: String, extra_game_states
 	resource = dialogue_resource
 	self.dialogue_line = await resource.get_next_dialogue_line(title, temporary_game_states)
 
-
 ## Go to the next line
 func next(next_id: String) -> void:
 	self.dialogue_line = await resource.get_next_dialogue_line(next_id, temporary_game_states)
 
-
 #region Signals
-
-
 func _on_mutated(_mutation: Dictionary) -> void:
 	is_waiting_for_input = false
 	will_hide_balloon = true
@@ -149,7 +135,6 @@ func _on_mutated(_mutation: Dictionary) -> void:
 			will_hide_balloon = false
 			balloon.hide()
 	)
-
 
 func _on_balloon_gui_input(event: InputEvent) -> void:
 	# See if we need to skip typing of the dialogue
@@ -172,11 +157,8 @@ func _on_balloon_gui_input(event: InputEvent) -> void:
 	elif event.is_action_pressed(next_action) and get_viewport().gui_get_focus_owner() == balloon:
 		next(dialogue_line.next_id)
 
-
 func _on_responses_menu_response_selected(response: DialogueResponse) -> void:
 	next(response.next_id)
-
-
 #endregion
 
 func _on_dialogue_label_spoke(letter: String, letter_index: int, speed: float) -> void:
@@ -184,15 +166,8 @@ func _on_dialogue_label_spoke(letter: String, letter_index: int, speed: float) -
 		talk_sound.pitch_scale = randf_range(0.9, 1.1)
 		talk_sound.play()
 
-
-
-
-
-
-
-
+#region HACK - refactor below!
 func _on_balloon_focus_exited() -> void:
-	#region HACK - refactor below!
 	# print(current_character)
 	# print(dialogue_line.text)
 	
@@ -205,12 +180,31 @@ func _on_balloon_focus_exited() -> void:
 			elif dialogue_line.text == "Could this belong to Doozy?":
 				SignalManager.handleBottleFound()
 		"Guard":
+			SignalManager.handleGuardEndSpokenTo()
+			
+			
+			
+			
 			if dialogue_line.text == "Thanks!" || dialogue_line.text == "Thanks for finding my keys!":
 				SignalManager.handleGuardkeysReturned()
 		"Mousey":
+			SignalManager.handleMouseyEndSpokenTo()
+			
 			if dialogue_line.text == "Thanks!" || dialogue_line.text == "Thanks for finding my cheese!":
 				SignalManager.handleCheeseReturned()
 		"Doozy":
+			SignalManager.handleDoozyEndSpokenTo()
+			
 			if dialogue_line.text == "La, La, La! Do! Da! Di!" || dialogue_line.text == "Hooray!":
 				SignalManager.handleBottleReturned()
 	#endregion
+
+
+func _on_balloon_focus_entered() -> void:
+	match current_character:
+		"Guard":
+			SignalManager.handleGuardSpokeTo()
+		"Mousey":
+			SignalManager.handleMouseySpokeTo()
+		"Doozy":
+			SignalManager.handleDoozySpokeTo()

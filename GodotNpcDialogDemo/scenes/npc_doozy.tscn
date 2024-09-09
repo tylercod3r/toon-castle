@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://ck4fumxdq2amg"]
+[gd_scene load_steps=5 format=3 uid="uid://ck4fumxdq2amg"]
 
 [ext_resource type="PackedScene" uid="uid://bcysrvsh73xhp" path="res://scenes/npc.tscn" id="1_t8keb"]
 [ext_resource type="Script" path="res://scripts/npc_doozy.gd" id="2_yjyva"]
-[ext_resource type="BehaviorTree" uid="uid://b7ynvq672yc0b" path="res://ai/trees/npc_move_state.tres" id="3_2veie"]
 [ext_resource type="PackedScene" uid="uid://byhn4q0onumqh" path="res://assets/meshes/doozy.gltf" id="3_4487k"]
 
 [sub_resource type="BlackboardPlan" id="BlackboardPlan_ps3i1"]
@@ -62,7 +61,6 @@ bones/54/rotation = Quaternion(0.507533, 0.0205026, -0.0164631, 0.861231)
 bones/55/rotation = Quaternion(0.387674, 0.0226713, -0.00610643, 0.921498)
 
 [node name="BTPlayer" type="BTPlayer" parent="." index="5"]
-behavior_tree = ExtResource("3_2veie")
 blackboard_plan = SubResource("BlackboardPlan_ps3i1")
 
 [editable path="Mesh"]

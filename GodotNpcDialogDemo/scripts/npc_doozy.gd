@@ -4,13 +4,9 @@ class_name NpcDoozy
 #region METHOD - NATIVE
 func _ready() -> void:
 	super()
-	
+
 	# signals
-	SignalManager.bottle_returned.connect(handle_bottle_returned)
-#endregion
-	
-#region METHOD - SIGNAL
-func handle_bottle_returned() -> void:
-	# state
-	set_current_state(NPC_STATE.CELEBRATE)
+	SignalManager.doozy_spoken_to.connect(handle_spoken_to)
+	SignalManager.doozy_end_spoken_to.connect(handle_end_spoken_to)
+	SignalManager.bottle_returned.connect(handle_quest_item_returned)
 #endregion
