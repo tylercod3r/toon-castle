@@ -98,7 +98,7 @@ func set_current_state(newState:NPC_STATE) -> void:
 	#if newState == current_state:
 		#return
 	
-	print("STATE: ", NPC_STATE.keys()[newState])
+	# print("STATE: ", NPC_STATE.keys()[newState])
 	
 	match newState:
 		NPC_STATE.WANDER:
