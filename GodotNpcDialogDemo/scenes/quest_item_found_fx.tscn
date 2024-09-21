@@ -1,8 +1,8 @@
 [gd_scene load_steps=12 format=3 uid="uid://i3wrawk7qltj"]
 
 [sub_resource type="Curve" id="Curve_124x3"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
-point_count = 2
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.510929, 0), 0.0, 0.0, 0, 0, Vector2(0.911658, 1), 0.0, 0.0, 0, 0]
+point_count = 3
 
 [sub_resource type="CurveTexture" id="CurveTexture_a144b"]
 curve = SubResource("Curve_124x3")
@@ -55,6 +55,7 @@ turbulence_noise_strength = 16.45
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_knywl"]
 transparency = 1
 vertex_color_use_as_albedo = true
+metallic_specular = 0.0
 emission_enabled = true
 emission = Color(0, 0, 1, 1)
 emission_energy_multiplier = 12.4
@@ -66,6 +67,7 @@ distance_fade_mode = 2
 distance_fade_max_distance = 2.0
 
 [sub_resource type="SphereMesh" id="SphereMesh_8ndpk"]
+lightmap_size_hint = Vector2i(9, 9)
 material = SubResource("StandardMaterial3D_knywl")
 radius = 0.25
 
