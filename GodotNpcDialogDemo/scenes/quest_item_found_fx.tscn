@@ -1,0 +1,80 @@
+[gd_scene load_steps=12 format=3 uid="uid://i3wrawk7qltj"]
+
+[sub_resource type="Curve" id="Curve_124x3"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_a144b"]
+curve = SubResource("Curve_124x3")
+
+[sub_resource type="Curve" id="Curve_tnnmy"]
+min_value = -360.0
+max_value = 360.0
+_data = [Vector2(0, 360), 0.0, 0.0, 0, 0, Vector2(1, -360), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_se8dx"]
+curve = SubResource("Curve_tnnmy")
+
+[sub_resource type="Gradient" id="Gradient_csqkx"]
+offsets = PackedFloat32Array(0.06, 1)
+colors = PackedColorArray(0.2, 0.145098, 0.721569, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ow4cf"]
+gradient = SubResource("Gradient_csqkx")
+use_hdr = true
+
+[sub_resource type="Curve" id="Curve_pljj8"]
+_data = [Vector2(0.0409836, 0.972003), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_4asub"]
+curve = SubResource("Curve_pljj8")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_i6jcn"]
+angle_curve = SubResource("CurveTexture_se8dx")
+inherit_velocity_ratio = 0.24
+direction = Vector3(0, 1, 0)
+spread = 15.0
+initial_velocity_min = -1.75
+initial_velocity_max = 1.65
+angular_velocity_min = 7.34998
+angular_velocity_max = 7.34998
+gravity = Vector3(0, 0, 0)
+tangential_accel_min = 4.83
+tangential_accel_max = 4.83
+scale_min = 0.1
+scale_max = 0.2
+scale_curve = SubResource("CurveTexture_4asub")
+color_ramp = SubResource("GradientTexture1D_ow4cf")
+alpha_curve = SubResource("CurveTexture_a144b")
+hue_variation_min = -0.54
+hue_variation_max = 0.52
+turbulence_noise_strength = 16.45
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_knywl"]
+transparency = 1
+vertex_color_use_as_albedo = true
+emission_enabled = true
+emission = Color(0, 0, 1, 1)
+emission_energy_multiplier = 12.4
+rim_enabled = true
+rim = 0.4
+rim_tint = 0.7
+anisotropy = 1.0
+distance_fade_mode = 2
+distance_fade_max_distance = 2.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_8ndpk"]
+material = SubResource("StandardMaterial3D_knywl")
+radius = 0.25
+
+[node name="Node3D" type="Node3D"]
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+amount = 20
+speed_scale = 0.3
+explosiveness = 0.5
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_i6jcn")
+draw_pass_1 = SubResource("SphereMesh_8ndpk")
