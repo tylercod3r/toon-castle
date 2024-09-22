@@ -61,7 +61,7 @@ sky_material = SubResource("ProceduralSkyMaterial_jpkjb")
 [sub_resource type="Environment" id="Environment_fcvw4"]
 background_mode = 2
 sky = SubResource("Sky_10lns")
-tonemap_mode = 2
+tonemap_mode = 3
 glow_enabled = true
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_egof6"]
@@ -476,6 +476,9 @@ transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -1.00054, 0.644374, 4.8
 
 [node name="shelf_small_candles3" parent="World/NavigationRegion3D/Props" groups=["points_of_interest"] instance=ExtResource("5_e11a8")]
 transform = Transform3D(-6.55671e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.55671e-08, -21.1459, 0.644374, -3.24625)
+
+[node name="FlameParticles1" parent="World/NavigationRegion3D/Props/shelf_small_candles3" instance=ExtResource("46_q4a4r")]
+transform = Transform3D(-4.37114e-09, 0, 0.1, 0, 0.1, 0, -0.1, 0, -4.37114e-09, -0.14974, 0.698366, 0.196116)
 
 [node name="bottle_C_green2" parent="World/NavigationRegion3D/Props" instance=ExtResource("16_ggtpl")]
 transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, -17.8, 0.5, 11.9)
