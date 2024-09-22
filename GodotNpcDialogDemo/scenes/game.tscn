@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=4 uid="uid://dv34grx13fm0i"]
+[gd_scene load_steps=70 format=4 uid="uid://dv34grx13fm0i"]
 
 [ext_resource type="Material" uid="uid://b5r8ed3gn67r3" path="res://assets/materials/gray_material.tres" id="1_clowl"]
 [ext_resource type="PackedScene" uid="uid://4ggwo7028pus" path="res://scenes/player.tscn" id="2_78tvg"]
@@ -45,6 +45,7 @@
 [ext_resource type="PackedScene" uid="uid://ck4fumxdq2amg" path="res://scenes/npc_doozy.tscn" id="41_3itm7"]
 [ext_resource type="Resource" uid="uid://47sk12gbq03t" path="res://dialog/doozy.dialogue" id="42_oxwlj"]
 [ext_resource type="PackedScene" uid="uid://i3wrawk7qltj" path="res://scenes/quest_item_found_fx.tscn" id="45_d305w"]
+[ext_resource type="PackedScene" uid="uid://47nkeffqlgku" path="res://scenes/flame_fx.tscn" id="46_q4a4r"]
 [ext_resource type="AudioStream" uid="uid://jssnh0hsniav" path="res://assets/music/great_labyrinth_bpm160.ogg" id="46_ujsgo"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jpkjb"]
@@ -389,26 +390,53 @@ transform = Transform3D(1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, 5.6, 0.5
 [node name="torch_mounted2" parent="World/NavigationRegion3D/Props" instance=ExtResource("10_y40cw")]
 transform = Transform3D(1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, -13.2, 2.5, -1.3)
 
-[node name="torch_mounted3" parent="World/NavigationRegion3D/Props" instance=ExtResource("10_y40cw")]
-transform = Transform3D(1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, -13.2, 2.5, 6.8)
+[node name="FlameParticles1" parent="World/NavigationRegion3D/Props/torch_mounted2" instance=ExtResource("46_q4a4r")]
+transform = Transform3D(3.57747e-09, 0, 0.3, 0, 0.3, 0, -0.3, 0, 3.57747e-09, 0.00400066, 0.420736, 0.343753)
 
-[node name="torch_mounted8" parent="World/NavigationRegion3D/Props" instance=ExtResource("10_y40cw")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -18.9, 2.5, 12.4)
+[node name="torch_mounted9" parent="World/NavigationRegion3D/Props" instance=ExtResource("10_y40cw")]
+transform = Transform3D(1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, -13.2, 2.5, 6.8437)
 
-[node name="torch_mounted4" parent="World/NavigationRegion3D/Props" instance=ExtResource("10_y40cw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.9, 2.5, 4.4)
+[node name="FlameParticles1" parent="World/NavigationRegion3D/Props/torch_mounted9" instance=ExtResource("46_q4a4r")]
+transform = Transform3D(3.57747e-09, 0, 0.3, 0, 0.3, 0, -0.3, 0, 3.57747e-09, 0.00400066, 0.420736, 0.343753)
 
-[node name="torch_mounted5" parent="World/NavigationRegion3D/Props" instance=ExtResource("10_y40cw")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -9.2, 2.5, -5.9)
+[node name="torch_mounted10" parent="World/NavigationRegion3D/Props" instance=ExtResource("10_y40cw")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -18.9168, 2.5, 12.4012)
 
-[node name="torch_mounted7" parent="World/NavigationRegion3D/Props" instance=ExtResource("10_y40cw")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6.1, 2.5, 8.4)
+[node name="FlameParticles1" parent="World/NavigationRegion3D/Props/torch_mounted10" instance=ExtResource("46_q4a4r")]
+transform = Transform3D(3.57747e-09, 0, 0.3, 0, 0.3, 0, -0.3, 0, 3.57747e-09, 0.00400066, 0.420736, 0.343753)
+
+[node name="torch_mounted11" parent="World/NavigationRegion3D/Props" instance=ExtResource("10_y40cw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.91675, 2.5, 4.40123)
+
+[node name="FlameParticles1" parent="World/NavigationRegion3D/Props/torch_mounted11" instance=ExtResource("46_q4a4r")]
+transform = Transform3D(3.57747e-09, 0, 0.3, 0, 0.3, 0, -0.3, 0, 3.57747e-09, 0.00400066, 0.420736, 0.343753)
+
+[node name="torch_mounted12" parent="World/NavigationRegion3D/Props" instance=ExtResource("10_y40cw")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -9.30282, 2.5, -5.89746)
+
+[node name="FlameParticles1" parent="World/NavigationRegion3D/Props/torch_mounted12" instance=ExtResource("46_q4a4r")]
+transform = Transform3D(3.57747e-09, 0, 0.3, 0, 0.3, 0, -0.3, 0, 3.57747e-09, 0.00400066, 0.420736, 0.343753)
+
+[node name="torch_mounted13" parent="World/NavigationRegion3D/Props" instance=ExtResource("10_y40cw")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6.07133, 2.5, 8.3963)
+
+[node name="FlameParticles1" parent="World/NavigationRegion3D/Props/torch_mounted13" instance=ExtResource("46_q4a4r")]
+transform = Transform3D(3.57747e-09, 0, 0.3, 0, 0.3, 0, -0.3, 0, 3.57747e-09, 0.00400066, 0.420736, 0.343753)
+
+[node name="torch_mounted14" parent="World/NavigationRegion3D/Props" instance=ExtResource("10_y40cw")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6.07133, 2.5, 15.5963)
+
+[node name="FlameParticles1" parent="World/NavigationRegion3D/Props/torch_mounted14" instance=ExtResource("46_q4a4r")]
+transform = Transform3D(3.57747e-09, 0, 0.3, 0, 0.3, 0, -0.3, 0, 3.57747e-09, 0.00400066, 0.420736, 0.343753)
+
+[node name="torch_mounted15" parent="World/NavigationRegion3D/Props" instance=ExtResource("10_y40cw")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -6.98216, 2.5, 20.402)
+
+[node name="FlameParticles1" parent="World/NavigationRegion3D/Props/torch_mounted15" instance=ExtResource("46_q4a4r")]
+transform = Transform3D(3.57747e-09, 0, 0.3, 0, 0.3, 0, -0.3, 0, 3.57747e-09, 0.00400066, 0.420736, 0.343753)
 
 [node name="box_large2" parent="World/NavigationRegion3D/Props" instance=ExtResource("14_q3ary")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.2, 0.5, 17.1)
-
-[node name="torch_mounted6" parent="World/NavigationRegion3D/Props" instance=ExtResource("10_y40cw")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6.1, 2.5, 15.6)
 
 [node name="pillar_decorated2" parent="World/NavigationRegion3D/Props" groups=["points_of_interest"] instance=ExtResource("11_lml6x")]
 transform = Transform3D(-0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, -0.707107, -20.2, 0.5, -0.3)
