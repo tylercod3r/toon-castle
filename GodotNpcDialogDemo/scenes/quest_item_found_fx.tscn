@@ -89,3 +89,4 @@ draw_pass_1 = SubResource("SphereMesh_8ndpk")
 
 [node name="SuccessAudio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("1_44yim")
+volume_db = -4.0
