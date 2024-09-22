@@ -1,4 +1,4 @@
-[gd_scene load_steps=68 format=4 uid="uid://dv34grx13fm0i"]
+[gd_scene load_steps=69 format=4 uid="uid://dv34grx13fm0i"]
 
 [ext_resource type="Material" uid="uid://b5r8ed3gn67r3" path="res://assets/materials/gray_material.tres" id="1_clowl"]
 [ext_resource type="PackedScene" uid="uid://4ggwo7028pus" path="res://scenes/player.tscn" id="2_78tvg"]
@@ -45,6 +45,7 @@
 [ext_resource type="PackedScene" uid="uid://ck4fumxdq2amg" path="res://scenes/npc_doozy.tscn" id="41_3itm7"]
 [ext_resource type="Resource" uid="uid://47sk12gbq03t" path="res://dialog/doozy.dialogue" id="42_oxwlj"]
 [ext_resource type="PackedScene" uid="uid://i3wrawk7qltj" path="res://scenes/quest_item_found_fx.tscn" id="45_d305w"]
+[ext_resource type="AudioStream" uid="uid://jssnh0hsniav" path="res://assets/music/great_labyrinth_bpm160.ogg" id="46_ujsgo"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jpkjb"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -611,6 +612,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.97352, 1.42117, 15.178)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.70844, 1.96033, -3.74276)
 
 [node name="UI" type="Node" parent="."]
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("46_ujsgo")
+volume_db = -12.0
+autoplay = true
 
 [connection signal="child_exiting_tree" from="World/NavigationRegion3D/Props/bottle_A_labeled_green2/Actionable" to="World/NavigationRegion3D/Props/bottle_A_labeled_green2/Actionable" method="_on_child_exiting_tree"]
 [connection signal="child_exiting_tree" from="World/NavigationRegion3D/Props/table_medium_tablecloth3/Actionable" to="World/NavigationRegion3D/Props/table_medium_tablecloth3/Actionable" method="_on_child_exiting_tree"]
