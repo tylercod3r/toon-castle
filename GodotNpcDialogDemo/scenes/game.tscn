@@ -239,14 +239,14 @@ size = Vector3(3, 3, 0.2)
 
 [node name="World" type="Node" parent="."]
 
-[node name="PropManager" type="Node" parent="World" node_paths=PackedStringArray("keys", "keys_particle_parent", "cheese", "cheese_particle_parent", "bottle", "bottle_particle_parent")]
+[node name="PropManager" type="Node" parent="World" node_paths=PackedStringArray("keys", "keys_particle_controller", "cheese", "cheese_particle_controller", "bottle", "bottle_particle_controller")]
 script = ExtResource("3_gymjj")
 keys = NodePath("../NavigationRegion3D/Props/keyring2")
-keys_particle_parent = NodePath("../QuestItemsFoundParticles/Particles1")
+keys_particle_controller = NodePath("../QuestItemsFoundParticles/Particles1")
 cheese = NodePath("../NavigationRegion3D/Props/coin_stack_large2")
-cheese_particle_parent = NodePath("../QuestItemsFoundParticles/Particles3")
+cheese_particle_controller = NodePath("../QuestItemsFoundParticles/Particles3")
 bottle = NodePath("../NavigationRegion3D/Props/bottle_A_labeled_green2")
-bottle_particle_parent = NodePath("../QuestItemsFoundParticles/Particles2")
+bottle_particle_controller = NodePath("../QuestItemsFoundParticles/Particles2")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="World"]
 environment = SubResource("Environment_fcvw4")
@@ -605,7 +605,7 @@ shape = SubResource("SphereShape3D_lpo8b")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.8123, 1.66934, 10.8401)
 
 [node name="Particles2" parent="World/QuestItemsFoundParticles" instance=ExtResource("45_d305w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.97352, 1.06204, 15.178)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.97352, 1.42117, 15.178)
 
 [node name="Particles3" parent="World/QuestItemsFoundParticles" instance=ExtResource("45_d305w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.70844, 1.96033, -3.74276)

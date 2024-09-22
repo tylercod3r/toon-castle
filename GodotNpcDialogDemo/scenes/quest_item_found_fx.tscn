@@ -1,4 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://i3wrawk7qltj"]
+[gd_scene load_steps=14 format=3 uid="uid://i3wrawk7qltj"]
+
+[ext_resource type="AudioStream" uid="uid://e8jrxcvhrtmb" path="res://assets/sounds/success-sfx.ogg" id="1_44yim"]
+[ext_resource type="Script" path="res://scripts/particle_controller.gd" id="1_aoip6"]
 
 [sub_resource type="Curve" id="Curve_124x3"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.510929, 0), 0.0, 0.0, 0, 0, Vector2(0.911658, 1), 0.0, 0.0, 0, 0]
@@ -71,9 +74,10 @@ lightmap_size_hint = Vector2i(9, 9)
 material = SubResource("StandardMaterial3D_knywl")
 radius = 0.25
 
-[node name="Node3D" type="Node3D"]
+[node name="QuestItemFoundFX" type="Node3D"]
+script = ExtResource("1_aoip6")
 
-[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+[node name="Particles" type="GPUParticles3D" parent="."]
 emitting = false
 amount = 20
 one_shot = true
@@ -82,3 +86,6 @@ explosiveness = 0.5
 randomness = 1.0
 process_material = SubResource("ParticleProcessMaterial_i6jcn")
 draw_pass_1 = SubResource("SphereMesh_8ndpk")
+
+[node name="SuccessAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_44yim")
