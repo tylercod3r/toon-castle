@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=4 uid="uid://dv34grx13fm0i"]
+[gd_scene load_steps=73 format=4 uid="uid://dv34grx13fm0i"]
 
 [ext_resource type="Material" uid="uid://b5r8ed3gn67r3" path="res://assets/materials/gray_material.tres" id="1_clowl"]
 [ext_resource type="PackedScene" uid="uid://4ggwo7028pus" path="res://scenes/player.tscn" id="2_78tvg"]
@@ -7,11 +7,14 @@
 [ext_resource type="Script" path="res://scripts/prop_manager.gd" id="3_gymjj"]
 [ext_resource type="PackedScene" uid="uid://bhsaxpxri21s6" path="res://assets/_packs/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/banner_green.gltf" id="4_el2fe"]
 [ext_resource type="PackedScene" uid="uid://ddrlt3woyjy4f" path="res://scenes/actionable.tscn" id="4_in3em"]
+[ext_resource type="PackedScene" uid="uid://b5r8c24xlgj8m" path="res://assets/_packs/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/chest_gold.gltf" id="4_kbraq"]
+[ext_resource type="PackedScene" uid="uid://cq0xfb7inlax1" path="res://assets/_packs/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/banner_triple_yellow.gltf" id="4_umge7"]
 [ext_resource type="Resource" uid="uid://2dn4fycpda8h" path="res://dialog/guard.dialogue" id="5_62h3g"]
 [ext_resource type="PackedScene" uid="uid://eeu8ks8xl0gt" path="res://assets/_packs/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/wall_corner.gltf" id="5_87h1v"]
 [ext_resource type="PackedScene" uid="uid://dl4paqobndwut" path="res://assets/_packs/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/shelf_small_candles.gltf" id="5_e11a8"]
 [ext_resource type="PackedScene" uid="uid://bqerijla5n5o8" path="res://assets/_packs/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/keg.gltf" id="5_p03s8"]
 [ext_resource type="PackedScene" uid="uid://8gtb5tatov81" path="res://assets/_packs/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/chair.gltf" id="5_sjhel"]
+[ext_resource type="PackedScene" uid="uid://drrq413wn6hsp" path="res://assets/_packs/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/crates_stacked.gltf" id="5_uq1xk"]
 [ext_resource type="PackedScene" uid="uid://slyyj18i85wa" path="res://assets/_packs/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/wall_endcap.gltf" id="6_77nub"]
 [ext_resource type="PackedScene" uid="uid://cseivp01edlt7" path="res://scenes/npc_guard.tscn" id="6_gv8xp"]
 [ext_resource type="PackedScene" uid="uid://b8htlq6xcrkhd" path="res://assets/_packs/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/coin_stack_large.gltf" id="7_0qp6q"]
@@ -257,7 +260,7 @@ environment = SubResource("Environment_fcvw4")
 transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
 
 [node name="Player" parent="World" instance=ExtResource("2_78tvg")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -17.2, 1, -3.7)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -17.2, 1, -5.66901)
 
 [node name="Camera3D" parent="World/Player" index="2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
@@ -320,6 +323,15 @@ material = ExtResource("1_clowl")
 [node name="Props" type="Node3D" parent="World/NavigationRegion3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.23246, -0.500467, 3.5993)
 
+[node name="banner_triple_yellow2" parent="World/NavigationRegion3D/Props" instance=ExtResource("4_umge7")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -4.34765, 0.603334, 20.7724)
+
+[node name="chest_gold2" parent="World/NavigationRegion3D/Props" instance=ExtResource("4_kbraq")]
+transform = Transform3D(0.173648, 0, 0.984808, 0, 1, 0, -0.984808, 0, 0.173648, -9.10593, 0.549733, 12.5159)
+
+[node name="crates_stacked2" parent="World/NavigationRegion3D/Props" instance=ExtResource("5_uq1xk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.58162, 0.643247, 5.87006)
+
 [node name="banner_blue2" parent="World/NavigationRegion3D/Props" instance=ExtResource("3_cm2cs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3, 0.8, 4.1)
 
@@ -365,9 +377,6 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5.7, 
 
 [node name="wall_endcap2" parent="World/NavigationRegion3D/Props" instance=ExtResource("6_77nub")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.9, 0.5, 4.8)
-
-[node name="shelf_small_candles3" parent="World/NavigationRegion3D/Props" instance=ExtResource("5_e11a8")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -4.9, 2.6, 20.4)
 
 [node name="wall_endcap3" parent="World/NavigationRegion3D/Props" instance=ExtResource("6_77nub")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -21.1, 0.5, 12.4)
@@ -463,7 +472,10 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -14.8,
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 4.2, 0.5, 5.7)
 
 [node name="shelf_small_candles2" parent="World/NavigationRegion3D/Props" groups=["points_of_interest"] instance=ExtResource("5_e11a8")]
-transform = Transform3D(-6.55671e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.55671e-08, -9.8, 0.6, 12.8)
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -1.00054, 0.644374, 4.80093)
+
+[node name="shelf_small_candles3" parent="World/NavigationRegion3D/Props" groups=["points_of_interest"] instance=ExtResource("5_e11a8")]
+transform = Transform3D(-6.55671e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.55671e-08, -21.1459, 0.644374, -3.24625)
 
 [node name="bottle_C_green2" parent="World/NavigationRegion3D/Props" instance=ExtResource("16_ggtpl")]
 transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, -17.8, 0.5, 11.9)
@@ -479,9 +491,6 @@ transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, -9.4, 0.5, 14.6)
 
 [node name="bottle_B_brown3" parent="World/NavigationRegion3D/Props" instance=ExtResource("17_6sij7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.1, 0.5, 15.8)
-
-[node name="shelf_small_candles4" parent="World/NavigationRegion3D/Props" groups=["points_of_interest"] instance=ExtResource("5_e11a8")]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -0.899998, 0.6, 4.8)
 
 [node name="bottle_A_labeled_green2" parent="World/NavigationRegion3D/Props" instance=ExtResource("21_2hcom")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -9, 0.5, 15.2)
@@ -514,7 +523,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 17.7)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.7, 0.8, -7.8)
 
 [node name="table_medium_tablecloth2" parent="World/NavigationRegion3D/Props" instance=ExtResource("7_qwpcq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.9, 0.5, 19.3)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.9, 0.5, 19.0814)
 
 [node name="table_medium_tablecloth3" parent="World/NavigationRegion3D/Props" instance=ExtResource("7_qwpcq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4, 0.5, -3.8)
