@@ -1,6 +1,7 @@
-[gd_scene load_steps=80 format=4 uid="uid://dv34grx13fm0i"]
+[gd_scene load_steps=79 format=4 uid="uid://dv34grx13fm0i"]
 
 [ext_resource type="Material" uid="uid://b5r8ed3gn67r3" path="res://assets/materials/gray_material.tres" id="1_clowl"]
+[ext_resource type="Script" path="res://scripts/music_manager.gd" id="1_xw3xh"]
 [ext_resource type="PackedScene" uid="uid://4ggwo7028pus" path="res://scenes/player.tscn" id="2_78tvg"]
 [ext_resource type="PackedScene" uid="uid://btprb8qe0p6vh" path="res://assets/_packs/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/wall_doorway.gltf" id="3_1qgur"]
 [ext_resource type="PackedScene" uid="uid://dnmh63l2qg2g" path="res://assets/_packs/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/banner_blue.gltf" id="3_cm2cs"]
@@ -50,8 +51,8 @@
 [ext_resource type="PackedScene" uid="uid://i3wrawk7qltj" path="res://scenes/quest_item_found_fx.tscn" id="45_d305w"]
 [ext_resource type="PackedScene" uid="uid://47nkeffqlgku" path="res://scenes/flame_fx.tscn" id="46_q4a4r"]
 [ext_resource type="Shader" path="res://shaders/pp-shader.gdshader" id="50_2lt4k"]
-[ext_resource type="AudioStream" uid="uid://bh3j88liil3x5" path="res://assets/music/Fantasy Night.mp3" id="51_pjb14"]
-[ext_resource type="Shader" path="res://shaders/spatial/edge-test.gdshader" id="52_jxvw3"]
+[ext_resource type="AudioStream" uid="uid://brb6ivedsjfvr" path="res://assets/music/Hidden Oasis.mp3" id="51_pj680"]
+[ext_resource type="AudioStream" uid="uid://curvj4guscnc1" path="res://assets/music/happy_theme.ogg" id="52_guqar"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jpkjb"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -259,18 +260,14 @@ noise = SubResource("FastNoiseLite_pddsa")
 shader = ExtResource("50_2lt4k")
 shader_parameter/noise_texture = SubResource("NoiseTexture2D_esk1k")
 
-[sub_resource type="QuadMesh" id="QuadMesh_jvgbl"]
-flip_faces = true
-size = Vector2(2, 2)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_460sh"]
-render_priority = 0
-shader = ExtResource("52_jxvw3")
-shader_parameter/intencity = 0.2
-
 [node name="Game" type="Node3D"]
 
 [node name="World" type="Node" parent="."]
+
+[node name="MusicManager" type="Node3D" parent="World" node_paths=PackedStringArray("main_music", "celebration_music")]
+script = ExtResource("1_xw3xh")
+main_music = NodePath("../../Music/MainMusic")
+celebration_music = NodePath("../../Music/CelebrationMusic")
 
 [node name="PropManager" type="Node" parent="World" node_paths=PackedStringArray("keys", "keys_particle_controller", "cheese", "cheese_particle_controller", "bottle", "bottle_particle_controller")]
 script = ExtResource("3_gymjj")
@@ -693,15 +690,15 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("51_pjb14")
-volume_db = -12.0
-autoplay = true
+[node name="Music" type="Node" parent="."]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-extra_cull_margin = 16384.0
-mesh = SubResource("QuadMesh_jvgbl")
-surface_material_override/0 = SubResource("ShaderMaterial_460sh")
+[node name="MainMusic" type="AudioStreamPlayer" parent="Music"]
+stream = ExtResource("51_pj680")
+volume_db = -8.0
+
+[node name="CelebrationMusic" type="AudioStreamPlayer" parent="Music"]
+stream = ExtResource("52_guqar")
+volume_db = -8.0
 
 [connection signal="child_exiting_tree" from="World/NavigationRegion3D/Props/bottle_A_labeled_green2/Actionable" to="World/NavigationRegion3D/Props/bottle_A_labeled_green2/Actionable" method="_on_child_exiting_tree"]
 [connection signal="child_exiting_tree" from="World/NavigationRegion3D/Props/table_medium_tablecloth3/Actionable" to="World/NavigationRegion3D/Props/table_medium_tablecloth3/Actionable" method="_on_child_exiting_tree"]

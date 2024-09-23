@@ -17,6 +17,8 @@ signal doozy_end_spoken_to
 signal bottle_found
 signal bottle_returned
 
+signal celebration_ended
+
 #region METHOD - GUARD
 func handleGuardSpokenTo() -> void:
 	guard_spoken_to.emit()
@@ -29,6 +31,9 @@ func handleGuardkeysFound() -> void:
 	
 func handleGuardkeysReturned() -> void:
 	guard_keys_returned.emit()
+
+func handleCelebrationEnded() -> void:
+	celebration_ended.emit()
 #endregion
 
 #region METHOD - MOUSEY

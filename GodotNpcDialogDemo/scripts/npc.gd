@@ -274,9 +274,15 @@ func _on_wander_resume_delay_timer_timeout() -> void:
 		#set_current_state(NPC_STATE.CONVERSE_WITH_PLAYER)
 	if current_state == converse_with_player_state:
 		return
-	elif current_state == converse_with_player_ended_state || current_state == celebrate_state:
+	elif current_state == converse_with_player_ended_state:
 		# state
 		set_current_state(NPC_STATE.WANDER_RESUME)
+	elif current_state == celebrate_state:
+		# state
+		set_current_state(NPC_STATE.WANDER_RESUME)
+		
+		# signal
+		SignalManager.handleCelebrationEnded()
 	else:
 		# state
 		set_current_state(NPC_STATE.WANDER)
