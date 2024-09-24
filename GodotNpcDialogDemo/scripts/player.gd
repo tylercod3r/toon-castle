@@ -6,6 +6,8 @@ const MOUSE_SENSITIVITY = 0.001
 
 @onready var actionable_finder: Area3D = $Direction/ActionableFinder
 
+@export var walking_sound:AudioStreamPlayer
+
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 var mouse_motion := Vector2.ZERO
 
@@ -30,6 +32,8 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 
+	handle_walk_sounds()
+
 	move_and_slide()
 
 func _input(event:InputEvent) -> void:
@@ -50,3 +54,9 @@ func _unhandled_input(event: InputEvent) -> void:
 func handle_camera_rotation() -> void:
 	rotate_y(mouse_motion.x)
 	mouse_motion = Vector2.ZERO
+	
+func handle_walk_sounds() -> void:
+	if velocity.length() != 0:
+		if not walking_sound.playing:
+			walking_sound.pitch_scale = randf_range(.8, 1.2)
+			walking_sound.play()
