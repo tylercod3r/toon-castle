@@ -1,4 +1,4 @@
-[gd_scene load_steps=81 format=4 uid="uid://40a1ny46tsjl"]
+[gd_scene load_steps=79 format=4 uid="uid://40a1ny46tsjl"]
 
 [ext_resource type="Script" path="res://scripts/prop_manager.gd" id="2_2dric"]
 [ext_resource type="Material" uid="uid://b5r8ed3gn67r3" path="res://assets/materials/gray_material.tres" id="4_kt6dp"]
@@ -48,8 +48,8 @@
 [ext_resource type="PackedScene" uid="uid://bw0bdo050f31l" path="res://scenes/npc_mousey.tscn" id="48_h2vjj"]
 [ext_resource type="PackedScene" uid="uid://ck4fumxdq2amg" path="res://scenes/npc_doozy.tscn" id="49_m867c"]
 [ext_resource type="PackedScene" uid="uid://i3wrawk7qltj" path="res://scenes/quest_item_found_fx.tscn" id="50_1bkmt"]
-[ext_resource type="Shader" path="res://shaders/wavey.gdshader" id="51_3gp3o"]
 [ext_resource type="Shader" path="res://shaders/radial.gdshader" id="51_3qgms"]
+[ext_resource type="Shader" path="res://shaders/vignette.gdshader" id="51_faunf"]
 [ext_resource type="FontFile" uid="uid://d25vkmce7mhlt" path="res://demo/assets/fonts/knewave_regular.ttf" id="51_pkn5x"]
 [ext_resource type="AudioStream" uid="uid://b72uy3jklfblx" path="res://assets/music/Passenger.mp3" id="52_34uw6"]
 [ext_resource type="Script" path="res://scripts/menu_ui_controller.gd" id="54_e7d7i"]
@@ -252,24 +252,17 @@ size = Vector3(3, 3, 0.2)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0v4qh"]
 shader = ExtResource("51_3qgms")
-shader_parameter/max_drag_distance = 0.2
+shader_parameter/max_drag_distance = 0.1
 shader_parameter/samples = 50
 shader_parameter/contrast = 1.4
 
 [sub_resource type="Theme" id="Theme_8wvgg"]
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_njv2x"]
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_2yld3"]
-width = 50
-height = 50
-seamless = true
-seamless_blend_skirt = 0.765
-noise = SubResource("FastNoiseLite_njv2x")
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_swc8r"]
-shader = ExtResource("51_3gp3o")
-shader_parameter/noise_texture = SubResource("NoiseTexture2D_2yld3")
+shader = ExtResource("51_faunf")
+shader_parameter/alpha = 1.0
+shader_parameter/inner_radius = 0.0
+shader_parameter/outer_radius = 1.0
 
 [node name="Menu" type="Node3D"]
 
