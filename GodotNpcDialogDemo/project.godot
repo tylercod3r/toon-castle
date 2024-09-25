@@ -26,10 +26,6 @@ PropManager="*res://scripts/prop_manager.gd"
 
 general/balloon_path="res://dialog/balloon.tscn"
 
-[display]
-
-window/size/mode=3
-
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg")

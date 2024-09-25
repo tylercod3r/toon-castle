@@ -1,4 +1,4 @@
-[gd_scene load_steps=80 format=4 uid="uid://40a1ny46tsjl"]
+[gd_scene load_steps=81 format=4 uid="uid://40a1ny46tsjl"]
 
 [ext_resource type="Script" path="res://scripts/prop_manager.gd" id="2_2dric"]
 [ext_resource type="Material" uid="uid://b5r8ed3gn67r3" path="res://assets/materials/gray_material.tres" id="4_kt6dp"]
@@ -48,9 +48,10 @@
 [ext_resource type="PackedScene" uid="uid://bw0bdo050f31l" path="res://scenes/npc_mousey.tscn" id="48_h2vjj"]
 [ext_resource type="PackedScene" uid="uid://ck4fumxdq2amg" path="res://scenes/npc_doozy.tscn" id="49_m867c"]
 [ext_resource type="PackedScene" uid="uid://i3wrawk7qltj" path="res://scenes/quest_item_found_fx.tscn" id="50_1bkmt"]
-[ext_resource type="Shader" path="res://shaders/crt.gdshader" id="50_umbj5"]
 [ext_resource type="Shader" path="res://shaders/wavey.gdshader" id="51_3gp3o"]
-[ext_resource type="AudioStream" uid="uid://b54u653in6vnl" path="res://assets/music/forest.mp3" id="51_ueh4e"]
+[ext_resource type="Shader" path="res://shaders/radial.gdshader" id="51_3qgms"]
+[ext_resource type="FontFile" uid="uid://d25vkmce7mhlt" path="res://demo/assets/fonts/knewave_regular.ttf" id="51_pkn5x"]
+[ext_resource type="AudioStream" uid="uid://b72uy3jklfblx" path="res://assets/music/Passenger.mp3" id="52_34uw6"]
 [ext_resource type="Script" path="res://scripts/menu_ui_controller.gd" id="54_e7d7i"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jpkjb"]
@@ -250,20 +251,25 @@ material = SubResource("StandardMaterial3D_t8quf")
 size = Vector3(3, 3, 0.2)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0v4qh"]
-shader = ExtResource("50_umbj5")
-shader_parameter/fisheye_strength = 1.0
+shader = ExtResource("51_3qgms")
+shader_parameter/max_drag_distance = 0.2
+shader_parameter/samples = 50
+shader_parameter/contrast = 1.4
 
 [sub_resource type="Theme" id="Theme_8wvgg"]
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_6g3th"]
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_njv2x"]
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_k1kg1"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_2yld3"]
+width = 50
+height = 50
 seamless = true
-noise = SubResource("FastNoiseLite_6g3th")
+seamless_blend_skirt = 0.765
+noise = SubResource("FastNoiseLite_njv2x")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_swc8r"]
 shader = ExtResource("51_3gp3o")
-shader_parameter/noise_texture = SubResource("NoiseTexture2D_k1kg1")
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_2yld3")
 
 [node name="Menu" type="Node3D"]
 
@@ -689,20 +695,29 @@ grow_vertical = 2
 layer = 2
 
 [node name="UI" type="VBoxContainer" parent="CanvasLayer"]
-anchors_preset = 10
-anchor_right = 1.0
-offset_top = 98.0
-offset_bottom = 218.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -284.0
+offset_top = -224.0
+offset_right = 284.0
+offset_bottom = -104.0
 grow_horizontal = 2
+grow_vertical = 2
 theme = SubResource("Theme_8wvgg")
 script = ExtResource("54_e7d7i")
 
 [node name="Label" type="Label" parent="CanvasLayer/UI"]
 layout_mode = 2
-size_flags_vertical = 0
-theme_override_font_sizes/font_size = 80
-text = "Cartoon Castle"
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0.1125, 0.75, 0.996078)
+theme_override_fonts/font = ExtResource("51_pkn5x")
+theme_override_font_sizes/font_size = 120
+text = "    Cartoon Castle"
 horizontal_alignment = 1
+uppercase = true
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 material = SubResource("ShaderMaterial_swc8r")
@@ -730,7 +745,16 @@ offset_bottom = 68.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_8wvgg")
+theme_override_constants/separation = 10
 script = ExtResource("54_e7d7i")
+
+[node name="Label2" type="Label" parent="CanvasLayer2/UI"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 80
+text = "Cartoon Castle"
+horizontal_alignment = 1
 
 [node name="PlayButton" type="Button" parent="CanvasLayer2/UI"]
 layout_mode = 2
@@ -745,7 +769,7 @@ text = "Quit"
 [node name="Music" type="Node" parent="."]
 
 [node name="MainMusic" type="AudioStreamPlayer" parent="Music"]
-stream = ExtResource("51_ueh4e")
+stream = ExtResource("52_34uw6")
 volume_db = -8.0
 autoplay = true
 
