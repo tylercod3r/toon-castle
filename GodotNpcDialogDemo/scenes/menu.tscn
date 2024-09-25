@@ -1,6 +1,5 @@
 [gd_scene load_steps=80 format=4 uid="uid://40a1ny46tsjl"]
 
-[ext_resource type="Script" path="res://scripts/music_manager.gd" id="1_nt3mh"]
 [ext_resource type="Script" path="res://scripts/prop_manager.gd" id="2_2dric"]
 [ext_resource type="Material" uid="uid://b5r8ed3gn67r3" path="res://assets/materials/gray_material.tres" id="4_kt6dp"]
 [ext_resource type="PackedScene" uid="uid://cq0xfb7inlax1" path="res://assets/_packs/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/banner_triple_yellow.gltf" id="5_qxmn0"]
@@ -49,9 +48,9 @@
 [ext_resource type="PackedScene" uid="uid://bw0bdo050f31l" path="res://scenes/npc_mousey.tscn" id="48_h2vjj"]
 [ext_resource type="PackedScene" uid="uid://ck4fumxdq2amg" path="res://scenes/npc_doozy.tscn" id="49_m867c"]
 [ext_resource type="PackedScene" uid="uid://i3wrawk7qltj" path="res://scenes/quest_item_found_fx.tscn" id="50_1bkmt"]
+[ext_resource type="Shader" path="res://shaders/crt.gdshader" id="50_umbj5"]
 [ext_resource type="Shader" path="res://shaders/wavey.gdshader" id="51_3gp3o"]
-[ext_resource type="AudioStream" uid="uid://brb6ivedsjfvr" path="res://assets/music/Hidden Oasis.mp3" id="52_gyeos"]
-[ext_resource type="AudioStream" uid="uid://curvj4guscnc1" path="res://assets/music/happy_theme.ogg" id="53_q3yal"]
+[ext_resource type="AudioStream" uid="uid://b54u653in6vnl" path="res://assets/music/forest.mp3" id="51_ueh4e"]
 [ext_resource type="Script" path="res://scripts/menu_ui_controller.gd" id="54_e7d7i"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jpkjb"]
@@ -250,26 +249,25 @@ albedo_color = Color(1, 0, 0.235294, 1)
 material = SubResource("StandardMaterial3D_t8quf")
 size = Vector3(3, 3, 0.2)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0v4qh"]
+shader = ExtResource("50_umbj5")
+shader_parameter/fisheye_strength = 1.0
+
 [sub_resource type="Theme" id="Theme_8wvgg"]
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_7uysc"]
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_6g3th"]
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_36pn3"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_k1kg1"]
 seamless = true
-noise = SubResource("FastNoiseLite_7uysc")
+noise = SubResource("FastNoiseLite_6g3th")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_0v4qh"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_swc8r"]
 shader = ExtResource("51_3gp3o")
-shader_parameter/noise_texture = SubResource("NoiseTexture2D_36pn3")
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_k1kg1")
 
 [node name="Menu" type="Node3D"]
 
 [node name="World" type="Node" parent="."]
-
-[node name="MusicManager" type="Node3D" parent="World" node_paths=PackedStringArray("main_music", "celebration_music")]
-script = ExtResource("1_nt3mh")
-main_music = NodePath("../../Music/MainMusic")
-celebration_music = NodePath("../../Music/CelebrationMusic")
 
 [node name="PropManager" type="Node" parent="World" node_paths=PackedStringArray("keys", "keys_particle_controller", "cheese", "cheese_particle_controller", "bottle", "bottle_particle_controller")]
 script = ExtResource("2_2dric")
@@ -674,12 +672,52 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.97352, 1.42117, 15.178)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.70844, 1.96033, -3.74276)
 
 [node name="Camera3D" type="Camera3D" parent="World"]
-transform = Transform3D(-0.573576, 0, 0.819152, 0, 1, 0, -0.819152, 0, -0.573576, 3.944, 2, 7.522)
+transform = Transform3D(-0.573576, 0, 0.819152, 0, 1, 0, -0.819152, 0, -0.573576, 3.944, 1.5, 7.522)
+
+[node name="FxLayer1" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="FxLayer1"]
+material = SubResource("ShaderMaterial_0v4qh")
+use_parent_material = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 2
 
 [node name="UI" type="VBoxContainer" parent="CanvasLayer"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 98.0
+offset_bottom = 218.0
+grow_horizontal = 2
+theme = SubResource("Theme_8wvgg")
+script = ExtResource("54_e7d7i")
+
+[node name="Label" type="Label" parent="CanvasLayer/UI"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 80
+text = "Cartoon Castle"
+horizontal_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_swc8r")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="UI" type="VBoxContainer" parent="CanvasLayer2"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -694,41 +732,28 @@ grow_vertical = 2
 theme = SubResource("Theme_8wvgg")
 script = ExtResource("54_e7d7i")
 
-[node name="PlayButton" type="Button" parent="CanvasLayer/UI"]
+[node name="PlayButton" type="Button" parent="CanvasLayer2/UI"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 60
 text = "Play"
 
-[node name="QuitButton" type="Button" parent="CanvasLayer/UI"]
+[node name="QuitButton" type="Button" parent="CanvasLayer2/UI"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 60
 text = "Quit"
-
-[node name="FxLayer1" type="CanvasLayer" parent="."]
-
-[node name="ColorRect" type="ColorRect" parent="FxLayer1"]
-material = SubResource("ShaderMaterial_0v4qh")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
 
 [node name="Music" type="Node" parent="."]
 
 [node name="MainMusic" type="AudioStreamPlayer" parent="Music"]
-stream = ExtResource("52_gyeos")
+stream = ExtResource("51_ueh4e")
 volume_db = -8.0
-
-[node name="CelebrationMusic" type="AudioStreamPlayer" parent="Music"]
-stream = ExtResource("53_q3yal")
-volume_db = -8.0
+autoplay = true
 
 [connection signal="child_exiting_tree" from="World/NavigationRegion3D/Props/bottle_A_labeled_green2/Actionable" to="World/NavigationRegion3D/Props/bottle_A_labeled_green2/Actionable" method="_on_child_exiting_tree"]
 [connection signal="child_exiting_tree" from="World/NavigationRegion3D/Props/table_medium_tablecloth3/Actionable" to="World/NavigationRegion3D/Props/table_medium_tablecloth3/Actionable" method="_on_child_exiting_tree"]
 [connection signal="child_exiting_tree" from="World/NavigationRegion3D/Props/table_small2/Actionable" to="World/NavigationRegion3D/Props/table_small2/Actionable" method="_on_child_exiting_tree"]
-[connection signal="pressed" from="CanvasLayer/UI/PlayButton" to="CanvasLayer/UI" method="_on_new_game_button_pressed"]
-[connection signal="pressed" from="CanvasLayer/UI/QuitButton" to="CanvasLayer/UI" method="_on_quit_button_pressed"]
+[connection signal="pressed" from="CanvasLayer2/UI/PlayButton" to="CanvasLayer2/UI" method="_on_new_game_button_pressed"]
+[connection signal="pressed" from="CanvasLayer2/UI/QuitButton" to="CanvasLayer2/UI" method="_on_quit_button_pressed"]
 
 [editable path="World/NavigationRegion3D/Props/coin_stack_large2"]
 [editable path="World/NavigationRegion3D/Props/bottle_A_labeled_green2"]

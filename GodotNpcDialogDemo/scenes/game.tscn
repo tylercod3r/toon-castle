@@ -696,7 +696,7 @@ grow_vertical = 2
 
 [node name="MainMusic" type="AudioStreamPlayer" parent="Music"]
 stream = ExtResource("51_pj680")
-volume_db = -8.0
+volume_db = -25.0
 
 [node name="CelebrationMusic" type="AudioStreamPlayer" parent="Music"]
 stream = ExtResource("52_guqar")
