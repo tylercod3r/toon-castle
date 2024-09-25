@@ -1,4 +1,4 @@
-[gd_scene load_steps=76 format=4 uid="uid://40a1ny46tsjl"]
+[gd_scene load_steps=80 format=4 uid="uid://40a1ny46tsjl"]
 
 [ext_resource type="Script" path="res://scripts/music_manager.gd" id="1_nt3mh"]
 [ext_resource type="Script" path="res://scripts/prop_manager.gd" id="2_2dric"]
@@ -49,6 +49,7 @@
 [ext_resource type="PackedScene" uid="uid://bw0bdo050f31l" path="res://scenes/npc_mousey.tscn" id="48_h2vjj"]
 [ext_resource type="PackedScene" uid="uid://ck4fumxdq2amg" path="res://scenes/npc_doozy.tscn" id="49_m867c"]
 [ext_resource type="PackedScene" uid="uid://i3wrawk7qltj" path="res://scenes/quest_item_found_fx.tscn" id="50_1bkmt"]
+[ext_resource type="Shader" path="res://shaders/wavey.gdshader" id="51_3gp3o"]
 [ext_resource type="AudioStream" uid="uid://brb6ivedsjfvr" path="res://assets/music/Hidden Oasis.mp3" id="52_gyeos"]
 [ext_resource type="AudioStream" uid="uid://curvj4guscnc1" path="res://assets/music/happy_theme.ogg" id="53_q3yal"]
 [ext_resource type="Script" path="res://scripts/menu_ui_controller.gd" id="54_e7d7i"]
@@ -250,6 +251,16 @@ material = SubResource("StandardMaterial3D_t8quf")
 size = Vector3(3, 3, 0.2)
 
 [sub_resource type="Theme" id="Theme_8wvgg"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_7uysc"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_36pn3"]
+seamless = true
+noise = SubResource("FastNoiseLite_7uysc")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0v4qh"]
+shader = ExtResource("51_3gp3o")
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_36pn3")
 
 [node name="Menu" type="Node3D"]
 
@@ -665,7 +676,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.70844, 1.96033, -3.74276)
 [node name="Camera3D" type="Camera3D" parent="World"]
 transform = Transform3D(-0.573576, 0, 0.819152, 0, 1, 0, -0.819152, 0, -0.573576, 3.944, 2, 7.522)
 
-[node name="UI" type="VBoxContainer" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="UI" type="VBoxContainer" parent="CanvasLayer"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -680,15 +694,25 @@ grow_vertical = 2
 theme = SubResource("Theme_8wvgg")
 script = ExtResource("54_e7d7i")
 
-[node name="PlayButton" type="Button" parent="UI"]
+[node name="PlayButton" type="Button" parent="CanvasLayer/UI"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
 text = "Play"
 
-[node name="QuitButton" type="Button" parent="UI"]
+[node name="QuitButton" type="Button" parent="CanvasLayer/UI"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
 text = "Quit"
+
+[node name="FxLayer1" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="FxLayer1"]
+material = SubResource("ShaderMaterial_0v4qh")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Music" type="Node" parent="."]
 
@@ -703,8 +727,8 @@ volume_db = -8.0
 [connection signal="child_exiting_tree" from="World/NavigationRegion3D/Props/bottle_A_labeled_green2/Actionable" to="World/NavigationRegion3D/Props/bottle_A_labeled_green2/Actionable" method="_on_child_exiting_tree"]
 [connection signal="child_exiting_tree" from="World/NavigationRegion3D/Props/table_medium_tablecloth3/Actionable" to="World/NavigationRegion3D/Props/table_medium_tablecloth3/Actionable" method="_on_child_exiting_tree"]
 [connection signal="child_exiting_tree" from="World/NavigationRegion3D/Props/table_small2/Actionable" to="World/NavigationRegion3D/Props/table_small2/Actionable" method="_on_child_exiting_tree"]
-[connection signal="pressed" from="UI/PlayButton" to="UI" method="_on_new_game_button_pressed"]
-[connection signal="pressed" from="UI/QuitButton" to="UI" method="_on_quit_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/UI/PlayButton" to="CanvasLayer/UI" method="_on_new_game_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/UI/QuitButton" to="CanvasLayer/UI" method="_on_quit_button_pressed"]
 
 [editable path="World/NavigationRegion3D/Props/coin_stack_large2"]
 [editable path="World/NavigationRegion3D/Props/bottle_A_labeled_green2"]
