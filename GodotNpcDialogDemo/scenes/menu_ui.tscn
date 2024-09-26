@@ -1,0 +1,87 @@
+[gd_scene load_steps=8 format=3 uid="uid://d1bgsbl2uf0oy"]
+
+[ext_resource type="FontFile" uid="uid://d25vkmce7mhlt" path="res://demo/assets/fonts/knewave_regular.ttf" id="1_1wbd5"]
+[ext_resource type="Shader" path="res://shaders/wavey.gdshader" id="2_gdql3"]
+[ext_resource type="Script" path="res://scripts/menu_ui_controller.gd" id="3_gqohc"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_ddiux"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_2yld3"]
+width = 50
+height = 50
+seamless = true
+seamless_blend_skirt = 0.765
+noise = SubResource("FastNoiseLite_ddiux")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_72n6j"]
+shader = ExtResource("2_gdql3")
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_2yld3")
+
+[sub_resource type="Theme" id="Theme_emxlb"]
+
+[node name="MenuUI" type="CenterContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 2
+
+[node name="CanvasLayer1" type="CanvasLayer" parent="PanelContainer"]
+layer = 2
+
+[node name="Label" type="Label" parent="PanelContainer/CanvasLayer1"]
+offset_left = 62.5
+offset_top = 66.0
+offset_right = 1089.5
+offset_bottom = 254.0
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0.4, 0.75, 0.996078)
+theme_override_fonts/font = ExtResource("1_1wbd5")
+theme_override_font_sizes/font_size = 120
+text = "   Cartoon Castle"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="ColorRect" type="ColorRect" parent="PanelContainer/CanvasLayer1"]
+material = SubResource("ShaderMaterial_72n6j")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="PanelContainer"]
+layer = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/CanvasLayer2"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -253.5
+offset_top = -96.0
+offset_right = 253.5
+offset_bottom = 96.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_emxlb")
+script = ExtResource("3_gqohc")
+
+[node name="PlayButton" type="Button" parent="PanelContainer/CanvasLayer2/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 60
+text = "Play"
+
+[node name="QuitButton" type="Button" parent="PanelContainer/CanvasLayer2/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 60
+text = "Quit"
+
+[connection signal="pressed" from="PanelContainer/CanvasLayer2/VBoxContainer/PlayButton" to="PanelContainer/CanvasLayer2/VBoxContainer" method="_on_new_game_button_pressed"]
+[connection signal="pressed" from="PanelContainer/CanvasLayer2/VBoxContainer/QuitButton" to="PanelContainer/CanvasLayer2/VBoxContainer" method="_on_quit_button_pressed"]
