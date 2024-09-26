@@ -1,56 +1,56 @@
 [gd_scene load_steps=75 format=4 uid="uid://40a1ny46tsjl"]
 
-[ext_resource type="Script" path="res://scripts/prop_manager.gd" id="2_2dric"]
-[ext_resource type="Material" uid="uid://b5r8ed3gn67r3" path="res://assets/materials/gray_material.tres" id="4_kt6dp"]
-[ext_resource type="PackedScene" uid="uid://cq0xfb7inlax1" path="res://assets/_packs/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/banner_triple_yellow.gltf" id="5_qxmn0"]
-[ext_resource type="PackedScene" uid="uid://b5r8c24xlgj8m" path="res://assets/_packs/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/chest_gold.gltf" id="6_wh0c7"]
-[ext_resource type="PackedScene" uid="uid://drrq413wn6hsp" path="res://assets/_packs/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/crates_stacked.gltf" id="7_0d7ql"]
-[ext_resource type="PackedScene" uid="uid://dnmh63l2qg2g" path="res://assets/_packs/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/banner_blue.gltf" id="8_cwhbm"]
-[ext_resource type="PackedScene" uid="uid://bhsaxpxri21s6" path="res://assets/_packs/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/banner_green.gltf" id="9_u4ayn"]
-[ext_resource type="PackedScene" uid="uid://8gtb5tatov81" path="res://assets/_packs/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/chair.gltf" id="10_tku7q"]
-[ext_resource type="PackedScene" uid="uid://btprb8qe0p6vh" path="res://assets/_packs/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/wall_doorway.gltf" id="11_3gqg5"]
-[ext_resource type="PackedScene" uid="uid://ckd8uye7tqq4o" path="res://assets/_packs/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/box_stacked.gltf" id="12_8whnh"]
-[ext_resource type="PackedScene" uid="uid://bqerijla5n5o8" path="res://assets/_packs/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/keg.gltf" id="13_ccqww"]
-[ext_resource type="PackedScene" uid="uid://b8htlq6xcrkhd" path="res://assets/_packs/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/coin_stack_large.gltf" id="14_4m72h"]
-[ext_resource type="Texture2D" uid="uid://tv51ebt8i11a" path="res://assets/_packs/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/dungeon_texture.png" id="15_oxbrn"]
-[ext_resource type="Shader" path="res://shaders/highlight.gdshader" id="16_lypim"]
-[ext_resource type="PackedScene" uid="uid://d28xvdi7c2w4a" path="res://assets/_packs/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/table_long_decorated_C.gltf" id="17_bgx2n"]
-[ext_resource type="PackedScene" uid="uid://slyyj18i85wa" path="res://assets/_packs/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/wall_endcap.gltf" id="18_cppor"]
-[ext_resource type="PackedScene" uid="uid://di06fy58xlpga" path="res://assets/_packs/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/wall_half_endcap_sloped.gltf" id="19_8m3cx"]
-[ext_resource type="PackedScene" uid="uid://d00clqf4rwlbf" path="res://assets/_packs/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/torch_mounted.gltf" id="20_4svrt"]
-[ext_resource type="PackedScene" uid="uid://47nkeffqlgku" path="res://scenes/flame_fx.tscn" id="21_d5ts8"]
-[ext_resource type="PackedScene" uid="uid://bf7i8yriys4fn" path="res://assets/_packs/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/box_large.gltf" id="22_fdjmk"]
-[ext_resource type="PackedScene" uid="uid://be6xsfenvqe56" path="res://assets/_packs/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/pillar_decorated.gltf" id="23_8kk2v"]
-[ext_resource type="PackedScene" uid="uid://belogaksqcn0m" path="res://assets/_packs/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/wall_half.gltf" id="24_jdsq7"]
-[ext_resource type="PackedScene" uid="uid://c20ugxpfst7tm" path="res://assets/_packs/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/wall_corner_small.gltf" id="25_bidgk"]
-[ext_resource type="PackedScene" uid="uid://eeu8ks8xl0gt" path="res://assets/_packs/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/wall_corner.gltf" id="26_gke3f"]
-[ext_resource type="PackedScene" uid="uid://dl4paqobndwut" path="res://assets/_packs/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/shelf_small_candles.gltf" id="27_vfg1h"]
-[ext_resource type="PackedScene" uid="uid://clshyfsksdlkg" path="res://assets/_packs/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/bottle_C_green.gltf" id="28_nvaa2"]
-[ext_resource type="PackedScene" uid="uid://b1l0qpg0wj8on" path="res://assets/_packs/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/sword_shield_broken.gltf" id="29_su0n5"]
-[ext_resource type="PackedScene" uid="uid://86oqut114pli" path="res://assets/_packs/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/bottle_B_brown.gltf" id="30_rftlw"]
-[ext_resource type="PackedScene" uid="uid://dch1hjtb46upj" path="res://assets/_packs/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/bottle_A_labeled_green.gltf" id="31_gxc7u"]
-[ext_resource type="PackedScene" uid="uid://ddrlt3woyjy4f" path="res://scenes/actionable.tscn" id="32_raoqc"]
-[ext_resource type="Resource" uid="uid://47sk12gbq03t" path="res://dialog/doozy.dialogue" id="33_oxtgh"]
-[ext_resource type="PackedScene" uid="uid://cosvtwf7j8d6w" path="res://assets/_packs/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/floor_tile_extralarge_grates_open.gltf" id="34_oxl1w"]
-[ext_resource type="PackedScene" uid="uid://o4g0bks7m6vh" path="res://assets/_packs/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/floor_tile_large.gltf" id="35_31kas"]
-[ext_resource type="PackedScene" uid="uid://m5unu68k1mys" path="res://assets/_packs/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/banner_triple_white.gltf" id="36_4en1n"]
-[ext_resource type="PackedScene" uid="uid://wbrtuqahphyk" path="res://assets/_packs/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/table_medium_tablecloth.gltf" id="37_ghsso"]
-[ext_resource type="Resource" uid="uid://b31qyiubykhg" path="res://dialog/mousey.dialogue" id="38_rjgs4"]
-[ext_resource type="PackedScene" uid="uid://dagiv37psxwqr" path="res://assets/_packs/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/wall_broken.gltf" id="39_nsiaj"]
-[ext_resource type="PackedScene" uid="uid://b0hsurdg3ygxt" path="res://assets/_packs/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/table_small.gltf" id="40_q8u6x"]
-[ext_resource type="Resource" uid="uid://2dn4fycpda8h" path="res://dialog/guard.dialogue" id="41_namub"]
-[ext_resource type="PackedScene" uid="uid://c4ihfmaryedks" path="res://assets/_packs/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/keyring.gltf" id="42_sgydb"]
-[ext_resource type="PackedScene" uid="uid://cxknev53dbvbs" path="res://assets/_packs/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/sword_shield_gold.gltf" id="43_dsehb"]
-[ext_resource type="PackedScene" uid="uid://bpyevtj6ugqmf" path="res://assets/_packs/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/wall_cracked.gltf" id="44_p8cns"]
-[ext_resource type="PackedScene" uid="uid://br4voq0i57184" path="res://assets/_packs/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/table_long_decorated_A.gltf" id="45_c5d26"]
-[ext_resource type="PackedScene" uid="uid://bimmgvpljncsp" path="res://assets/_packs/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/banner_patternA_green.gltf" id="46_pdpu2"]
-[ext_resource type="PackedScene" uid="uid://cseivp01edlt7" path="res://scenes/npc_guard.tscn" id="47_ribqg"]
-[ext_resource type="PackedScene" uid="uid://bw0bdo050f31l" path="res://scenes/npc_mousey.tscn" id="48_h2vjj"]
-[ext_resource type="PackedScene" uid="uid://ck4fumxdq2amg" path="res://scenes/npc_doozy.tscn" id="49_m867c"]
-[ext_resource type="PackedScene" uid="uid://i3wrawk7qltj" path="res://scenes/quest_item_found_fx.tscn" id="50_1bkmt"]
-[ext_resource type="Shader" path="res://shaders/crt.gdshader" id="50_umbj5"]
-[ext_resource type="PackedScene" uid="uid://d1bgsbl2uf0oy" path="res://scenes/menu_ui.tscn" id="51_6e2h4"]
-[ext_resource type="AudioStream" uid="uid://b72uy3jklfblx" path="res://assets/music/Passenger.mp3" id="52_34uw6"]
+[ext_resource type="AudioStream" uid="uid://b72uy3jklfblx" path="res://assets/music/Passenger.mp3" id="1_b0kpd"]
+[ext_resource type="Script" path="res://scripts/prop_manager.gd" id="2_0doob"]
+[ext_resource type="Material" uid="uid://b5r8ed3gn67r3" path="res://assets/materials/gray_material.tres" id="3_53wqt"]
+[ext_resource type="PackedScene" uid="uid://cq0xfb7inlax1" path="res://assets/_packs/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/banner_triple_yellow.gltf" id="4_6gisk"]
+[ext_resource type="PackedScene" uid="uid://b5r8c24xlgj8m" path="res://assets/_packs/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/chest_gold.gltf" id="5_q35h0"]
+[ext_resource type="PackedScene" uid="uid://drrq413wn6hsp" path="res://assets/_packs/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/crates_stacked.gltf" id="6_frv7o"]
+[ext_resource type="PackedScene" uid="uid://dnmh63l2qg2g" path="res://assets/_packs/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/banner_blue.gltf" id="7_ty7nh"]
+[ext_resource type="PackedScene" uid="uid://bhsaxpxri21s6" path="res://assets/_packs/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/banner_green.gltf" id="8_uytiy"]
+[ext_resource type="PackedScene" uid="uid://8gtb5tatov81" path="res://assets/_packs/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/chair.gltf" id="9_bwhc0"]
+[ext_resource type="PackedScene" uid="uid://btprb8qe0p6vh" path="res://assets/_packs/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/wall_doorway.gltf" id="10_p4r8k"]
+[ext_resource type="PackedScene" uid="uid://ckd8uye7tqq4o" path="res://assets/_packs/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/box_stacked.gltf" id="11_nc84h"]
+[ext_resource type="PackedScene" uid="uid://bqerijla5n5o8" path="res://assets/_packs/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/keg.gltf" id="12_opwx4"]
+[ext_resource type="PackedScene" uid="uid://b8htlq6xcrkhd" path="res://assets/_packs/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/coin_stack_large.gltf" id="13_136a4"]
+[ext_resource type="Texture2D" uid="uid://tv51ebt8i11a" path="res://assets/_packs/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/dungeon_texture.png" id="14_6nu6t"]
+[ext_resource type="Shader" path="res://shaders/highlight.gdshader" id="15_lxrnk"]
+[ext_resource type="PackedScene" uid="uid://d28xvdi7c2w4a" path="res://assets/_packs/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/table_long_decorated_C.gltf" id="16_3xmuk"]
+[ext_resource type="PackedScene" uid="uid://slyyj18i85wa" path="res://assets/_packs/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/wall_endcap.gltf" id="17_bris4"]
+[ext_resource type="PackedScene" uid="uid://di06fy58xlpga" path="res://assets/_packs/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/wall_half_endcap_sloped.gltf" id="18_o7jm2"]
+[ext_resource type="PackedScene" uid="uid://d00clqf4rwlbf" path="res://assets/_packs/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/torch_mounted.gltf" id="19_3b0w7"]
+[ext_resource type="PackedScene" uid="uid://47nkeffqlgku" path="res://scenes/flame_fx.tscn" id="20_x4e1q"]
+[ext_resource type="PackedScene" uid="uid://bf7i8yriys4fn" path="res://assets/_packs/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/box_large.gltf" id="21_83cwh"]
+[ext_resource type="PackedScene" uid="uid://be6xsfenvqe56" path="res://assets/_packs/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/pillar_decorated.gltf" id="22_56jvr"]
+[ext_resource type="PackedScene" uid="uid://belogaksqcn0m" path="res://assets/_packs/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/wall_half.gltf" id="23_nuubv"]
+[ext_resource type="PackedScene" uid="uid://c20ugxpfst7tm" path="res://assets/_packs/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/wall_corner_small.gltf" id="24_p57d5"]
+[ext_resource type="PackedScene" uid="uid://eeu8ks8xl0gt" path="res://assets/_packs/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/wall_corner.gltf" id="25_k2x57"]
+[ext_resource type="PackedScene" uid="uid://dl4paqobndwut" path="res://assets/_packs/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/shelf_small_candles.gltf" id="26_m6cuk"]
+[ext_resource type="PackedScene" uid="uid://clshyfsksdlkg" path="res://assets/_packs/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/bottle_C_green.gltf" id="27_8fa08"]
+[ext_resource type="PackedScene" uid="uid://b1l0qpg0wj8on" path="res://assets/_packs/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/sword_shield_broken.gltf" id="28_brup5"]
+[ext_resource type="PackedScene" uid="uid://86oqut114pli" path="res://assets/_packs/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/bottle_B_brown.gltf" id="29_k1qux"]
+[ext_resource type="PackedScene" uid="uid://dch1hjtb46upj" path="res://assets/_packs/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/bottle_A_labeled_green.gltf" id="30_sa8ei"]
+[ext_resource type="PackedScene" uid="uid://ddrlt3woyjy4f" path="res://scenes/actionable.tscn" id="31_h0guf"]
+[ext_resource type="Resource" uid="uid://47sk12gbq03t" path="res://dialog/doozy.dialogue" id="32_0ikfu"]
+[ext_resource type="PackedScene" uid="uid://cosvtwf7j8d6w" path="res://assets/_packs/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/floor_tile_extralarge_grates_open.gltf" id="33_pclbt"]
+[ext_resource type="PackedScene" uid="uid://o4g0bks7m6vh" path="res://assets/_packs/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/floor_tile_large.gltf" id="34_kkuva"]
+[ext_resource type="PackedScene" uid="uid://m5unu68k1mys" path="res://assets/_packs/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/banner_triple_white.gltf" id="35_wail7"]
+[ext_resource type="PackedScene" uid="uid://wbrtuqahphyk" path="res://assets/_packs/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/table_medium_tablecloth.gltf" id="36_jqr7n"]
+[ext_resource type="Resource" uid="uid://b31qyiubykhg" path="res://dialog/mousey.dialogue" id="37_0nc85"]
+[ext_resource type="PackedScene" uid="uid://dagiv37psxwqr" path="res://assets/_packs/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/wall_broken.gltf" id="38_lja3h"]
+[ext_resource type="PackedScene" uid="uid://b0hsurdg3ygxt" path="res://assets/_packs/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/table_small.gltf" id="39_buadn"]
+[ext_resource type="Resource" uid="uid://2dn4fycpda8h" path="res://dialog/guard.dialogue" id="40_7cd2l"]
+[ext_resource type="PackedScene" uid="uid://c4ihfmaryedks" path="res://assets/_packs/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/keyring.gltf" id="41_mk0mr"]
+[ext_resource type="PackedScene" uid="uid://cxknev53dbvbs" path="res://assets/_packs/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/sword_shield_gold.gltf" id="42_7ow3d"]
+[ext_resource type="PackedScene" uid="uid://bpyevtj6ugqmf" path="res://assets/_packs/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/wall_cracked.gltf" id="43_hqnmi"]
+[ext_resource type="PackedScene" uid="uid://br4voq0i57184" path="res://assets/_packs/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/table_long_decorated_A.gltf" id="44_3vmhv"]
+[ext_resource type="PackedScene" uid="uid://bimmgvpljncsp" path="res://assets/_packs/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/banner_patternA_green.gltf" id="45_s515b"]
+[ext_resource type="PackedScene" uid="uid://cseivp01edlt7" path="res://scenes/npc_guard.tscn" id="46_scwrp"]
+[ext_resource type="PackedScene" uid="uid://bw0bdo050f31l" path="res://scenes/npc_mousey.tscn" id="47_m553d"]
+[ext_resource type="PackedScene" uid="uid://ck4fumxdq2amg" path="res://scenes/npc_doozy.tscn" id="48_3cfx8"]
+[ext_resource type="PackedScene" uid="uid://i3wrawk7qltj" path="res://scenes/quest_item_found_fx.tscn" id="49_p5bmw"]
+[ext_resource type="Shader" path="res://shaders/crt.gdshader" id="50_you1y"]
+[ext_resource type="PackedScene" uid="uid://d1bgsbl2uf0oy" path="res://scenes/menu_ui.tscn" id="51_m1om4"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jpkjb"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -83,7 +83,7 @@ region_merge_size = 10.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a3ght"]
 resource_name = "texture"
-albedo_texture = ExtResource("15_oxbrn")
+albedo_texture = ExtResource("14_6nu6t")
 roughness = 0.45
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_0jhyy"]
@@ -120,7 +120,7 @@ shadow_mesh = SubResource("ArrayMesh_0jhyy")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ueb57"]
 render_priority = 0
-shader = ExtResource("16_lypim")
+shader = ExtResource("15_lxrnk")
 shader_parameter/shine_color = Color(1, 1, 1, 1)
 shader_parameter/cycle_interval = 1.0
 shader_parameter/shine_speed = 3.0
@@ -137,7 +137,7 @@ points = PackedVector3Array(0.269622, 0.719687, 0.376428, -0.732368, 0.329294, 0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_liewu"]
 resource_name = "texture"
-albedo_texture = ExtResource("15_oxbrn")
+albedo_texture = ExtResource("14_6nu6t")
 roughness = 0.45
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_taes8"]
@@ -174,7 +174,7 @@ shadow_mesh = SubResource("ArrayMesh_taes8")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_beb5t"]
 render_priority = 0
-shader = ExtResource("16_lypim")
+shader = ExtResource("15_lxrnk")
 shader_parameter/shine_color = Color(1, 1, 1, 1)
 shader_parameter/cycle_interval = 1.0
 shader_parameter/shine_speed = 3.0
@@ -191,7 +191,7 @@ radius = 0.75
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mud73"]
 resource_name = "texture"
-albedo_texture = ExtResource("15_oxbrn")
+albedo_texture = ExtResource("14_6nu6t")
 roughness = 0.45
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_5la7i"]
@@ -230,7 +230,7 @@ shadow_mesh = SubResource("ArrayMesh_5la7i")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_h0fat"]
 render_priority = 0
-shader = ExtResource("16_lypim")
+shader = ExtResource("15_lxrnk")
 shader_parameter/shine_color = Color(1, 1, 1, 1)
 shader_parameter/cycle_interval = 1.0
 shader_parameter/shine_speed = 3.0
@@ -249,22 +249,22 @@ material = SubResource("StandardMaterial3D_t8quf")
 size = Vector3(3, 3, 0.2)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0v4qh"]
-shader = ExtResource("50_umbj5")
+shader = ExtResource("50_you1y")
 shader_parameter/fisheye_strength = 1.0
 
-[node name="Menu" type="Node3D"]
+[node name="Main" type="Node3D"]
 
 [node name="Music" type="Node" parent="."]
 
 [node name="MainMusic" type="AudioStreamPlayer" parent="Music"]
-stream = ExtResource("52_34uw6")
+stream = ExtResource("1_b0kpd")
 volume_db = -14.0
 autoplay = true
 
 [node name="World" type="Node" parent="."]
 
 [node name="PropManager" type="Node" parent="World" node_paths=PackedStringArray("keys", "keys_particle_controller", "cheese", "cheese_particle_controller", "bottle", "bottle_particle_controller")]
-script = ExtResource("2_2dric")
+script = ExtResource("2_0doob")
 keys = NodePath("../NavigationRegion3D/Props/keyring2")
 keys_particle_controller = NodePath("../QuestItemsFoundParticles/Particles1")
 cheese = NodePath("../NavigationRegion3D/Props/coin_stack_large2")
@@ -291,7 +291,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 use_collision = true
 flip_faces = true
 size = Vector3(8, 4, 8)
-material = ExtResource("4_kt6dp")
+material = ExtResource("3_53wqt")
 
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="World/NavigationRegion3D/Level"]
 
@@ -299,81 +299,81 @@ material = ExtResource("4_kt6dp")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 6)
 flip_faces = true
 size = Vector3(3, 3, 4)
-material = ExtResource("4_kt6dp")
+material = ExtResource("3_53wqt")
 
 [node name="Corridor2" type="CSGBox3D" parent="World/NavigationRegion3D/Level/CSGCombiner3D"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6, -0.5, 12.7)
 flip_faces = true
 size = Vector3(3, 3, 4)
-material = ExtResource("4_kt6dp")
+material = ExtResource("3_53wqt")
 
 [node name="Corridor3" type="CSGBox3D" parent="World/NavigationRegion3D/Level/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.9, -0.5, 6)
 flip_faces = true
 size = Vector3(3, 3, 4)
-material = ExtResource("4_kt6dp")
+material = ExtResource("3_53wqt")
 
 [node name="Corridor4" type="CSGBox3D" parent="World/NavigationRegion3D/Level/CSGCombiner3D"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6, -0.5, 0.1)
 flip_faces = true
 size = Vector3(3, 3, 4.1)
-material = ExtResource("4_kt6dp")
+material = ExtResource("3_53wqt")
 
 [node name="Room2" type="CSGBox3D" parent="World/NavigationRegion3D/Level/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3, 0, 16)
 flip_faces = true
 size = Vector3(16, 4, 16)
-material = ExtResource("4_kt6dp")
+material = ExtResource("3_53wqt")
 
 [node name="Room3" type="CSGBox3D" parent="World/NavigationRegion3D/Level/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, 12)
 flip_faces = true
 size = Vector3(8, 4, 8)
-material = ExtResource("4_kt6dp")
+material = ExtResource("3_53wqt")
 
 [node name="Room4" type="CSGBox3D" parent="World/NavigationRegion3D/Level/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, 0)
 flip_faces = true
 size = Vector3(8, 4, 8)
-material = ExtResource("4_kt6dp")
+material = ExtResource("3_53wqt")
 
 [node name="Props" type="Node3D" parent="World/NavigationRegion3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.23246, -0.500467, 3.5993)
 
-[node name="banner_triple_yellow2" parent="World/NavigationRegion3D/Props" instance=ExtResource("5_qxmn0")]
+[node name="banner_triple_yellow2" parent="World/NavigationRegion3D/Props" instance=ExtResource("4_6gisk")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -4.34765, 0.603334, 20.7724)
 
-[node name="chest_gold2" parent="World/NavigationRegion3D/Props" instance=ExtResource("6_wh0c7")]
+[node name="chest_gold2" parent="World/NavigationRegion3D/Props" instance=ExtResource("5_q35h0")]
 transform = Transform3D(0.173648, 0, 0.984808, 0, 1, 0, -0.984808, 0, 0.173648, -9.10593, 0.549733, 12.5159)
 
-[node name="crates_stacked2" parent="World/NavigationRegion3D/Props" instance=ExtResource("7_0d7ql")]
+[node name="crates_stacked2" parent="World/NavigationRegion3D/Props" instance=ExtResource("6_frv7o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.58162, 0.643247, 5.87006)
 
-[node name="banner_blue2" parent="World/NavigationRegion3D/Props" instance=ExtResource("8_cwhbm")]
+[node name="banner_blue2" parent="World/NavigationRegion3D/Props" instance=ExtResource("7_ty7nh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3, 0.8, 4.1)
 
-[node name="banner_green2" parent="World/NavigationRegion3D/Props" instance=ExtResource("9_u4ayn")]
+[node name="banner_green2" parent="World/NavigationRegion3D/Props" instance=ExtResource("8_uytiy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7, 0.8, 4.2)
 
-[node name="chair2" parent="World/NavigationRegion3D/Props" instance=ExtResource("10_tku7q")]
+[node name="chair2" parent="World/NavigationRegion3D/Props" instance=ExtResource("9_bwhc0")]
 transform = Transform3D(0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, 0.258819, 4.7, 0.5, 8.6)
 
-[node name="chair3" parent="World/NavigationRegion3D/Props" instance=ExtResource("10_tku7q")]
+[node name="chair3" parent="World/NavigationRegion3D/Props" instance=ExtResource("9_bwhc0")]
 transform = Transform3D(0.642788, 0, -0.766044, 0, 1, 0, 0.766044, 0, 0.642788, 4.7, 0.5, 14.8)
 
-[node name="banner_blue3" parent="World/NavigationRegion3D/Props" instance=ExtResource("8_cwhbm")]
+[node name="banner_blue3" parent="World/NavigationRegion3D/Props" instance=ExtResource("7_ty7nh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9, 0.8, 4.1)
 
-[node name="wall_doorway2" parent="World/NavigationRegion3D/Props" groups=["points_of_interest"] instance=ExtResource("11_3gqg5")]
+[node name="wall_doorway2" parent="World/NavigationRegion3D/Props" groups=["points_of_interest"] instance=ExtResource("10_p4r8k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 19.8)
 
-[node name="box_stacked2" parent="World/NavigationRegion3D/Props" instance=ExtResource("12_8whnh")]
+[node name="box_stacked2" parent="World/NavigationRegion3D/Props" instance=ExtResource("11_nc84h")]
 transform = Transform3D(5.96244e-09, 0, -0.5, 0, 0.5, 0, 0.5, 0, 5.96244e-09, 4.9, 0.5, 19.1)
 
-[node name="keg2" parent="World/NavigationRegion3D/Props" instance=ExtResource("13_ccqww")]
+[node name="keg2" parent="World/NavigationRegion3D/Props" instance=ExtResource("12_opwx4")]
 transform = Transform3D(0.642788, 0, 0.766044, 0, 1, 0, -0.766044, 0, 0.642788, -8.3, 0.5, 18.2)
 
-[node name="coin_stack_large2" parent="World/NavigationRegion3D/Props" groups=["points_of_interest"] instance=ExtResource("14_4m72h")]
+[node name="coin_stack_large2" parent="World/NavigationRegion3D/Props" groups=["points_of_interest"] instance=ExtResource("13_136a4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7, 1.5, -3.7)
 
 [node name="coin_stack_large2" type="MeshInstance3D" parent="World/NavigationRegion3D/Props/coin_stack_large2"]
@@ -389,130 +389,130 @@ shape = SubResource("ConvexPolygonShape3D_03s8w")
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="World/NavigationRegion3D/Props/coin_stack_large2/coin_stack_large2/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_didyt")
 
-[node name="table_long_decorated_C2" parent="World/NavigationRegion3D/Props" instance=ExtResource("17_bgx2n")]
+[node name="table_long_decorated_C2" parent="World/NavigationRegion3D/Props" instance=ExtResource("16_3xmuk")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5.7, 0.5, -6.4)
 
-[node name="wall_endcap2" parent="World/NavigationRegion3D/Props" instance=ExtResource("18_cppor")]
+[node name="wall_endcap2" parent="World/NavigationRegion3D/Props" instance=ExtResource("17_bris4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.9, 0.5, 4.8)
 
-[node name="wall_endcap3" parent="World/NavigationRegion3D/Props" instance=ExtResource("18_cppor")]
+[node name="wall_endcap3" parent="World/NavigationRegion3D/Props" instance=ExtResource("17_bris4")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -21.1, 0.5, 12.4)
 
-[node name="wall_endcap4" parent="World/NavigationRegion3D/Props" instance=ExtResource("18_cppor")]
+[node name="wall_endcap4" parent="World/NavigationRegion3D/Props" instance=ExtResource("17_bris4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.3, 0.5, -7.5)
 
-[node name="wall_endcap7" parent="World/NavigationRegion3D/Props" instance=ExtResource("18_cppor")]
+[node name="wall_endcap7" parent="World/NavigationRegion3D/Props" instance=ExtResource("17_bris4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.9, 0.5, 20.2)
 
-[node name="wall_half_endcap_sloped2" parent="World/NavigationRegion3D/Props" instance=ExtResource("19_8m3cx")]
+[node name="wall_half_endcap_sloped2" parent="World/NavigationRegion3D/Props" instance=ExtResource("18_o7jm2")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -15.1, 0.5, 0.3)
 
-[node name="wall_endcap5" parent="World/NavigationRegion3D/Props" instance=ExtResource("18_cppor")]
+[node name="wall_endcap5" parent="World/NavigationRegion3D/Props" instance=ExtResource("17_bris4")]
 transform = Transform3D(1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, -13.4, 0.5, 4.5)
 
-[node name="wall_endcap6" parent="World/NavigationRegion3D/Props" instance=ExtResource("18_cppor")]
+[node name="wall_endcap6" parent="World/NavigationRegion3D/Props" instance=ExtResource("17_bris4")]
 transform = Transform3D(1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, 5.6, 0.5, 19.5)
 
-[node name="torch_mounted2" parent="World/NavigationRegion3D/Props" instance=ExtResource("20_4svrt")]
+[node name="torch_mounted2" parent="World/NavigationRegion3D/Props" instance=ExtResource("19_3b0w7")]
 transform = Transform3D(1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, -13.2, 2.5, -1.3)
 
-[node name="FlameParticles1" parent="World/NavigationRegion3D/Props/torch_mounted2" instance=ExtResource("21_d5ts8")]
+[node name="FlameParticles1" parent="World/NavigationRegion3D/Props/torch_mounted2" instance=ExtResource("20_x4e1q")]
 transform = Transform3D(3.57747e-09, 0, 0.3, 0, 0.3, 0, -0.3, 0, 3.57747e-09, 0.00400066, 0.420736, 0.343753)
 
-[node name="torch_mounted9" parent="World/NavigationRegion3D/Props" instance=ExtResource("20_4svrt")]
+[node name="torch_mounted9" parent="World/NavigationRegion3D/Props" instance=ExtResource("19_3b0w7")]
 transform = Transform3D(1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, -13.2, 2.5, 6.8437)
 
-[node name="FlameParticles1" parent="World/NavigationRegion3D/Props/torch_mounted9" instance=ExtResource("21_d5ts8")]
+[node name="FlameParticles1" parent="World/NavigationRegion3D/Props/torch_mounted9" instance=ExtResource("20_x4e1q")]
 transform = Transform3D(3.57747e-09, 0, 0.3, 0, 0.3, 0, -0.3, 0, 3.57747e-09, 0.00400066, 0.420736, 0.343753)
 
-[node name="torch_mounted10" parent="World/NavigationRegion3D/Props" instance=ExtResource("20_4svrt")]
+[node name="torch_mounted10" parent="World/NavigationRegion3D/Props" instance=ExtResource("19_3b0w7")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -18.9168, 2.5, 12.4012)
 
-[node name="FlameParticles1" parent="World/NavigationRegion3D/Props/torch_mounted10" instance=ExtResource("21_d5ts8")]
+[node name="FlameParticles1" parent="World/NavigationRegion3D/Props/torch_mounted10" instance=ExtResource("20_x4e1q")]
 transform = Transform3D(3.57747e-09, 0, 0.3, 0, 0.3, 0, -0.3, 0, 3.57747e-09, 0.00400066, 0.420736, 0.343753)
 
-[node name="torch_mounted11" parent="World/NavigationRegion3D/Props" instance=ExtResource("20_4svrt")]
+[node name="torch_mounted11" parent="World/NavigationRegion3D/Props" instance=ExtResource("19_3b0w7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.91675, 2.5, 4.40123)
 
-[node name="FlameParticles1" parent="World/NavigationRegion3D/Props/torch_mounted11" instance=ExtResource("21_d5ts8")]
+[node name="FlameParticles1" parent="World/NavigationRegion3D/Props/torch_mounted11" instance=ExtResource("20_x4e1q")]
 transform = Transform3D(3.57747e-09, 0, 0.3, 0, 0.3, 0, -0.3, 0, 3.57747e-09, 0.00400066, 0.420736, 0.343753)
 
-[node name="torch_mounted12" parent="World/NavigationRegion3D/Props" instance=ExtResource("20_4svrt")]
+[node name="torch_mounted12" parent="World/NavigationRegion3D/Props" instance=ExtResource("19_3b0w7")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -9.30282, 2.5, -5.89746)
 
-[node name="FlameParticles1" parent="World/NavigationRegion3D/Props/torch_mounted12" instance=ExtResource("21_d5ts8")]
+[node name="FlameParticles1" parent="World/NavigationRegion3D/Props/torch_mounted12" instance=ExtResource("20_x4e1q")]
 transform = Transform3D(3.57747e-09, 0, 0.3, 0, 0.3, 0, -0.3, 0, 3.57747e-09, 0.00400066, 0.420736, 0.343753)
 
-[node name="torch_mounted13" parent="World/NavigationRegion3D/Props" instance=ExtResource("20_4svrt")]
+[node name="torch_mounted13" parent="World/NavigationRegion3D/Props" instance=ExtResource("19_3b0w7")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6.07133, 2.5, 8.3963)
 
-[node name="FlameParticles1" parent="World/NavigationRegion3D/Props/torch_mounted13" instance=ExtResource("21_d5ts8")]
+[node name="FlameParticles1" parent="World/NavigationRegion3D/Props/torch_mounted13" instance=ExtResource("20_x4e1q")]
 transform = Transform3D(3.57747e-09, 0, 0.3, 0, 0.3, 0, -0.3, 0, 3.57747e-09, 0.00400066, 0.420736, 0.343753)
 
-[node name="torch_mounted14" parent="World/NavigationRegion3D/Props" instance=ExtResource("20_4svrt")]
+[node name="torch_mounted14" parent="World/NavigationRegion3D/Props" instance=ExtResource("19_3b0w7")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6.07133, 2.5, 15.5963)
 
-[node name="FlameParticles1" parent="World/NavigationRegion3D/Props/torch_mounted14" instance=ExtResource("21_d5ts8")]
+[node name="FlameParticles1" parent="World/NavigationRegion3D/Props/torch_mounted14" instance=ExtResource("20_x4e1q")]
 transform = Transform3D(3.57747e-09, 0, 0.3, 0, 0.3, 0, -0.3, 0, 3.57747e-09, 0.00400066, 0.420736, 0.343753)
 
-[node name="torch_mounted15" parent="World/NavigationRegion3D/Props" instance=ExtResource("20_4svrt")]
+[node name="torch_mounted15" parent="World/NavigationRegion3D/Props" instance=ExtResource("19_3b0w7")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -6.98216, 2.5, 20.402)
 
-[node name="FlameParticles1" parent="World/NavigationRegion3D/Props/torch_mounted15" instance=ExtResource("21_d5ts8")]
+[node name="FlameParticles1" parent="World/NavigationRegion3D/Props/torch_mounted15" instance=ExtResource("20_x4e1q")]
 transform = Transform3D(3.57747e-09, 0, 0.3, 0, 0.3, 0, -0.3, 0, 3.57747e-09, 0.00400066, 0.420736, 0.343753)
 
-[node name="box_large2" parent="World/NavigationRegion3D/Props" instance=ExtResource("22_fdjmk")]
+[node name="box_large2" parent="World/NavigationRegion3D/Props" instance=ExtResource("21_83cwh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.2, 0.5, 17.1)
 
-[node name="pillar_decorated2" parent="World/NavigationRegion3D/Props" groups=["points_of_interest"] instance=ExtResource("23_8kk2v")]
+[node name="pillar_decorated2" parent="World/NavigationRegion3D/Props" groups=["points_of_interest"] instance=ExtResource("22_56jvr")]
 transform = Transform3D(-0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, -0.707107, -20.2, 0.5, -0.3)
 
-[node name="wall_half2" parent="World/NavigationRegion3D/Props" instance=ExtResource("24_jdsq7")]
+[node name="wall_half2" parent="World/NavigationRegion3D/Props" instance=ExtResource("23_nuubv")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -20.8, 0.5, 6.4)
 
-[node name="wall_half4" parent="World/NavigationRegion3D/Props" instance=ExtResource("24_jdsq7")]
+[node name="wall_half4" parent="World/NavigationRegion3D/Props" instance=ExtResource("23_nuubv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.3, 0.5, -0.0999981)
 
-[node name="wall_half3" parent="World/NavigationRegion3D/Props" instance=ExtResource("24_jdsq7")]
+[node name="wall_half3" parent="World/NavigationRegion3D/Props" instance=ExtResource("23_nuubv")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -20.8, 0.5, -5.7)
 
-[node name="wall_corner_small2" parent="World/NavigationRegion3D/Props" instance=ExtResource("25_bidgk")]
+[node name="wall_corner_small2" parent="World/NavigationRegion3D/Props" instance=ExtResource("24_p57d5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6, 0.5, -7.2)
 
-[node name="wall_corner2" parent="World/NavigationRegion3D/Props" instance=ExtResource("26_gke3f")]
+[node name="wall_corner2" parent="World/NavigationRegion3D/Props" instance=ExtResource("25_k2x57")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3.2, 0.5, -1.6)
 
-[node name="wall_corner3" parent="World/NavigationRegion3D/Props" instance=ExtResource("26_gke3f")]
+[node name="wall_corner3" parent="World/NavigationRegion3D/Props" instance=ExtResource("25_k2x57")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -14.8, 0.5, -5.9)
 
-[node name="wall_corner4" parent="World/NavigationRegion3D/Props" instance=ExtResource("26_gke3f")]
+[node name="wall_corner4" parent="World/NavigationRegion3D/Props" instance=ExtResource("25_k2x57")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 4.2, 0.5, 5.7)
 
-[node name="shelf_small_candles2" parent="World/NavigationRegion3D/Props" groups=["points_of_interest"] instance=ExtResource("27_vfg1h")]
+[node name="shelf_small_candles2" parent="World/NavigationRegion3D/Props" groups=["points_of_interest"] instance=ExtResource("26_m6cuk")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -1.00054, 0.644374, 4.80093)
 
-[node name="shelf_small_candles3" parent="World/NavigationRegion3D/Props" groups=["points_of_interest"] instance=ExtResource("27_vfg1h")]
+[node name="shelf_small_candles3" parent="World/NavigationRegion3D/Props" groups=["points_of_interest"] instance=ExtResource("26_m6cuk")]
 transform = Transform3D(-6.55671e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.55671e-08, -21.1459, 0.644374, -3.24625)
 
-[node name="FlameParticles1" parent="World/NavigationRegion3D/Props/shelf_small_candles3" instance=ExtResource("21_d5ts8")]
+[node name="FlameParticles1" parent="World/NavigationRegion3D/Props/shelf_small_candles3" instance=ExtResource("20_x4e1q")]
 transform = Transform3D(-4.37114e-09, 0, 0.1, 0, 0.1, 0, -0.1, 0, -4.37114e-09, -0.14974, 0.698366, 0.196116)
 
-[node name="bottle_C_green2" parent="World/NavigationRegion3D/Props" instance=ExtResource("28_nvaa2")]
+[node name="bottle_C_green2" parent="World/NavigationRegion3D/Props" instance=ExtResource("27_8fa08")]
 transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, -17.8, 0.5, 11.9)
 
-[node name="sword_shield_broken2" parent="World/NavigationRegion3D/Props" instance=ExtResource("29_su0n5")]
+[node name="sword_shield_broken2" parent="World/NavigationRegion3D/Props" instance=ExtResource("28_brup5")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -9.9, 3.1, 15.3)
 
-[node name="bottle_B_brown2" parent="World/NavigationRegion3D/Props" instance=ExtResource("30_rftlw")]
+[node name="bottle_B_brown2" parent="World/NavigationRegion3D/Props" instance=ExtResource("29_k1qux")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.8, 0.5, 11.8)
 
-[node name="bottle_C_green3" parent="World/NavigationRegion3D/Props" instance=ExtResource("28_nvaa2")]
+[node name="bottle_C_green3" parent="World/NavigationRegion3D/Props" instance=ExtResource("27_8fa08")]
 transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, -9.4, 0.5, 14.6)
 
-[node name="bottle_B_brown3" parent="World/NavigationRegion3D/Props" instance=ExtResource("30_rftlw")]
+[node name="bottle_B_brown3" parent="World/NavigationRegion3D/Props" instance=ExtResource("29_k1qux")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.1, 0.5, 15.8)
 
-[node name="bottle_A_labeled_green2" parent="World/NavigationRegion3D/Props" instance=ExtResource("31_gxc7u")]
+[node name="bottle_A_labeled_green2" parent="World/NavigationRegion3D/Props" instance=ExtResource("30_sa8ei")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -9, 0.5, 15.2)
 
 [node name="bottle_A_labeled_green2" type="MeshInstance3D" parent="World/NavigationRegion3D/Props/bottle_A_labeled_green2"]
@@ -525,52 +525,52 @@ surface_material_override/0 = SubResource("ShaderMaterial_beb5t")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/NavigationRegion3D/Props/bottle_A_labeled_green2/bottle_A_labeled_green2/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_ho4eo")
 
-[node name="Actionable" parent="World/NavigationRegion3D/Props/bottle_A_labeled_green2" instance=ExtResource("32_raoqc")]
+[node name="Actionable" parent="World/NavigationRegion3D/Props/bottle_A_labeled_green2" instance=ExtResource("31_h0guf")]
 transform = Transform3D(-0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, -0.866025, 0, 0, 0)
-dialogue_resource = ExtResource("33_oxtgh")
+dialogue_resource = ExtResource("32_0ikfu")
 dialogue_start = "find_bottle"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/NavigationRegion3D/Props/bottle_A_labeled_green2/Actionable"]
 shape = SubResource("SphereShape3D_lpo8b")
 
-[node name="floor_tile_extralarge_grates_open2" parent="World/NavigationRegion3D/Props" instance=ExtResource("34_oxl1w")]
+[node name="floor_tile_extralarge_grates_open2" parent="World/NavigationRegion3D/Props" instance=ExtResource("33_pclbt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0.5, 10.8)
 
-[node name="floor_tile_large2" parent="World/NavigationRegion3D/Props" instance=ExtResource("35_31kas")]
+[node name="floor_tile_large2" parent="World/NavigationRegion3D/Props" instance=ExtResource("34_kkuva")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 17.7)
 
-[node name="banner_triple_white2" parent="World/NavigationRegion3D/Props" instance=ExtResource("36_4en1n")]
+[node name="banner_triple_white2" parent="World/NavigationRegion3D/Props" instance=ExtResource("35_wail7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.7, 0.8, -7.8)
 
-[node name="table_medium_tablecloth2" parent="World/NavigationRegion3D/Props" instance=ExtResource("37_ghsso")]
+[node name="table_medium_tablecloth2" parent="World/NavigationRegion3D/Props" instance=ExtResource("36_jqr7n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.9, 0.5, 19.0814)
 
-[node name="table_medium_tablecloth3" parent="World/NavigationRegion3D/Props" instance=ExtResource("37_ghsso")]
+[node name="table_medium_tablecloth3" parent="World/NavigationRegion3D/Props" instance=ExtResource("36_jqr7n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4, 0.5, -3.8)
 
-[node name="Actionable" parent="World/NavigationRegion3D/Props/table_medium_tablecloth3" instance=ExtResource("32_raoqc")]
+[node name="Actionable" parent="World/NavigationRegion3D/Props/table_medium_tablecloth3" instance=ExtResource("31_h0guf")]
 transform = Transform3D(-0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, -0.866025, -0.9, 0, 0)
-dialogue_resource = ExtResource("38_rjgs4")
+dialogue_resource = ExtResource("37_0nc85")
 dialogue_start = "find_keys"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/NavigationRegion3D/Props/table_medium_tablecloth3/Actionable"]
 shape = SubResource("SphereShape3D_lpo8b")
 
-[node name="wall_broken2" parent="World/NavigationRegion3D/Props" instance=ExtResource("39_nsiaj")]
+[node name="wall_broken2" parent="World/NavigationRegion3D/Props" instance=ExtResource("38_lja3h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.4, 0.5, 10.6)
 
-[node name="table_small2" parent="World/NavigationRegion3D/Props" instance=ExtResource("40_q8u6x")]
+[node name="table_small2" parent="World/NavigationRegion3D/Props" instance=ExtResource("39_buadn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.8, 0.5, 10.9)
 
-[node name="Actionable" parent="World/NavigationRegion3D/Props/table_small2" instance=ExtResource("32_raoqc")]
+[node name="Actionable" parent="World/NavigationRegion3D/Props/table_small2" instance=ExtResource("31_h0guf")]
 transform = Transform3D(-0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, -0.866025, 0, 0, 0)
-dialogue_resource = ExtResource("41_namub")
+dialogue_resource = ExtResource("40_7cd2l")
 dialogue_start = "find_keys"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/NavigationRegion3D/Props/table_small2/Actionable"]
 shape = SubResource("SphereShape3D_lpo8b")
 
-[node name="keyring2" parent="World/NavigationRegion3D/Props" instance=ExtResource("42_sgydb")]
+[node name="keyring2" parent="World/NavigationRegion3D/Props" instance=ExtResource("41_mk0mr")]
 transform = Transform3D(-0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, -0.866025, -19.8, 1.5, 10.8)
 
 [node name="keyring2" type="MeshInstance3D" parent="World/NavigationRegion3D/Props/keyring2"]
@@ -578,19 +578,19 @@ mesh = SubResource("ArrayMesh_7ovaj")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("ShaderMaterial_h0fat")
 
-[node name="sword_shield_gold2" parent="World/NavigationRegion3D/Props" instance=ExtResource("43_dsehb")]
+[node name="sword_shield_gold2" parent="World/NavigationRegion3D/Props" instance=ExtResource("42_7ow3d")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5.8, 3, 12)
 
-[node name="wall_cracked2" parent="World/NavigationRegion3D/Props" instance=ExtResource("44_p8cns")]
+[node name="wall_cracked2" parent="World/NavigationRegion3D/Props" instance=ExtResource("43_hqnmi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0.5, 12.3)
 
-[node name="table_long_decorated_A2" parent="World/NavigationRegion3D/Props" instance=ExtResource("45_c5d26")]
+[node name="table_long_decorated_A2" parent="World/NavigationRegion3D/Props" instance=ExtResource("44_3vmhv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.9, 0.5, 12)
 
-[node name="banner_patternA_green2" parent="World/NavigationRegion3D/Props" instance=ExtResource("46_pdpu2")]
+[node name="banner_patternA_green2" parent="World/NavigationRegion3D/Props" instance=ExtResource("45_s515b")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -21.5, 0.8, 10)
 
-[node name="banner_patternA_green3" parent="World/NavigationRegion3D/Props" instance=ExtResource("46_pdpu2")]
+[node name="banner_patternA_green3" parent="World/NavigationRegion3D/Props" instance=ExtResource("45_s515b")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -21.5, 0.8, 8)
 
 [node name="InterestPoints" type="Node3D" parent="World/NavigationRegion3D"]
@@ -624,48 +624,48 @@ skeleton = NodePath("../../..")
 
 [node name="NPCs" type="Node3D" parent="World"]
 
-[node name="NPC_Guard" parent="World/NPCs" node_paths=PackedStringArray("points_of_interest") instance=ExtResource("47_ribqg")]
+[node name="NPC_Guard" parent="World/NPCs" node_paths=PackedStringArray("points_of_interest") instance=ExtResource("46_scwrp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.200001, 0.5, 17.8)
 points_of_interest = [NodePath("../../NavigationRegion3D/InterestPoints/Marker3D1"), NodePath("../../NavigationRegion3D/InterestPoints/Marker3D2"), NodePath("../../NavigationRegion3D/InterestPoints/Marker3D3"), NodePath("../../NavigationRegion3D/InterestPoints/Marker3D4"), NodePath("../../NavigationRegion3D/InterestPoints/Marker3D5"), NodePath("../../NavigationRegion3D/InterestPoints/Marker3D6")]
 
-[node name="Actionable" parent="World/NPCs/NPC_Guard" instance=ExtResource("32_raoqc")]
+[node name="Actionable" parent="World/NPCs/NPC_Guard" instance=ExtResource("31_h0guf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -0.3)
-dialogue_resource = ExtResource("41_namub")
+dialogue_resource = ExtResource("40_7cd2l")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/NPCs/NPC_Guard/Actionable"]
 shape = SubResource("SphereShape3D_lpo8b")
 
-[node name="NPC_Mousey" parent="World/NPCs" node_paths=PackedStringArray("points_of_interest") instance=ExtResource("48_h2vjj")]
+[node name="NPC_Mousey" parent="World/NPCs" node_paths=PackedStringArray("points_of_interest") instance=ExtResource("47_m553d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.38214, 0.5, 4.95719)
 points_of_interest = [NodePath("../../NavigationRegion3D/InterestPoints/Marker3D1"), NodePath("../../NavigationRegion3D/InterestPoints/Marker3D2"), NodePath("../../NavigationRegion3D/InterestPoints/Marker3D3"), NodePath("../../NavigationRegion3D/InterestPoints/Marker3D4"), NodePath("../../NavigationRegion3D/InterestPoints/Marker3D5"), NodePath("../../NavigationRegion3D/InterestPoints/Marker3D7")]
 
-[node name="Actionable" parent="World/NPCs/NPC_Mousey" instance=ExtResource("32_raoqc")]
+[node name="Actionable" parent="World/NPCs/NPC_Mousey" instance=ExtResource("31_h0guf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -0.3)
-dialogue_resource = ExtResource("38_rjgs4")
+dialogue_resource = ExtResource("37_0nc85")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/NPCs/NPC_Mousey/Actionable"]
 shape = SubResource("SphereShape3D_lpo8b")
 
-[node name="NPC_Doozy" parent="World/NPCs" node_paths=PackedStringArray("points_of_interest") instance=ExtResource("49_m867c")]
+[node name="NPC_Doozy" parent="World/NPCs" node_paths=PackedStringArray("points_of_interest") instance=ExtResource("48_3cfx8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.9742, 0.5, 8.43439)
 points_of_interest = [NodePath("../../NavigationRegion3D/InterestPoints/Marker3D1"), NodePath("../../NavigationRegion3D/InterestPoints/Marker3D2"), NodePath("../../NavigationRegion3D/InterestPoints/Marker3D3"), NodePath("../../NavigationRegion3D/InterestPoints/Marker3D4"), NodePath("../../NavigationRegion3D/InterestPoints/Marker3D5"), NodePath("../../NavigationRegion3D/InterestPoints/Marker3D6")]
 
-[node name="Actionable" parent="World/NPCs/NPC_Doozy" instance=ExtResource("32_raoqc")]
+[node name="Actionable" parent="World/NPCs/NPC_Doozy" instance=ExtResource("31_h0guf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -0.3)
-dialogue_resource = ExtResource("33_oxtgh")
+dialogue_resource = ExtResource("32_0ikfu")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/NPCs/NPC_Doozy/Actionable"]
 shape = SubResource("SphereShape3D_lpo8b")
 
 [node name="QuestItemsFoundParticles" type="Node3D" parent="World"]
 
-[node name="Particles1" parent="World/QuestItemsFoundParticles" instance=ExtResource("50_1bkmt")]
+[node name="Particles1" parent="World/QuestItemsFoundParticles" instance=ExtResource("49_p5bmw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.8123, 1.66934, 10.8401)
 
-[node name="Particles2" parent="World/QuestItemsFoundParticles" instance=ExtResource("50_1bkmt")]
+[node name="Particles2" parent="World/QuestItemsFoundParticles" instance=ExtResource("49_p5bmw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.97352, 1.42117, 15.178)
 
-[node name="Particles3" parent="World/QuestItemsFoundParticles" instance=ExtResource("50_1bkmt")]
+[node name="Particles3" parent="World/QuestItemsFoundParticles" instance=ExtResource("49_p5bmw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.70844, 1.96033, -3.74276)
 
 [node name="PostProcessing" type="Node" parent="."]
@@ -683,7 +683,7 @@ grow_vertical = 2
 
 [node name="UI" type="Node" parent="."]
 
-[node name="MenuUI" parent="UI" instance=ExtResource("51_6e2h4")]
+[node name="MenuUI" parent="UI" instance=ExtResource("51_m1om4")]
 
 [connection signal="child_exiting_tree" from="World/NavigationRegion3D/Props/bottle_A_labeled_green2/Actionable" to="World/NavigationRegion3D/Props/bottle_A_labeled_green2/Actionable" method="_on_child_exiting_tree"]
 [connection signal="child_exiting_tree" from="World/NavigationRegion3D/Props/table_medium_tablecloth3/Actionable" to="World/NavigationRegion3D/Props/table_medium_tablecloth3/Actionable" method="_on_child_exiting_tree"]

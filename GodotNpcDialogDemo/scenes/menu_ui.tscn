@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://d1bgsbl2uf0oy"]
+[gd_scene load_steps=9 format=3 uid="uid://d1bgsbl2uf0oy"]
 
 [ext_resource type="FontFile" uid="uid://d25vkmce7mhlt" path="res://demo/assets/fonts/knewave_regular.ttf" id="1_1wbd5"]
+[ext_resource type="Theme" uid="uid://cm1gfitd3ekde" path="res://ui/ui_theme.tres" id="1_5k8a3"]
 [ext_resource type="Shader" path="res://shaders/wavey.gdshader" id="2_gdql3"]
 [ext_resource type="Script" path="res://scripts/menu_ui_controller.gd" id="3_gqohc"]
 
@@ -25,6 +26,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_5k8a3")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 2
@@ -41,7 +43,7 @@ size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0, 0.4, 0.75, 0.996078)
 theme_override_fonts/font = ExtResource("1_1wbd5")
 theme_override_font_sizes/font_size = 120
-text = "   Cartoon Castle"
+text = "Toon Castle"
 horizontal_alignment = 1
 uppercase = true
 
@@ -75,12 +77,12 @@ script = ExtResource("3_gqohc")
 
 [node name="PlayButton" type="Button" parent="PanelContainer/CanvasLayer2/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 60
+theme = ExtResource("1_5k8a3")
 text = "Play"
 
 [node name="QuitButton" type="Button" parent="PanelContainer/CanvasLayer2/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 60
+theme = ExtResource("1_5k8a3")
 text = "Quit"
 
 [connection signal="pressed" from="PanelContainer/CanvasLayer2/VBoxContainer/PlayButton" to="PanelContainer/CanvasLayer2/VBoxContainer" method="_on_new_game_button_pressed"]

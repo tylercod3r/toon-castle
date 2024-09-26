@@ -1,4 +1,4 @@
-[gd_scene load_steps=75 format=4 uid="uid://dv34grx13fm0i"]
+[gd_scene load_steps=77 format=4 uid="uid://dv34grx13fm0i"]
 
 [ext_resource type="Material" uid="uid://b5r8ed3gn67r3" path="res://assets/materials/gray_material.tres" id="1_clowl"]
 [ext_resource type="Script" path="res://scripts/music_manager.gd" id="1_xw3xh"]
@@ -52,6 +52,7 @@
 [ext_resource type="PackedScene" uid="uid://47nkeffqlgku" path="res://scenes/flame_fx.tscn" id="46_q4a4r"]
 [ext_resource type="AudioStream" uid="uid://brb6ivedsjfvr" path="res://assets/music/Hidden Oasis.mp3" id="51_pj680"]
 [ext_resource type="AudioStream" uid="uid://curvj4guscnc1" path="res://assets/music/happy_theme.ogg" id="52_guqar"]
+[ext_resource type="Shader" path="res://shaders/vignette.gdshader" id="53_oraa3"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jpkjb"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -64,6 +65,7 @@ sky_material = SubResource("ProceduralSkyMaterial_jpkjb")
 background_mode = 2
 sky = SubResource("Sky_10lns")
 tonemap_mode = 2
+tonemap_exposure = 2.2
 ssr_enabled = true
 ssao_enabled = true
 ssil_enabled = true
@@ -248,6 +250,12 @@ albedo_color = Color(1, 0, 0.235294, 1)
 [sub_resource type="BoxMesh" id="BoxMesh_hlade"]
 material = SubResource("StandardMaterial3D_t8quf")
 size = Vector3(3, 3, 0.2)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gjoq7"]
+shader = ExtResource("53_oraa3")
+shader_parameter/alpha = 0.6
+shader_parameter/inner_radius = 0.0
+shader_parameter/outer_radius = 1.0
 
 [node name="Game" type="Node3D"]
 
@@ -675,6 +683,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.97352, 1.42117, 15.178)
 
 [node name="Particles3" parent="World/QuestItemsFoundParticles" instance=ExtResource("45_d305w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.70844, 1.96033, -3.74276)
+
+[node name="PostProcessing" type="Node" parent="."]
+
+[node name="CanvasLayer1" type="CanvasLayer" parent="PostProcessing"]
+
+[node name="ColorRect" type="ColorRect" parent="PostProcessing/CanvasLayer1"]
+material = SubResource("ShaderMaterial_gjoq7")
+use_parent_material = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="UI" type="Node" parent="."]
 
