@@ -1,4 +1,4 @@
-[gd_scene load_steps=77 format=4 uid="uid://dv34grx13fm0i"]
+[gd_scene load_steps=84 format=4 uid="uid://dv34grx13fm0i"]
 
 [ext_resource type="Material" uid="uid://b5r8ed3gn67r3" path="res://assets/materials/gray_material.tres" id="1_clowl"]
 [ext_resource type="Script" path="res://scripts/music_manager.gd" id="1_xw3xh"]
@@ -53,6 +53,13 @@
 [ext_resource type="AudioStream" uid="uid://brb6ivedsjfvr" path="res://assets/music/Hidden Oasis.mp3" id="51_pj680"]
 [ext_resource type="AudioStream" uid="uid://curvj4guscnc1" path="res://assets/music/happy_theme.ogg" id="52_guqar"]
 [ext_resource type="Shader" path="res://shaders/vignette.gdshader" id="53_oraa3"]
+[ext_resource type="Script" path="res://scenes/game_ui_controller.gd" id="54_erien"]
+[ext_resource type="Texture2D" uid="uid://ctfn5jl5sy5u4" path="res://assets/textures/icons/bottle.png" id="54_snpbf"]
+[ext_resource type="Texture2D" uid="uid://bmlmojt13awtj" path="res://assets/textures/icons/key.png" id="55_st8hn"]
+[ext_resource type="Texture2D" uid="uid://30oleim50fbj" path="res://assets/textures/icons/cheese.png" id="56_uth20"]
+[ext_resource type="Texture2D" uid="uid://c7wv8lr1t7ik" path="res://assets/textures/icons/bottle-fill.png" id="57_j2f4m"]
+[ext_resource type="Texture2D" uid="uid://dnth8gl4ows32" path="res://assets/textures/icons/key-fill.png" id="58_13kk3"]
+[ext_resource type="Texture2D" uid="uid://dbynalbt4ctqf" path="res://assets/textures/icons/cheese-fill.png" id="59_ycwal"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jpkjb"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -698,10 +705,65 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="UI" type="Node" parent="."]
+script = ExtResource("54_erien")
+
+[node name="CenterContainer" type="CenterContainer" parent="UI"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -190.0
+offset_top = -170.0
+offset_right = 190.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 0
+
+[node name="PanelContainer" type="PanelContainer" parent="UI/CenterContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/CenterContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="BottleVBox" type="VBoxContainer" parent="UI/CenterContainer/PanelContainer/HBoxContainer"]
+custom_minimum_size = Vector2(140, 0)
+layout_mode = 2
+
+[node name="BottleImage" type="TextureRect" parent="UI/CenterContainer/PanelContainer/HBoxContainer/BottleVBox"]
+layout_mode = 2
+texture = ExtResource("54_snpbf")
+
+[node name="BottleImageFill" type="TextureRect" parent="UI/CenterContainer/PanelContainer/HBoxContainer/BottleVBox"]
+layout_mode = 2
+texture = ExtResource("57_j2f4m")
+
+[node name="CheeseVBox" type="VBoxContainer" parent="UI/CenterContainer/PanelContainer/HBoxContainer"]
+custom_minimum_size = Vector2(140, 0)
+layout_mode = 2
+
+[node name="CheeseImage" type="TextureRect" parent="UI/CenterContainer/PanelContainer/HBoxContainer/CheeseVBox"]
+layout_mode = 2
+texture = ExtResource("56_uth20")
+
+[node name="CheeseImageFill" type="TextureRect" parent="UI/CenterContainer/PanelContainer/HBoxContainer/CheeseVBox"]
+layout_mode = 2
+texture = ExtResource("59_ycwal")
+
+[node name="KeyVBox" type="VBoxContainer" parent="UI/CenterContainer/PanelContainer/HBoxContainer"]
+custom_minimum_size = Vector2(140, 0)
+layout_mode = 2
+
+[node name="KeyImage" type="TextureRect" parent="UI/CenterContainer/PanelContainer/HBoxContainer/KeyVBox"]
+layout_mode = 2
+texture = ExtResource("55_st8hn")
+
+[node name="KeyImageFill" type="TextureRect" parent="UI/CenterContainer/PanelContainer/HBoxContainer/KeyVBox"]
+layout_mode = 2
+texture = ExtResource("58_13kk3")
 
 [node name="FxLayer1" type="CanvasLayer" parent="UI"]
 layer = 2
-visible = false
 
 [connection signal="child_exiting_tree" from="World/NavigationRegion3D/Props/bottle_A_labeled_green2/Actionable" to="World/NavigationRegion3D/Props/bottle_A_labeled_green2/Actionable" method="_on_child_exiting_tree"]
 [connection signal="child_exiting_tree" from="World/NavigationRegion3D/Props/table_medium_tablecloth3/Actionable" to="World/NavigationRegion3D/Props/table_medium_tablecloth3/Actionable" method="_on_child_exiting_tree"]
