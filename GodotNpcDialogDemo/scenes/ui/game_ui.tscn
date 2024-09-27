@@ -1,0 +1,65 @@
+[gd_scene load_steps=8 format=3 uid="uid://cxhnjqqtggg0q"]
+
+[ext_resource type="Script" path="res://scripts/game_ui_controller.gd" id="1_1gu15"]
+[ext_resource type="Texture2D" uid="uid://ctfn5jl5sy5u4" path="res://assets/textures/icons/bottle.png" id="1_ibirp"]
+[ext_resource type="Texture2D" uid="uid://c7wv8lr1t7ik" path="res://assets/textures/icons/bottle-fill.png" id="2_rep40"]
+[ext_resource type="Texture2D" uid="uid://30oleim50fbj" path="res://assets/textures/icons/cheese.png" id="3_tkw5x"]
+[ext_resource type="Texture2D" uid="uid://dbynalbt4ctqf" path="res://assets/textures/icons/cheese-fill.png" id="4_lf8jm"]
+[ext_resource type="Texture2D" uid="uid://bmlmojt13awtj" path="res://assets/textures/icons/key.png" id="5_svxt5"]
+[ext_resource type="Texture2D" uid="uid://dnth8gl4ows32" path="res://assets/textures/icons/key-fill.png" id="6_jnyk3"]
+
+[node name="GameUI" type="CenterContainer"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -190.0
+offset_top = -170.0
+offset_right = 190.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 0
+script = ExtResource("1_1gu15")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="BottleVBox" type="VBoxContainer" parent="PanelContainer/HBoxContainer"]
+custom_minimum_size = Vector2(140, 0)
+layout_mode = 2
+
+[node name="BottleImage" type="TextureRect" parent="PanelContainer/HBoxContainer/BottleVBox"]
+layout_mode = 2
+texture = ExtResource("1_ibirp")
+
+[node name="BottleImageFill" type="TextureRect" parent="PanelContainer/HBoxContainer/BottleVBox"]
+layout_mode = 2
+texture = ExtResource("2_rep40")
+
+[node name="CheeseVBox" type="VBoxContainer" parent="PanelContainer/HBoxContainer"]
+custom_minimum_size = Vector2(140, 0)
+layout_mode = 2
+
+[node name="CheeseImage" type="TextureRect" parent="PanelContainer/HBoxContainer/CheeseVBox"]
+layout_mode = 2
+texture = ExtResource("3_tkw5x")
+
+[node name="CheeseImageFill" type="TextureRect" parent="PanelContainer/HBoxContainer/CheeseVBox"]
+layout_mode = 2
+texture = ExtResource("4_lf8jm")
+
+[node name="KeyVBox" type="VBoxContainer" parent="PanelContainer/HBoxContainer"]
+custom_minimum_size = Vector2(140, 0)
+layout_mode = 2
+
+[node name="KeyImage" type="TextureRect" parent="PanelContainer/HBoxContainer/KeyVBox"]
+layout_mode = 2
+texture = ExtResource("5_svxt5")
+
+[node name="KeyImageFill" type="TextureRect" parent="PanelContainer/HBoxContainer/KeyVBox"]
+layout_mode = 2
+texture = ExtResource("6_jnyk3")
