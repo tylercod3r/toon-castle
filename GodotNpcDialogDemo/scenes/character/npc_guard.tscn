@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://cseivp01edlt7"]
 
-[ext_resource type="PackedScene" uid="uid://bcysrvsh73xhp" path="res://scenes/npc.tscn" id="1_mjmy5"]
+[ext_resource type="PackedScene" uid="uid://bcysrvsh73xhp" path="res://scenes/character/npc.tscn" id="1_mjmy5"]
 [ext_resource type="Script" path="res://scripts/npc_guard.gd" id="2_b8ov6"]
 [ext_resource type="PackedScene" uid="uid://dwouvx6kj2yav" path="res://assets/meshes/guard.gltf" id="2_wu74o"]
 
