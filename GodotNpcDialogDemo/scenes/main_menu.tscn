@@ -1,7 +1,7 @@
 [gd_scene load_steps=75 format=4 uid="uid://40a1ny46tsjl"]
 
 [ext_resource type="AudioStream" uid="uid://b72uy3jklfblx" path="res://assets/music/Passenger.mp3" id="1_b0kpd"]
-[ext_resource type="Script" path="res://scripts/prop_manager.gd" id="2_0doob"]
+[ext_resource type="Script" path="res://scripts/manager/prop_manager.gd" id="2_0doob"]
 [ext_resource type="Material" uid="uid://b5r8ed3gn67r3" path="res://assets/materials/gray_material.tres" id="3_53wqt"]
 [ext_resource type="PackedScene" uid="uid://cq0xfb7inlax1" path="res://assets/_packs/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/banner_triple_yellow.gltf" id="4_6gisk"]
 [ext_resource type="PackedScene" uid="uid://b5r8c24xlgj8m" path="res://assets/_packs/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/chest_gold.gltf" id="5_q35h0"]
@@ -50,7 +50,7 @@
 [ext_resource type="PackedScene" uid="uid://ck4fumxdq2amg" path="res://scenes/character/npc_doozy.tscn" id="48_3cfx8"]
 [ext_resource type="PackedScene" uid="uid://i3wrawk7qltj" path="res://scenes/fx/quest_item_found_fx.tscn" id="49_p5bmw"]
 [ext_resource type="Shader" path="res://shaders/crt.gdshader" id="50_you1y"]
-[ext_resource type="PackedScene" uid="uid://d1bgsbl2uf0oy" path="res://scenes/ui/menu_ui.tscn" id="51_m1om4"]
+[ext_resource type="PackedScene" uid="uid://d1bgsbl2uf0oy" path="res://scenes/ui/main_menu_ui.tscn" id="51_m1om4"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jpkjb"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)

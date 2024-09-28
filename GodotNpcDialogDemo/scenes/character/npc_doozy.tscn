@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://ck4fumxdq2amg"]
 
 [ext_resource type="PackedScene" uid="uid://bcysrvsh73xhp" path="res://scenes/character/npc.tscn" id="1_t8keb"]
-[ext_resource type="Script" path="res://scripts/npc_doozy.gd" id="2_yjyva"]
+[ext_resource type="Script" path="res://scripts/character/npc_doozy.gd" id="2_yjyva"]
 [ext_resource type="PackedScene" uid="uid://byhn4q0onumqh" path="res://assets/meshes/doozy.gltf" id="3_4487k"]
 
 [sub_resource type="BlackboardPlan" id="BlackboardPlan_ps3i1"]

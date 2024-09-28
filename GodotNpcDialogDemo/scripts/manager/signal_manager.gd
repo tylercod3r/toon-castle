@@ -1,5 +1,6 @@
 extends Node
 
+#region VARIABLE
 signal player_converse_to_npc
 
 signal guard_spoken_to
@@ -18,6 +19,14 @@ signal bottle_found
 signal bottle_returned
 
 signal celebration_ended
+
+signal game_ended
+#endregion
+
+#region METHOD - GAME
+func handleGameEnded() -> void:
+	game_ended.emit()
+#endregion
 
 #region METHOD - GUARD
 func handleGuardSpokenTo() -> void:

@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://cxhnjqqtggg0q"]
 
-[ext_resource type="Script" path="res://scripts/game_ui_controller.gd" id="1_1gu15"]
+[ext_resource type="Script" path="res://scripts/ui/game_ui_controller.gd" id="1_1gu15"]
 [ext_resource type="Texture2D" uid="uid://ctfn5jl5sy5u4" path="res://assets/textures/icons/bottle.png" id="1_ibirp"]
 [ext_resource type="Texture2D" uid="uid://c7wv8lr1t7ik" path="res://assets/textures/icons/bottle-fill.png" id="2_rep40"]
 [ext_resource type="Texture2D" uid="uid://30oleim50fbj" path="res://assets/textures/icons/cheese.png" id="3_tkw5x"]

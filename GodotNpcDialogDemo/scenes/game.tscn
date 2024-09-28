@@ -1,11 +1,13 @@
-[gd_scene load_steps=78 format=4 uid="uid://dv34grx13fm0i"]
+[gd_scene load_steps=80 format=4 uid="uid://dv34grx13fm0i"]
 
 [ext_resource type="Material" uid="uid://b5r8ed3gn67r3" path="res://assets/materials/gray_material.tres" id="1_clowl"]
-[ext_resource type="Script" path="res://scripts/music_manager.gd" id="1_xw3xh"]
+[ext_resource type="Script" path="res://scripts/manager/game_manager.gd" id="1_jbxbt"]
+[ext_resource type="Script" path="res://scripts/manager/music_manager.gd" id="1_xw3xh"]
 [ext_resource type="PackedScene" uid="uid://4ggwo7028pus" path="res://scenes/character/player.tscn" id="2_78tvg"]
 [ext_resource type="PackedScene" uid="uid://btprb8qe0p6vh" path="res://assets/_packs/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/wall_doorway.gltf" id="3_1qgur"]
 [ext_resource type="PackedScene" uid="uid://dnmh63l2qg2g" path="res://assets/_packs/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/banner_blue.gltf" id="3_cm2cs"]
-[ext_resource type="Script" path="res://scripts/prop_manager.gd" id="3_gymjj"]
+[ext_resource type="Script" path="res://scripts/manager/prop_manager.gd" id="3_gymjj"]
+[ext_resource type="Script" path="res://scripts/manager/quest_manager.gd" id="3_nlcxb"]
 [ext_resource type="PackedScene" uid="uid://bhsaxpxri21s6" path="res://assets/_packs/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/banner_green.gltf" id="4_el2fe"]
 [ext_resource type="PackedScene" uid="uid://ddrlt3woyjy4f" path="res://scenes/actionable.tscn" id="4_in3em"]
 [ext_resource type="PackedScene" uid="uid://b5r8c24xlgj8m" path="res://assets/_packs/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/chest_gold.gltf" id="4_kbraq"]
@@ -259,6 +261,7 @@ shader_parameter/inner_radius = 0.0
 shader_parameter/outer_radius = 1.0
 
 [node name="Game" type="Node3D"]
+script = ExtResource("1_jbxbt")
 
 [node name="Music" type="Node" parent="."]
 
@@ -271,6 +274,9 @@ stream = ExtResource("52_guqar")
 volume_db = -8.0
 
 [node name="World" type="Node" parent="."]
+
+[node name="QuestManager" type="Node" parent="World"]
+script = ExtResource("3_nlcxb")
 
 [node name="MusicManager" type="Node3D" parent="World" node_paths=PackedStringArray("main_music", "celebration_music")]
 script = ExtResource("1_xw3xh")
@@ -701,9 +707,9 @@ grow_vertical = 2
 [node name="UI" type="Node" parent="."]
 
 [node name="GameUI" parent="UI" instance=ExtResource("55_jge2k")]
-
-[node name="FxLayer1" type="CanvasLayer" parent="UI"]
-layer = 2
+offset_left = -214.0
+offset_top = -244.0
+offset_right = 214.0
 
 [connection signal="child_exiting_tree" from="World/NavigationRegion3D/Props/bottle_A_labeled_green2/Actionable" to="World/NavigationRegion3D/Props/bottle_A_labeled_green2/Actionable" method="_on_child_exiting_tree"]
 [connection signal="child_exiting_tree" from="World/NavigationRegion3D/Props/table_medium_tablecloth3/Actionable" to="World/NavigationRegion3D/Props/table_medium_tablecloth3/Actionable" method="_on_child_exiting_tree"]

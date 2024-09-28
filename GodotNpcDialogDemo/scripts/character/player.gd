@@ -1,18 +1,23 @@
 extends CharacterBody3D
 
-const SPEED = 5.0
-const JUMP_VELOCITY = 4.5
-const MOUSE_SENSITIVITY = 0.001
-
+#region VARIABLE
 @onready var actionable_finder: Area3D = $Direction/ActionableFinder
 
 @export var walking_sound:AudioStreamPlayer
 
+const SPEED = 5.0
+const JUMP_VELOCITY = 4.5
+const MOUSE_SENSITIVITY = 0.001
+
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 var mouse_motion := Vector2.ZERO
+#endregion
 
+#region METHOD - NATIVE
 func _ready() -> void:
-	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	set_mouse_input_mode(true)
+	
+	SignalManager.game_ended.connect(handle_game_ended)
 
 func _physics_process(delta: float) -> void:
 	handle_camera_rotation()
@@ -41,7 +46,7 @@ func _input(event:InputEvent) -> void:
 		if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 			mouse_motion = -event.relative * MOUSE_SENSITIVITY
 	if event.is_action_pressed("ui_cancel"):
-		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		set_mouse_input_mode(false)
 
 # ty - what's diff b/n input and unhandled input?
 func _unhandled_input(event: InputEvent) -> void:
@@ -50,7 +55,17 @@ func _unhandled_input(event: InputEvent) -> void:
 		if actionables.size() > 0:
 			actionables[0].action()
 			return
+#endregion
 
+#region METHOD - UTIL
+func set_mouse_input_mode(captured:bool) -> void:
+	if captured:
+		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	else:
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+#endregion
+
+#region METHOD - HANDLER
 func handle_camera_rotation() -> void:
 	rotate_y(mouse_motion.x)
 	mouse_motion = Vector2.ZERO
@@ -60,3 +75,9 @@ func handle_walk_sounds() -> void:
 		if not walking_sound.playing:
 			walking_sound.pitch_scale = randf_range(.8, 1.2)
 			walking_sound.play()
+#endregion
+
+#region METHOD - SIGNAL
+func handle_game_ended() -> void:
+	set_mouse_input_mode(false)
+#endregion

@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bw0bdo050f31l"]
 
 [ext_resource type="PackedScene" uid="uid://bcysrvsh73xhp" path="res://scenes/character/npc.tscn" id="1_m73y3"]
-[ext_resource type="Script" path="res://scripts/npc_mousey.gd" id="2_stxcf"]
+[ext_resource type="Script" path="res://scripts/character/npc_mousey.gd" id="2_stxcf"]
 [ext_resource type="PackedScene" uid="uid://cvwelq0h80ci7" path="res://assets/meshes/mousey.gltf" id="3_jn788"]
 
 [sub_resource type="BlackboardPlan" id="BlackboardPlan_p6x7p"]

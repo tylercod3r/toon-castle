@@ -3,7 +3,7 @@
 [ext_resource type="FontFile" uid="uid://d25vkmce7mhlt" path="res://demo/assets/fonts/knewave_regular.ttf" id="1_1wbd5"]
 [ext_resource type="Theme" uid="uid://cm1gfitd3ekde" path="res://ui/ui_theme.tres" id="1_5k8a3"]
 [ext_resource type="Shader" path="res://shaders/wavey.gdshader" id="2_gdql3"]
-[ext_resource type="Script" path="res://scripts/menu_ui_controller.gd" id="3_gqohc"]
+[ext_resource type="Script" path="res://scripts/ui/main_menu_ui_controller.gd" id="3_gqohc"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_ddiux"]
 
@@ -27,6 +27,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_5k8a3")
+script = ExtResource("3_gqohc")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 2
@@ -34,17 +35,26 @@ layout_mode = 2
 [node name="CanvasLayer1" type="CanvasLayer" parent="PanelContainer"]
 layer = 2
 
-[node name="Label" type="Label" parent="PanelContainer/CanvasLayer1"]
-offset_left = 62.5
-offset_top = 66.0
-offset_right = 1089.5
-offset_bottom = 254.0
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/CanvasLayer1"]
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -144.0
+offset_bottom = 144.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_bottom = 300
+
+[node name="Label" type="Label" parent="PanelContainer/CanvasLayer1/MarginContainer"]
+layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0, 0.4, 0.75, 0.996078)
 theme_override_fonts/font = ExtResource("1_1wbd5")
 theme_override_font_sizes/font_size = 120
-text = "Toon Castle"
+text = "     Toon Castle"
 horizontal_alignment = 1
+vertical_alignment = 1
 uppercase = true
 
 [node name="ColorRect" type="ColorRect" parent="PanelContainer/CanvasLayer1"]
@@ -73,7 +83,6 @@ offset_bottom = 96.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_emxlb")
-script = ExtResource("3_gqohc")
 
 [node name="PlayButton" type="Button" parent="PanelContainer/CanvasLayer2/VBoxContainer"]
 layout_mode = 2
@@ -85,5 +94,5 @@ layout_mode = 2
 theme = ExtResource("1_5k8a3")
 text = "Quit"
 
-[connection signal="pressed" from="PanelContainer/CanvasLayer2/VBoxContainer/PlayButton" to="PanelContainer/CanvasLayer2/VBoxContainer" method="_on_new_game_button_pressed"]
-[connection signal="pressed" from="PanelContainer/CanvasLayer2/VBoxContainer/QuitButton" to="PanelContainer/CanvasLayer2/VBoxContainer" method="_on_quit_button_pressed"]
+[connection signal="pressed" from="PanelContainer/CanvasLayer2/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="PanelContainer/CanvasLayer2/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
