@@ -258,7 +258,7 @@ shader_parameter/fisheye_strength = 1.0
 
 [node name="MainMusic" type="AudioStreamPlayer" parent="Music"]
 stream = ExtResource("1_b0kpd")
-volume_db = -14.0
+volume_db = -18.0
 autoplay = true
 
 [node name="World" type="Node" parent="."]

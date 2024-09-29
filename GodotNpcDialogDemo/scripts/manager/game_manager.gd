@@ -15,4 +15,6 @@ func _ready() -> void:
 func show_game_over() -> void:
 	game_over_ui_instance = GAME_OVER_UI.instantiate()
 	add_child(game_over_ui_instance)
+	
+	print("show game over!")
 #endregion

@@ -1,25 +1,22 @@
-[gd_scene load_steps=10 format=3 uid="uid://dnikm7p1mouar"]
+[gd_scene load_steps=8 format=3 uid="uid://dnikm7p1mouar"]
 
 [ext_resource type="Theme" uid="uid://cm1gfitd3ekde" path="res://ui/ui_theme.tres" id="1_ntgjx"]
 [ext_resource type="FontFile" uid="uid://d25vkmce7mhlt" path="res://demo/assets/fonts/knewave_regular.ttf" id="2_50fth"]
 [ext_resource type="Script" path="res://scripts/ui/game_over_ui_controller.gd" id="2_54gxi"]
 [ext_resource type="Shader" path="res://shaders/wavey.gdshader" id="3_eu2eh"]
-[ext_resource type="Script" path="res://scripts/ui/main_menu_ui_controller.gd" id="4_04g1i"]
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_ddiux"]
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_12sk0"]
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_2yld3"]
 width = 50
 height = 50
 seamless = true
 seamless_blend_skirt = 0.765
-noise = SubResource("FastNoiseLite_ddiux")
+noise = SubResource("FastNoiseLite_12sk0")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_72n6j"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_soajj"]
 shader = ExtResource("3_eu2eh")
 shader_parameter/noise_texture = SubResource("NoiseTexture2D_2yld3")
-
-[sub_resource type="Theme" id="Theme_emxlb"]
 
 [node name="GameOverUI" type="CenterContainer"]
 anchors_preset = 15
@@ -30,36 +27,33 @@ grow_vertical = 2
 theme = ExtResource("1_ntgjx")
 script = ExtResource("2_54gxi")
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
-layout_mode = 2
-
-[node name="CanvasLayer1" type="CanvasLayer" parent="PanelContainer"]
+[node name="CanvasLayer1" type="CanvasLayer" parent="."]
 layer = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/CanvasLayer1"]
-anchors_preset = 14
-anchor_top = 0.5
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer1"]
+anchors_preset = 15
 anchor_right = 1.0
-anchor_bottom = 0.5
-offset_top = -244.0
-offset_bottom = 244.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_bottom = 300
+theme = ExtResource("1_ntgjx")
 
-[node name="Label" type="Label" parent="PanelContainer/CanvasLayer1/MarginContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer1/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 400
+
+[node name="Label" type="Label" parent="CanvasLayer1/PanelContainer/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_colors/font_color = Color(0, 0.75, 0.025, 0.996078)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_50fth")
 theme_override_font_sizes/font_size = 120
 text = "     You Win!"
 horizontal_alignment = 1
 vertical_alignment = 1
-uppercase = true
 
-[node name="ColorRect" type="ColorRect" parent="PanelContainer/CanvasLayer1"]
-material = SubResource("ShaderMaterial_72n6j")
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer1"]
+material = SubResource("ShaderMaterial_soajj")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -67,11 +61,12 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+metadata/_edit_use_anchors_ = true
 
-[node name="CanvasLayer2" type="CanvasLayer" parent="PanelContainer"]
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
 layer = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/CanvasLayer2"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer2"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -83,18 +78,16 @@ offset_right = 253.5
 offset_bottom = 96.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = SubResource("Theme_emxlb")
-script = ExtResource("4_04g1i")
+theme = ExtResource("1_ntgjx")
 
-[node name="ReplayButton" type="Button" parent="PanelContainer/CanvasLayer2/VBoxContainer"]
+[node name="ReplayButton" type="Button" parent="CanvasLayer2/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("1_ntgjx")
+theme_type_variation = &"PlayButton"
 text = "Replay"
 
-[node name="QuitButton" type="Button" parent="PanelContainer/CanvasLayer2/VBoxContainer"]
+[node name="QuitButton" type="Button" parent="CanvasLayer2/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("1_ntgjx")
+theme_type_variation = &"QuitButton"
 text = "Quit"
-
-[connection signal="pressed" from="PanelContainer/CanvasLayer2/VBoxContainer/ReplayButton" to="." method="_on_replay_button_pressed"]
-[connection signal="pressed" from="PanelContainer/CanvasLayer2/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

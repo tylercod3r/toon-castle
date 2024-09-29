@@ -24,5 +24,3 @@ void fragment(){
 	
 	COLOR.rgb = color;
 }
-
-

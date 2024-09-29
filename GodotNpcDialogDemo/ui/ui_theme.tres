@@ -1,4 +1,20 @@
-[gd_resource type="Theme" format=3 uid="uid://cm1gfitd3ekde"]
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://cm1gfitd3ekde"]
+
+[ext_resource type="StyleBox" uid="uid://bwbtcns7ymvn8" path="res://ui/theme_components/panel_container.tres" id="1_ko8vs"]
+[ext_resource type="StyleBox" uid="uid://btbaub2xb86im" path="res://ui/theme_components/button.tres" id="1_sodd8"]
+[ext_resource type="StyleBox" uid="uid://b1f42hyt0qiib" path="res://ui/theme_components/button_play.tres" id="3_oshrf"]
+[ext_resource type="StyleBox" uid="uid://cj5p5wswidh12" path="res://ui/theme_components/button_play_hover.tres" id="3_t4fpf"]
+[ext_resource type="StyleBox" uid="uid://o8cwld00v7n1" path="res://ui/theme_components/button_quit.tres" id="4_lgle7"]
+[ext_resource type="StyleBox" uid="uid://bkow6v455gchm" path="res://ui/theme_components/button_quit_hover.tres" id="5_t7kaw"]
 
 [resource]
 Button/font_sizes/font_size = 60
+Button/styles/normal = ExtResource("1_sodd8")
+PanelContainer/styles/panel = ExtResource("1_ko8vs")
+PlayButton/base_type = &"Button"
+PlayButton/styles/hover = ExtResource("3_t4fpf")
+PlayButton/styles/normal = ExtResource("3_oshrf")
+QuitButton/base_type = &"Button"
+QuitButton/styles/hover = ExtResource("5_t7kaw")
+QuitButton/styles/normal = ExtResource("4_lgle7")
+VBoxContainer/constants/separation = 20
