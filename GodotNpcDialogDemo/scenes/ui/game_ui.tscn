@@ -9,7 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://dnth8gl4ows32" path="res://assets/textures/icons/key-fill.png" id="6_jnyk3"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xf5oo"]
-bg_color = Color(0, 0, 0, 0.392157)
+bg_color = Color(1, 0, 0, 0.392157)
+draw_center = false
 border_width_top = 40
 border_color = Color(0, 0, 0, 1)
 corner_radius_top_left = 40
@@ -18,6 +19,7 @@ expand_margin_left = 20.0
 expand_margin_top = 20.0
 expand_margin_right = 20.0
 expand_margin_bottom = 20.0
+shadow_size = 20
 
 [node name="GameUI" type="CenterContainer"]
 anchors_preset = 1
