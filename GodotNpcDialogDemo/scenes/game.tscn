@@ -530,7 +530,7 @@ transform = Transform3D(-4.37114e-09, 0, 0.1, 0, 0.1, 0, -0.1, 0, -4.37114e-09, 
 transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, -17.8, 0.5, 11.9)
 
 [node name="sword_shield_broken2" parent="World/NavigationRegion3D/Props" instance=ExtResource("17_bj4pm")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -9.9, 3.1, 15.3)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -9.9, 2.73941, 15.3)
 
 [node name="bottle_B_brown2" parent="World/NavigationRegion3D/Props" instance=ExtResource("17_6sij7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.8, 0.5, 11.8)
