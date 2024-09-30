@@ -73,3 +73,9 @@ amount = 300
 lifetime = 3.0
 process_material = SubResource("ParticleProcessMaterial_55te2")
 draw_pass_1 = SubResource("QuadMesh_cbfa4")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+light_color = Color(0.746511, 0.607065, 0.102362, 1)
+light_energy = 0.5
+distance_fade_enabled = true
+distance_fade_length = 3.0
