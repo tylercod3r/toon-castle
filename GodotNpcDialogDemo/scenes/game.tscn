@@ -1,4 +1,4 @@
-[gd_scene load_steps=81 format=4 uid="uid://dv34grx13fm0i"]
+[gd_scene load_steps=82 format=4 uid="uid://dv34grx13fm0i"]
 
 [ext_resource type="Script" path="res://scripts/manager/game_manager.gd" id="1_jbxbt"]
 [ext_resource type="Script" path="res://scripts/manager/music_manager.gd" id="1_xw3xh"]
@@ -28,6 +28,7 @@
 [ext_resource type="PackedScene" uid="uid://di06fy58xlpga" path="res://assets/_packs/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/wall_half_endcap_sloped.gltf" id="9_wxyam"]
 [ext_resource type="PackedScene" uid="uid://c20ugxpfst7tm" path="res://assets/_packs/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/wall_corner_small.gltf" id="10_egu4w"]
 [ext_resource type="PackedScene" uid="uid://ckd8uye7tqq4o" path="res://assets/_packs/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/box_stacked.gltf" id="10_g87dt"]
+[ext_resource type="PackedScene" uid="uid://di5wtur2ljye" path="res://assets/_packs/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/wall_doorway_scaffold.gltf" id="10_shl3h"]
 [ext_resource type="PackedScene" uid="uid://d00clqf4rwlbf" path="res://assets/_packs/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/torch_mounted.gltf" id="10_y40cw"]
 [ext_resource type="Material" uid="uid://c1h6l2l6jj7d6" path="res://assets/materials/grey-floor/grey-floor.tres" id="11_5ieax"]
 [ext_resource type="PackedScene" uid="uid://be6xsfenvqe56" path="res://assets/_packs/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/pillar_decorated.gltf" id="11_lml6x"]
@@ -68,7 +69,7 @@ sky_material = SubResource("ProceduralSkyMaterial_jpkjb")
 [sub_resource type="Environment" id="Environment_fcvw4"]
 background_mode = 2
 sky = SubResource("Sky_10lns")
-tonemap_mode = 2
+tonemap_mode = 3
 tonemap_exposure = 2.2
 ssr_enabled = true
 ssao_enabled = true
@@ -302,7 +303,7 @@ visible = false
 light_energy = 0.05
 
 [node name="Player" parent="World" instance=ExtResource("2_78tvg")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -17.2, 1, -5.66901)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -17.2, 1, -4.95811)
 
 [node name="Camera3D" parent="World/Player" index="2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
@@ -364,6 +365,9 @@ material = ExtResource("12_wuam3")
 
 [node name="Props" type="Node3D" parent="World/NavigationRegion3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.23246, -0.500467, 3.5993)
+
+[node name="wall_doorway_scaffold2" parent="World/NavigationRegion3D/Props" instance=ExtResource("10_shl3h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.7809, 0.5, -7.67075)
 
 [node name="banner_triple_yellow2" parent="World/NavigationRegion3D/Props" instance=ExtResource("4_umge7")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -4.34765, 0.603334, 20.7724)
