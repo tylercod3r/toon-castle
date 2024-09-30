@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cxhnjqqtggg0q"]
+[gd_scene load_steps=9 format=3 uid="uid://cxhnjqqtggg0q"]
 
 [ext_resource type="Script" path="res://scripts/ui/game_ui_controller.gd" id="1_1gu15"]
 [ext_resource type="Texture2D" uid="uid://ctfn5jl5sy5u4" path="res://assets/textures/icons/bottle.png" id="1_ibirp"]
@@ -8,58 +8,71 @@
 [ext_resource type="Texture2D" uid="uid://bmlmojt13awtj" path="res://assets/textures/icons/key.png" id="5_svxt5"]
 [ext_resource type="Texture2D" uid="uid://dnth8gl4ows32" path="res://assets/textures/icons/key-fill.png" id="6_jnyk3"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xf5oo"]
+bg_color = Color(0, 0, 0, 0.392157)
+border_width_top = 40
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 40
+corner_radius_bottom_left = 40
+expand_margin_left = 20.0
+expand_margin_top = 20.0
+expand_margin_right = 20.0
+expand_margin_bottom = 20.0
+
 [node name="GameUI" type="CenterContainer"]
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -190.0
-offset_top = -170.0
-offset_right = 190.0
-grow_horizontal = 2
-grow_vertical = 0
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -428.0
+offset_bottom = 444.0
+grow_horizontal = 0
 size_flags_vertical = 0
 script = ExtResource("1_1gu15")
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 260
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_xf5oo")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/PanelContainer"]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer"]
-layout_mode = 2
-
-[node name="BottleVBox" type="VBoxContainer" parent="PanelContainer/HBoxContainer"]
+[node name="BottleVBox" type="VBoxContainer" parent="MarginContainer/PanelContainer/HBoxContainer"]
 custom_minimum_size = Vector2(140, 0)
 layout_mode = 2
 
-[node name="BottleImage" type="TextureRect" parent="PanelContainer/HBoxContainer/BottleVBox"]
+[node name="BottleImage" type="TextureRect" parent="MarginContainer/PanelContainer/HBoxContainer/BottleVBox"]
 layout_mode = 2
 texture = ExtResource("1_ibirp")
 
-[node name="BottleImageFill" type="TextureRect" parent="PanelContainer/HBoxContainer/BottleVBox"]
+[node name="BottleImageFill" type="TextureRect" parent="MarginContainer/PanelContainer/HBoxContainer/BottleVBox"]
 layout_mode = 2
 texture = ExtResource("2_rep40")
 
-[node name="CheeseVBox" type="VBoxContainer" parent="PanelContainer/HBoxContainer"]
+[node name="CheeseVBox" type="VBoxContainer" parent="MarginContainer/PanelContainer/HBoxContainer"]
 custom_minimum_size = Vector2(140, 0)
 layout_mode = 2
 
-[node name="CheeseImage" type="TextureRect" parent="PanelContainer/HBoxContainer/CheeseVBox"]
+[node name="CheeseImage" type="TextureRect" parent="MarginContainer/PanelContainer/HBoxContainer/CheeseVBox"]
 layout_mode = 2
 texture = ExtResource("3_tkw5x")
 
-[node name="CheeseImageFill" type="TextureRect" parent="PanelContainer/HBoxContainer/CheeseVBox"]
+[node name="CheeseImageFill" type="TextureRect" parent="MarginContainer/PanelContainer/HBoxContainer/CheeseVBox"]
 layout_mode = 2
 texture = ExtResource("4_lf8jm")
 
-[node name="KeyVBox" type="VBoxContainer" parent="PanelContainer/HBoxContainer"]
+[node name="KeyVBox" type="VBoxContainer" parent="MarginContainer/PanelContainer/HBoxContainer"]
 custom_minimum_size = Vector2(140, 0)
 layout_mode = 2
 
-[node name="KeyImage" type="TextureRect" parent="PanelContainer/HBoxContainer/KeyVBox"]
+[node name="KeyImage" type="TextureRect" parent="MarginContainer/PanelContainer/HBoxContainer/KeyVBox"]
 layout_mode = 2
 texture = ExtResource("5_svxt5")
 
-[node name="KeyImageFill" type="TextureRect" parent="PanelContainer/HBoxContainer/KeyVBox"]
+[node name="KeyImageFill" type="TextureRect" parent="MarginContainer/PanelContainer/HBoxContainer/KeyVBox"]
 layout_mode = 2
 texture = ExtResource("6_jnyk3")

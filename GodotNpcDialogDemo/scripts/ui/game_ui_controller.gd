@@ -1,17 +1,17 @@
 extends Node
 
 #region VARIABLE
-@onready var bottle_v_box: VBoxContainer = $PanelContainer/HBoxContainer/BottleVBox
-@onready var bottle_image: TextureRect = $PanelContainer/HBoxContainer/BottleVBox/BottleImage
-@onready var bottle_image_fill: TextureRect = $PanelContainer/HBoxContainer/BottleVBox/BottleImageFill
+@onready var bottle_v_box: VBoxContainer = $MarginContainer/PanelContainer/HBoxContainer/BottleVBox
+@onready var bottle_image: TextureRect = $MarginContainer/PanelContainer/HBoxContainer/BottleVBox/BottleImage
+@onready var bottle_image_fill: TextureRect = $MarginContainer/PanelContainer/HBoxContainer/BottleVBox/BottleImageFill
 
-@onready var cheese_v_box: VBoxContainer = $PanelContainer/HBoxContainer/CheeseVBox
-@onready var cheese_image: TextureRect = $PanelContainer/HBoxContainer/CheeseVBox/CheeseImage
-@onready var cheese_image_fill: TextureRect = $PanelContainer/HBoxContainer/CheeseVBox/CheeseImageFill
+@onready var cheese_v_box: VBoxContainer = $MarginContainer/PanelContainer/HBoxContainer/CheeseVBox
+@onready var cheese_image: TextureRect = $MarginContainer/PanelContainer/HBoxContainer/CheeseVBox/CheeseImage
+@onready var cheese_image_fill: TextureRect = $MarginContainer/PanelContainer/HBoxContainer/CheeseVBox/CheeseImageFill
 
-@onready var key_v_box: VBoxContainer = $PanelContainer/HBoxContainer/KeyVBox
-@onready var key_image: TextureRect = $PanelContainer/HBoxContainer/KeyVBox/KeyImage
-@onready var key_image_fill: TextureRect = $PanelContainer/HBoxContainer/KeyVBox/KeyImageFill
+@onready var key_v_box: VBoxContainer = $MarginContainer/PanelContainer/HBoxContainer/KeyVBox
+@onready var key_image: TextureRect = $MarginContainer/PanelContainer/HBoxContainer/KeyVBox/KeyImage
+@onready var key_image_fill: TextureRect = $MarginContainer/PanelContainer/HBoxContainer/KeyVBox/KeyImageFill
 
 const BOTTLE_INDEX:int = 0
 const CHEESE_INDEX:int = 1
