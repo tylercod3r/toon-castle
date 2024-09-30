@@ -1,6 +1,5 @@
-[gd_scene load_steps=80 format=4 uid="uid://dv34grx13fm0i"]
+[gd_scene load_steps=81 format=4 uid="uid://dv34grx13fm0i"]
 
-[ext_resource type="Material" uid="uid://b5r8ed3gn67r3" path="res://assets/materials/gray_material.tres" id="1_clowl"]
 [ext_resource type="Script" path="res://scripts/manager/game_manager.gd" id="1_jbxbt"]
 [ext_resource type="Script" path="res://scripts/manager/music_manager.gd" id="1_xw3xh"]
 [ext_resource type="PackedScene" uid="uid://4ggwo7028pus" path="res://scenes/character/player.tscn" id="2_78tvg"]
@@ -30,7 +29,9 @@
 [ext_resource type="PackedScene" uid="uid://c20ugxpfst7tm" path="res://assets/_packs/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/wall_corner_small.gltf" id="10_egu4w"]
 [ext_resource type="PackedScene" uid="uid://ckd8uye7tqq4o" path="res://assets/_packs/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/box_stacked.gltf" id="10_g87dt"]
 [ext_resource type="PackedScene" uid="uid://d00clqf4rwlbf" path="res://assets/_packs/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/torch_mounted.gltf" id="10_y40cw"]
+[ext_resource type="Material" uid="uid://c1h6l2l6jj7d6" path="res://assets/materials/grey-floor/grey-floor.tres" id="11_5ieax"]
 [ext_resource type="PackedScene" uid="uid://be6xsfenvqe56" path="res://assets/_packs/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/pillar_decorated.gltf" id="11_lml6x"]
+[ext_resource type="Material" uid="uid://5hwo2wb1isjx" path="res://assets/materials/flat-cut-stone/flat-cut-stone.tres" id="12_wuam3"]
 [ext_resource type="PackedScene" uid="uid://bf7i8yriys4fn" path="res://assets/_packs/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/box_large.gltf" id="14_q3ary"]
 [ext_resource type="PackedScene" uid="uid://m5unu68k1mys" path="res://assets/_packs/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/banner_triple_white.gltf" id="15_g33dy"]
 [ext_resource type="PackedScene" uid="uid://bpyevtj6ugqmf" path="res://assets/_packs/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/wall_cracked.gltf" id="16_dnrwj"]
@@ -314,7 +315,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 use_collision = true
 flip_faces = true
 size = Vector3(8, 4, 8)
-material = ExtResource("1_clowl")
+material = ExtResource("12_wuam3")
 
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="World/NavigationRegion3D/Level"]
 
@@ -322,43 +323,43 @@ material = ExtResource("1_clowl")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 6)
 flip_faces = true
 size = Vector3(3, 3, 4)
-material = ExtResource("1_clowl")
+material = ExtResource("11_5ieax")
 
 [node name="Corridor2" type="CSGBox3D" parent="World/NavigationRegion3D/Level/CSGCombiner3D"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6, -0.5, 12.7)
 flip_faces = true
 size = Vector3(3, 3, 4)
-material = ExtResource("1_clowl")
+material = ExtResource("11_5ieax")
 
 [node name="Corridor3" type="CSGBox3D" parent="World/NavigationRegion3D/Level/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.9, -0.5, 6)
 flip_faces = true
 size = Vector3(3, 3, 4)
-material = ExtResource("1_clowl")
+material = ExtResource("11_5ieax")
 
 [node name="Corridor4" type="CSGBox3D" parent="World/NavigationRegion3D/Level/CSGCombiner3D"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6, -0.5, 0.1)
 flip_faces = true
 size = Vector3(3, 3, 4.1)
-material = ExtResource("1_clowl")
+material = ExtResource("11_5ieax")
 
 [node name="Room2" type="CSGBox3D" parent="World/NavigationRegion3D/Level/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3, 0, 16)
 flip_faces = true
 size = Vector3(16, 4, 16)
-material = ExtResource("1_clowl")
+material = ExtResource("12_wuam3")
 
 [node name="Room3" type="CSGBox3D" parent="World/NavigationRegion3D/Level/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, 12)
 flip_faces = true
 size = Vector3(8, 4, 8)
-material = ExtResource("1_clowl")
+material = ExtResource("12_wuam3")
 
 [node name="Room4" type="CSGBox3D" parent="World/NavigationRegion3D/Level/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, 0)
 flip_faces = true
 size = Vector3(8, 4, 8)
-material = ExtResource("1_clowl")
+material = ExtResource("12_wuam3")
 
 [node name="Props" type="Node3D" parent="World/NavigationRegion3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.23246, -0.500467, 3.5993)

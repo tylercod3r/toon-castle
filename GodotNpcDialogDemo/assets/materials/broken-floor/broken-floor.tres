@@ -1,0 +1,28 @@
+[gd_resource type="StandardMaterial3D" load_steps=6 format=3 uid="uid://c163xcf1w016k"]
+
+[ext_resource type="Texture2D" uid="uid://hyfwpy5q2n42" path="res://assets/materials/broken-floor/broken-floor_albedo.png" id="1"]
+[ext_resource type="Texture2D" uid="uid://xrh6hqdv3d3r" path="res://assets/materials/broken-floor/broken-floor_orm.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://d0bwe7dnlga4m" path="res://assets/materials/broken-floor/broken-floor_normal.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://fohdquytfhj7" path="res://assets/materials/broken-floor/broken-floor_heightmap.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://n1o7a5r5r8mo" path="res://assets/materials/broken-floor/broken-floor_emission.png" id="5"]
+
+[resource]
+albedo_texture = ExtResource("1")
+metallic_texture = ExtResource("2")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("2")
+roughness_texture_channel = 1
+emission_enabled = true
+emission_texture = ExtResource("5")
+normal_enabled = true
+normal_texture = ExtResource("3")
+ao_enabled = true
+ao_texture = ExtResource("2")
+heightmap_enabled = true
+heightmap_scale = 12.5
+heightmap_deep_parallax = true
+heightmap_min_layers = 8
+heightmap_max_layers = 32
+heightmap_texture = ExtResource("4")
+uv1_triplanar = true
+uv2_triplanar = true
