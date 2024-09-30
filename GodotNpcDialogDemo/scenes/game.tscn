@@ -689,13 +689,13 @@ shape = SubResource("SphereShape3D_lpo8b")
 [node name="QuestItemsFoundParticles" type="Node3D" parent="World"]
 
 [node name="Particles1" parent="World/QuestItemsFoundParticles" instance=ExtResource("45_d305w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.8123, 1.66934, 10.8401)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.8123, 1.6317, 10.8401)
 
 [node name="Particles2" parent="World/QuestItemsFoundParticles" instance=ExtResource("45_d305w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.97352, 1.42117, 15.178)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.97352, 1.13768, 15.178)
 
 [node name="Particles3" parent="World/QuestItemsFoundParticles" instance=ExtResource("45_d305w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.70844, 1.96033, -3.74276)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.70844, 1.69339, -3.74276)
 
 [node name="PostProcessing" type="Node" parent="."]
 
