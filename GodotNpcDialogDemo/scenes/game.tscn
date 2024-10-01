@@ -1,6 +1,5 @@
 [gd_scene load_steps=83 format=4 uid="uid://dv34grx13fm0i"]
 
-[ext_resource type="Script" path="res://scripts/manager/game_manager.gd" id="1_jbxbt"]
 [ext_resource type="Script" path="res://scripts/manager/music_manager.gd" id="1_xw3xh"]
 [ext_resource type="PackedScene" uid="uid://4ggwo7028pus" path="res://scenes/character/player.tscn" id="2_78tvg"]
 [ext_resource type="PackedScene" uid="uid://btprb8qe0p6vh" path="res://assets/_packs/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/wall_doorway.gltf" id="3_1qgur"]
@@ -59,6 +58,7 @@
 [ext_resource type="Shader" path="res://shaders/vignette.gdshader" id="53_oraa3"]
 [ext_resource type="PackedScene" uid="uid://cxhnjqqtggg0q" path="res://scenes/ui/game_ui.tscn" id="55_jge2k"]
 [ext_resource type="VoxelGIData" uid="uid://d1u36bo1dawau" path="res://lighting/game.VoxelGI_data.res" id="59_jicq0"]
+[ext_resource type="PackedScene" uid="uid://dnikm7p1mouar" path="res://scenes/ui/game_over_ui.tscn" id="60_d7h77"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jpkjb"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -263,7 +263,6 @@ shader_parameter/inner_radius = 0.0
 shader_parameter/outer_radius = 1.0
 
 [node name="Game" type="Node3D"]
-script = ExtResource("1_jbxbt")
 
 [node name="Music" type="Node" parent="."]
 
@@ -723,6 +722,9 @@ grow_vertical = 2
 offset_left = -214.0
 offset_top = -244.0
 offset_right = 214.0
+size_flags_vertical = 1
+
+[node name="GameOverUI" parent="UI" instance=ExtResource("60_d7h77")]
 
 [connection signal="child_exiting_tree" from="World/NavigationRegion3D/Props/bottle_A_labeled_green2/Actionable" to="World/NavigationRegion3D/Props/bottle_A_labeled_green2/Actionable" method="_on_child_exiting_tree"]
 [connection signal="child_exiting_tree" from="World/NavigationRegion3D/Props/table_medium_tablecloth3/Actionable" to="World/NavigationRegion3D/Props/table_medium_tablecloth3/Actionable" method="_on_child_exiting_tree"]
