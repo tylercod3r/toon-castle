@@ -62,7 +62,7 @@ sky_material = SubResource("ProceduralSkyMaterial_jpkjb")
 [sub_resource type="Environment" id="Environment_fcvw4"]
 background_mode = 2
 sky = SubResource("Sky_10lns")
-tonemap_mode = 3
+tonemap_mode = 2
 ssr_enabled = true
 ssao_enabled = true
 ssil_enabled = true

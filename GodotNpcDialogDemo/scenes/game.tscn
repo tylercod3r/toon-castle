@@ -1,4 +1,4 @@
-[gd_scene load_steps=82 format=4 uid="uid://dv34grx13fm0i"]
+[gd_scene load_steps=83 format=4 uid="uid://dv34grx13fm0i"]
 
 [ext_resource type="Script" path="res://scripts/manager/game_manager.gd" id="1_jbxbt"]
 [ext_resource type="Script" path="res://scripts/manager/music_manager.gd" id="1_xw3xh"]
@@ -58,6 +58,7 @@
 [ext_resource type="AudioStream" uid="uid://curvj4guscnc1" path="res://assets/music/happy_theme.ogg" id="52_guqar"]
 [ext_resource type="Shader" path="res://shaders/vignette.gdshader" id="53_oraa3"]
 [ext_resource type="PackedScene" uid="uid://cxhnjqqtggg0q" path="res://scenes/ui/game_ui.tscn" id="55_jge2k"]
+[ext_resource type="VoxelGIData" uid="uid://d1u36bo1dawau" path="res://lighting/game.VoxelGI_data.res" id="59_jicq0"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jpkjb"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -69,11 +70,10 @@ sky_material = SubResource("ProceduralSkyMaterial_jpkjb")
 [sub_resource type="Environment" id="Environment_fcvw4"]
 background_mode = 2
 sky = SubResource("Sky_10lns")
-tonemap_mode = 3
-tonemap_exposure = 2.2
+tonemap_mode = 2
+tonemap_exposure = 1.75
 ssr_enabled = true
 ssao_enabled = true
-ssil_enabled = true
 glow_enabled = true
 glow_intensity = 2.06
 glow_bloom = 0.22
@@ -294,12 +294,19 @@ cheese_particle_controller = NodePath("../QuestItemsFoundParticles/Particles3")
 bottle = NodePath("../NavigationRegion3D/Props/bottle_A_labeled_green2")
 bottle_particle_controller = NodePath("../QuestItemsFoundParticles/Particles2")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="World"]
+[node name="Lighting" type="Node" parent="World"]
+
+[node name="VoxelGI" type="VoxelGI" parent="World/Lighting"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.02408, 0, 6.30386)
+subdiv = 3
+size = Vector3(31.3669, 20, 28.9545)
+data = ExtResource("59_jicq0")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="World/Lighting"]
 environment = SubResource("Environment_fcvw4")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="World"]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="World/Lighting"]
 transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
-visible = false
 light_energy = 0.05
 
 [node name="Player" parent="World" instance=ExtResource("2_78tvg")]

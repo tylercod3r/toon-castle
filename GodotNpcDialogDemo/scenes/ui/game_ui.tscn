@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cxhnjqqtggg0q"]
+[gd_scene load_steps=10 format=3 uid="uid://cxhnjqqtggg0q"]
 
 [ext_resource type="Script" path="res://scripts/ui/game_ui_controller.gd" id="1_1gu15"]
 [ext_resource type="Texture2D" uid="uid://ctfn5jl5sy5u4" path="res://assets/textures/icons/bottle.png" id="1_ibirp"]
@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://dbynalbt4ctqf" path="res://assets/textures/icons/cheese-fill.png" id="4_lf8jm"]
 [ext_resource type="Texture2D" uid="uid://bmlmojt13awtj" path="res://assets/textures/icons/key.png" id="5_svxt5"]
 [ext_resource type="Texture2D" uid="uid://dnth8gl4ows32" path="res://assets/textures/icons/key-fill.png" id="6_jnyk3"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_78vn3"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xf5oo"]
 bg_color = Color(1, 0, 0, 0.392157)
@@ -37,6 +39,7 @@ theme_override_constants/margin_top = 100
 theme_override_constants/margin_right = 260
 
 [node name="PanelContainer" type="PanelContainer" parent="MarginContainer"]
+material = SubResource("ShaderMaterial_78vn3")
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_xf5oo")
 
