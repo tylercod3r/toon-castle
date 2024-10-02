@@ -173,6 +173,7 @@ text = "Response example"
 
 [node name="TalkSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_ri1dj")
+volume_db = -8.0
 
 [connection signal="focus_entered" from="Balloon" to="." method="_on_balloon_focus_entered"]
 [connection signal="focus_exited" from="Balloon" to="." method="_on_balloon_focus_exited"]

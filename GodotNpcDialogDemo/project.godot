@@ -29,7 +29,7 @@ general/balloon_path="res://dialog/balloon.tscn"
 
 [display]
 
-window/size/mode=3
+window/size/mode=2
 
 [editor_plugins]
 
