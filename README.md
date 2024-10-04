@@ -32,7 +32,7 @@ Q: Where did you get the Flame and ItemFound particle fx?
 * built from scratch; thanks, youtube.com (FREE)
 
 Q: How did you make the wavy line effect in the title screen background?
-* downloaded a cool "canvas" shader from https://godotshaders.com/ (FREE)
+* used a cool "canvas" shader from https://godotshaders.com/ (FREE)
 
 Q: How did you create the simple quest UI (top right)?
 * downloaded "outlined" images from https://images.google.com (FREE)
