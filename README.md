@@ -22,7 +22,7 @@ Q: How do the characters know what action to take in the game?
 * note, while got both component-based Behaviour Tree and script-based state transitions to work properly, could NOT get them to work together
 
 Q: Where did the room assets come from (e.g. chairs, tables, wall fixtures...)?
-* using this awesome site: https://opengameart.org/
+* using this awesome site: https://opengameart.org/ (FREE)
 * all music downloaded from here as well  
 * will be adding credits here for any assets included 
 
