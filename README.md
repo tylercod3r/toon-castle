@@ -25,6 +25,9 @@ Q: Where did the room assets come from (e.g. chairs, tables, wall fixtures...)?
 * all music downloaded from here as well  
 * will be adding credits here for any assets included 
 
+Q: Why do the NPC characters seem to "clumb up" at the end while walking?
+* was playing with "avoidance" settings (etc) on NavAgents, but settings here may need further polish
+
 # contact
 If you'd ever like to talk shop, project work, e-music, or even politics:
 contact@codebycandle.com
