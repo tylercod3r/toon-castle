@@ -10,7 +10,7 @@ Client backed out, but opted to complete as an educational exercise.
 # tools / techniques
 Q: How were the game characters built?
 * character meshes + animations were downloaded from mixamo.com (FREE)
-* these files were then combined into a single GLTF via: https://nilooy.github.io/character-animation-combiner/
+* these files were then combined into a single GLTF via: https://nilooy.github.io/character-animation-combiner/ (FREE)
 * finally, imported each character with the animations baked in.
 
 Q: How was the dialog system created?
