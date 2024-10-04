@@ -1,5 +1,4 @@
 # Toon Castle
-Godot game demo:
 https://www.youtube.com/watch?v=Lov2zu0alTg
 
 # backstory
