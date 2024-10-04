@@ -18,7 +18,7 @@ Q: How was the dialog system created?
 
 Q: How do the characters know what action to take in the game?
 * using this awesome plugin: https://github.com/limbonaut/limboai (FREE)
-* while got component-based Behaviour Tree and script-based state transitions to work properly, could NOT get both to work together
+* while got component-based Behaviour Tree and script-based state transitions to work properly, could NOT get working together
 
 Q: Where did the room assets come from (e.g. chairs, tables, wall fixtures...)?
 * using this awesome site: https://opengameart.org/ (FREE)
