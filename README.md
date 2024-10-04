@@ -22,7 +22,7 @@ Q: How do the characters know what action to take in the game?
 
 Q: Where did the room assets come from (e.g. chairs, tables, wall fixtures...)?
 * using this awesome site: https://opengameart.org/ (FREE)
-* all music downloaded from here as well  
+* all music / sfx downloaded from here as well  
 * will be adding credits here for any assets included 
 
 Q: Why do the NPC characters seem to "clumb up" at the end while walking?
