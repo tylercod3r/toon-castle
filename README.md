@@ -10,8 +10,8 @@ Client backed out, but opted to complete as an educational exercise.
 # tools / techniques
 Q: How were the game characters built?
 * character meshes + animations were downloaded from mixamo.com (for FREE)
-* these files were then combined into a single FBX file via: https://nilooy.github.io/character-animation-combiner/
-* finally, imported each character as a single FBX, with the animations baked in.
+* these files were then combined into a single GLTF file via: https://nilooy.github.io/character-animation-combiner/
+* finally, imported each character with the animations baked in.
 
 Q: How was the dialog system created?
 * using this awesome plugin: https://github.com/dialogic-godot/dialogic (FREE)
