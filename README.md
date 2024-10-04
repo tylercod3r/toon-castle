@@ -4,7 +4,7 @@ https://www.youtube.com/watch?v=Lov2zu0alTg
 # about
 Started as a client request for a Godot game demo.
 
-Client backed out, but I opted to complete as an educational exercise.
+Client backed out, so opted to complete as an educational exercise.
 
 # faq
 Q: How were the game characters built?
