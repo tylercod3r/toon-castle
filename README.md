@@ -39,6 +39,6 @@ Q: How did you create the simple quest UI (top right)?
 * made "filled" versions using image editor: https://www.gimp.org/ (FREE) 
 
 # contact
-If you'd ever like to talk shop, project work, e-music, or even politics:
+If you'd ever like to talk tech, projects, e-music, or politics:
 * contact@codebycandle.com
 * tyler@tylercoder.com
