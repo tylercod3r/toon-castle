@@ -8,7 +8,7 @@ Client backed out, so opted to complete as an educational exercise.
 
 # faq
 Q: How were the game characters built?
-* character meshes + animations were downloaded from mixamo.com (FREE)
+* character meshes + animations were downloaded from https://mixamo.com (FREE)
 * these files were then combined into a single GLTF via: https://nilooy.github.io/character-animation-combiner/ (FREE)
 * finally, imported each character with the animations baked in.
 
