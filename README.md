@@ -1,2 +1,2 @@
-# godot-npc-dialog-demo
+# toon castle
 godot demo highlighting npc dialog
