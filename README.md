@@ -29,7 +29,7 @@ Q: Why do the NPC characters seem to "clumb up" at the end while walking?
 * was playing with "avoidance" settings (etc) on NavAgents, but may need further polish
 
 Q: Where did you get the Flame and ItemFound particle fx?
-* built from scratch; thanks, youtube.com (FREE)
+* built from scratch; thanks, https://youtube.com (FREE)
 
 Q: How did you make the wavy line effect in the title screen background?
 * used a cool "canvas" shader from https://godotshaders.com/ (FREE)
