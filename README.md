@@ -38,6 +38,10 @@ Q: How did you create the simple quest UI (top right)?
 * downloaded "outlined" images from https://images.google.com (FREE)
 * made "filled" versions using image editor: https://www.gimp.org/ (FREE) 
 
+Q: How did you texture the walls, ceiling, and floor?
+* using this awesome app: https://materialmaker.org/ (FREE)
+* leveraged the "import from website" option to browse exsiting materials
+
 # contact
 If you'd ever like to talk tech, projects, e-music, or politics:
 * contact@codebycandle.com
