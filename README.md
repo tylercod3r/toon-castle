@@ -28,6 +28,16 @@ Q: Where did the room assets come from (e.g. chairs, tables, wall fixtures...)?
 Q: Why do the NPC characters seem to "clumb up" at the end while walking?
 * was playing with "avoidance" settings (etc) on NavAgents, but may need further polish
 
+Q: Where did you get the Flame and ItemFound particle fx?
+* built from scratch; thanks, youtube.com (FREE)
+
+Q: How did you make the wavy line effect in the title screen background?
+* downloaded a cool "canvas" shader from https://godotshaders.com/ (FREE)
+
+Q: How did you create the simple quest UI (top right)?
+* downloaded "outlined" images from https://images.google.com (FREE)
+* made "filled" versions using image editor: https://www.gimp.org/ (FREE) 
+
 # contact
 If you'd ever like to talk shop, project work, e-music, or even politics:
 contact@codebycandle.com
