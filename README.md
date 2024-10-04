@@ -6,7 +6,7 @@ Started as a client request for a Godot game demo.
 
 Client backed out, but opted to complete as an educational exercise.
 
-# tools / techniques
+# faq
 Q: How were the game characters built?
 * character meshes + animations were downloaded from mixamo.com (FREE)
 * these files were then combined into a single GLTF via: https://nilooy.github.io/character-animation-combiner/ (FREE)
