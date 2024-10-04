@@ -40,5 +40,5 @@ Q: How did you create the simple quest UI (top right)?
 
 # contact
 If you'd ever like to talk shop, project work, e-music, or even politics:
-contact@codebycandle.com
-tyler@tylercoder.com
+* contact@codebycandle.com
+* tyler@tylercoder.com
