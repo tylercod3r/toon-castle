@@ -13,7 +13,7 @@ Q: How were the game characters built?
 * finally, imported each character with the animations baked in.
 
 Q: How was the dialog system created?
-* using this awesome plugin: https://github.com/dialogic-godot/dialogic (FREE)
+* using this awesome plugin: https://github.com/nathanhoad/godot_dialogue_manager (FREE)
 * there's still some strong coupling added to the DialogManager class, but will refactor if needed for next project
 
 Q: How do the characters know what action to take in the game?
