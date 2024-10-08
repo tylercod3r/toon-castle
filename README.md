@@ -25,7 +25,7 @@ Q: Where did the room assets come from (e.g. chairs, tables, wall fixtures...)?
 * all music / sfx downloaded as well  
 * will be adding credits here for any assets included 
 
-Q: Why do the NPC characters seem to "clumb up" at the end while walking?
+Q: Why do the NPC characters seem to "clump up" (get stuck) at the end while walking?
 * was playing with "avoidance" settings (etc) on NavAgents, but may need further polish
 
 Q: Where did you get the Flame and ItemFound particle fx?
