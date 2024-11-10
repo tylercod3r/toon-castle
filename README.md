@@ -43,6 +43,4 @@ Q: How did you texture the walls, ceiling, and floor?
 * leveraged the "import from website" option to browse exsiting materials
 
 # contact
-If you'd ever like to talk tech, projects, e-music, or politics:
-* contact@codebycandle.com
-* tyler@tylercoder.com
+- tyler@codebycandle.com
